@@ -5,15 +5,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.model.hotel.Hotel;
-import org.example.model.user.User;
+import org.example.repository.client.ClientRepositoryImpl;
 import org.example.repository.hotel.HotelRepositoryImpl;
+import org.example.repository.user.UserRepository;
 import org.example.repository.user.UserRepositoryImpl;
+import org.example.service.user.UserService;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class MainApp extends Application {
-    private final UserRepositoryImpl userRepository = new UserRepositoryImpl();
+    private final UserRepository userRepository = new UserRepositoryImpl();
+    private final UserService userService = new UserService(userRepository);
     private final HotelRepositoryImpl hotelRepository = new HotelRepositoryImpl();
+    private final ClientRepositoryImpl clientRepository = new ClientRepositoryImpl();
+
+    private final Logger logger = Logger.getLogger(MainApp.class.getName());
     public void start(Stage primaryStage) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login.fxml"));
@@ -24,8 +32,11 @@ public class MainApp extends Application {
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
-            userRepository.save(new User());
-            hotelRepository.save(new Hotel());
+
+
+            logger.log(Level.INFO, "User table created");
+            logger.log(Level.INFO, "Hotel table created");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

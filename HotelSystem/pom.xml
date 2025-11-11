@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.38</version>
+            <version>1.18.30</version>
         </dependency>
 
         <!-- ✅ Hibernate / JPA -->
@@ -71,14 +71,6 @@
             <artifactId>junit-jupiter</artifactId>
             <version>6.0.0</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- ✅ Lombok (optional but strongly recommended) -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
-            <scope>provided</scope>
         </dependency>
 
     </dependencies>

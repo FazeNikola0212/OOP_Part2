@@ -1,11 +1,17 @@
 package org.example.model.hotel;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.example.model.user.User;
 
 import java.util.List;
 
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "hotels")
 public class Hotel {
     @Id
@@ -16,6 +22,8 @@ public class Hotel {
     private String name;
 
     private String address;
+
+    private String city;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "owner_id",  nullable = false)
