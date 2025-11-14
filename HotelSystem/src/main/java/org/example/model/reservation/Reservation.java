@@ -26,9 +26,9 @@ public class Reservation {
     private String reservationNumber;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Client reservor;
+    private Client mainClient;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "reservation_guests",
             joinColumns = @JoinColumn(name = "reservation_id"),
             inverseJoinColumns = @JoinColumn(name = "client_id"))
@@ -36,15 +36,6 @@ public class Reservation {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private User receptionist;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private Set<Room> room;
-
-    @Column(nullable = false)
-    private LocalDateTime checkIn;
-
-    @Column(nullable = false)
-    private LocalDateTime checkOut;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -59,5 +50,7 @@ public class Reservation {
     private TerminationType terminationType;
 
     private LocalDateTime createdAt;
+
+
 
 }

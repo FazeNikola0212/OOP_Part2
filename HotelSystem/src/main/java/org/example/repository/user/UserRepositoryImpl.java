@@ -27,4 +27,16 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
         return result.isEmpty() ? null : result.get(0);
     }
 
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        EntityManager em = emf.createEntityManager();
+        User user = em.createQuery("SELECT u FROM User u WHERE " +
+                "u.username = :username AND u.password = :password ", User.class)
+                .setParameter("username", username)
+                .setParameter("password", password)
+                .getSingleResult();
+        em.close();
+        return user;
+    }
+
 }

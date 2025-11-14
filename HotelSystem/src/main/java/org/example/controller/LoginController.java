@@ -9,7 +9,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
+import org.example.repository.user.UserRepositoryImpl;
+import org.example.service.user.UserService;
+
 public class LoginController {
+
+    private final UserService userService = new UserService(new UserRepositoryImpl());
 
     @FXML
     private TextField username;
@@ -21,9 +26,9 @@ public class LoginController {
         String user =  username.getText();
         String pass = password.getText();
 
-        if ("admin".equals(user) && "admin".equals(pass)) {
+        if (userService.loginUser(user, pass)) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/creating-user.fxml"));
                 Parent root = loader.load();
                 Stage stage = (Stage) username.getScene().getWindow();
                 stage.getScene().setRoot(root);

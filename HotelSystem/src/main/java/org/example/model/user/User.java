@@ -1,12 +1,11 @@
 package org.example.model.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.example.model.hotel.Hotel;
+import org.example.model.reservation.Reservation;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -14,6 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @Getter
+@Setter
 @Table(name = "users")
 public class User {
     @Id
@@ -38,5 +38,31 @@ public class User {
 
     @OneToMany(mappedBy = "owner")
     private List<Hotel> ownedHotels;
+
+    //Hierarchy Admin->Owner->Manager->Receptionist
+    @ManyToOne()
+    @JoinColumn(name = "created_by")
+    private User createdBy;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "createdBy")
+    private List<User> createdUsers;
+
+    //Created reservations for receptionists;
+    @OneToMany(mappedBy = "receptionist")
+    private List<Reservation> createdReservations;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    public void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
 }

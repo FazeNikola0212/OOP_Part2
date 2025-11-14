@@ -7,17 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.repository.client.ClientRepositoryImpl;
 import org.example.repository.hotel.HotelRepositoryImpl;
-import org.example.repository.user.UserRepository;
-import org.example.repository.user.UserRepositoryImpl;
-import org.example.service.user.UserService;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class MainApp extends Application {
-    private final UserRepository userRepository = new UserRepositoryImpl();
-    private final UserService userService = new UserService(userRepository);
     private final HotelRepositoryImpl hotelRepository = new HotelRepositoryImpl();
     private final ClientRepositoryImpl clientRepository = new ClientRepositoryImpl();
 

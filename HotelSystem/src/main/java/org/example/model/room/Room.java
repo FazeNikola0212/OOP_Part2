@@ -31,4 +31,7 @@ public class Room {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Hotel hotel;
+
+    @Column(nullable = false)
+    private int rating;
 }
