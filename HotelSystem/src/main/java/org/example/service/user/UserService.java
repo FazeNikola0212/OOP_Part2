@@ -9,6 +9,7 @@ import org.example.exceptions.InvalidUserNameException;
 import org.example.exceptions.PasswordRequiredException;
 import org.example.model.user.User;
 import org.example.repository.user.UserRepository;
+import org.example.session.Session;
 
 import java.time.LocalDateTime;
 
@@ -27,12 +28,12 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public boolean loginUser(String username, String password) {
+    public User loginUser(String username, String password) {
         if (userRepository.findByUsernameAndPassword(username, password) == null) {
             throw new InvalidUserNameException(username);
         }
         log.info("Successfully logged in USER : " + username);
-        return true;
+        return userRepository.findByUsername(username);
     }
 
     @Transactional
@@ -59,9 +60,10 @@ public class UserService {
                 .updatedAt(LocalDateTime.now())
                 .fullName(request.getFullName())
                 .isActive(true)
+                .createdBy(Session.getSession().getLoggedUser())
                 .build();
         userRepository.save(user);
-        log.info("USER " + user.getUsername() + " HAS BEEN CREATED");
+        log.info("USER " + user.getUsername() + " HAS BEEN CREATED BY " + Session.getSession().getLoggedUser());
 
         return user;
     }

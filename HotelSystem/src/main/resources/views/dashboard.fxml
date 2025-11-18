@@ -38,17 +38,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.DashboardController">
   <children>
     <AnchorPane maxHeight="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label alignment="TOP_CENTER" layoutX="469.0" layoutY="92.0" prefHeight="34.0" prefWidth="304.0" text="Welcome Administrator" AnchorPane.bottomAnchor="594.4000000000001" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="468.5999999999999" AnchorPane.topAnchor="92.0">
+            <Label alignment="TOP_CENTER" layoutX="469.0" layoutY="92.0" prefHeight="34.0" prefWidth="304.0" text="Welcome " AnchorPane.bottomAnchor="594.4000000000001" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="468.5999999999999" AnchorPane.topAnchor="92.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button layoutX="577.0" layoutY="186.0" mnemonicParsing="false" onAction="#createHotel" prefHeight="49.0" prefWidth="126.0" text="Create Hotel" />
-            <Button layoutX="194.0" layoutY="186.0" mnemonicParsing="false" onAction="#createUser" prefHeight="49.0" prefWidth="126.0" text="Create User" />
+            <Button fx:id="btnCreateHotel" onAction="#createHotel" layoutX="577.0" layoutY="186.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Create Hotel" />
+            <Button fx:id="btnCreateUser" onAction="#createUser" layoutX="194.0" layoutY="186.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Create User" />
             <Button layoutX="959.0" layoutY="186.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="List All Users" />
          </children>
     </AnchorPane>
