@@ -1,0 +1,54 @@
+package org.example.util;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.example.session.Session;
+
+import java.io.IOException;
+import java.util.Stack;
+
+public class SceneSwitcher {
+    private static final Stack<String> history = new Stack<>();
+
+    public static void switchScene(Stage stage, String fxml) throws IOException {
+        if (stage.getScene() == null) {
+            history.push(stage.getScene().getRoot().getId());
+        }
+
+        FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        history.push(fxml);
+    }
+
+    public static void goBack(Stage stage)  throws IOException {
+        if (history.size() <= 1) {
+            return;
+        }
+        history.pop();
+
+        String previousFXML = history.pop();
+
+        FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(previousFXML));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        history.push(previousFXML);
+    }
+
+    public static void goLogout(Stage stage) throws IOException {
+        history.clear();
+
+        FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource("/views/login.fxml"));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        Session.getSession().clearSession();
+    }
+}

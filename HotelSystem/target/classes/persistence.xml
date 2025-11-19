@@ -1,0 +1,23 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="myPU">
+        <class>org.example.model.user.User</class>
+
+        <properties>
+            <!-- JDBC connection -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hotel"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="rootpass"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- JPA provider -->
+            <property name="javax.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+
+            <!-- Hibernate-specific properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL80Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
