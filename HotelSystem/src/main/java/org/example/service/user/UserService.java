@@ -51,6 +51,7 @@ public class UserService {
 
     @Transactional
     public User createUser(RegisterUserRequest request) {
+
         if (userRepository.findByUsername(request.getUsername()) != null) {
             log.error("Username already exists");
             throw new InvalidUserNameException("The username is already taken " + request.getUsername());

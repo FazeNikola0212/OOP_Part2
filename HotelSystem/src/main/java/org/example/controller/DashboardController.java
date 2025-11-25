@@ -1,27 +1,34 @@
 package org.example.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import lombok.Getter;
 import org.example.authorization.AuthorizationService;
 import org.example.model.user.Role;
 import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.user.UserService;
 import org.example.session.Session;
+import org.example.command.Command;
+import org.example.strategy.RoleStrategy;
+import org.example.strategy.RoleStrategyFactory;
 import org.example.util.SceneSwitcher;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.Button;
+import org.example.command.SwitchSceneCommand;
 
 import java.io.IOException;
 
+@Getter
 public class DashboardController {
     private UserService userService = new UserService(new UserRepositoryImpl());
+
+    private Command createUserCommand;
+    private Command createHotelCommand;
+    private Command createClientCommand;
 
     @FXML
     private Label welcomeLabel;
@@ -33,35 +40,45 @@ public class DashboardController {
     private Button btnCreateHotel;
 
     @FXML
+    private Button btnCreateClient;
+
+    @FXML
     private Button logoutBtn;
 
     @FXML
     public void initialize() {
-        welcomeLabel.setText("Welcome " + Session.getSession().getLoggedUser().getUsername());
-        welcomeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-        if (AuthorizationService.hasRole(Role.MANAGER, Role.RECEPTIONIST)) {
-            btnCreateHotel.setDisable(true);
-            if (btnCreateHotel.isDisable()) {
-                btnCreateHotel.setStyle("-fx-background-color: #f0f0f0");
-            }
-        }
-        if (AuthorizationService.hasRole(Role.RECEPTIONIST)) {
-            btnCreateUser.setDisable(true);
-            if (btnCreateUser.isDisable()) {
-                btnCreateUser.setStyle("-fx-background-color: #f0f0f0");
-            }
-        }
+        Platform.runLater(() -> {
+            Stage stage = (Stage) welcomeLabel.getScene().getWindow();
+            createUserCommand = new SwitchSceneCommand(stage, "/views/creating-user.fxml");
+            createHotelCommand = new SwitchSceneCommand(stage, "/views/creating-hotel.fxml");
+            createClientCommand = new SwitchSceneCommand(stage, "/views/creating-client.fxml");
 
+
+            welcomeLabel.setText("Welcome " + Session.getSession().getLoggedUser().getUsername()
+                    + " - " + Session.getSession().getLoggedUser().getRole().name().toLowerCase());
+            welcomeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+            welcomeLabel.setPrefWidth(635);
+            Role userRole = Session.getSession().getLoggedUser().getRole();
+
+            RoleStrategy strategy = RoleStrategyFactory.getStrategy(userRole);
+
+            strategy.applyPermissions(this);
+        });
     }
 
     @FXML
-    private void createUser() throws IOException {
-        SceneSwitcher.switchScene((Stage) btnCreateUser.getScene().getWindow(), "/views/creating-user.fxml");
+    private void createUser() throws Exception {
+        createUserCommand.execute();
     }
 
     @FXML
-    private void createHotel() throws IOException {
-        SceneSwitcher.switchScene((Stage) btnCreateHotel.getScene().getWindow(), "/views/creating-hotel.fxml");
+    private void createHotel() throws Exception {
+        createHotelCommand.execute();
+    }
+
+    @FXML
+    private void createClient() throws Exception {
+        createClientCommand.execute();
     }
     @FXML
     private void logout() throws IOException {
