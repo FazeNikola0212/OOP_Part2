@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CreateUserController">
 
     <!-- Header -->
@@ -25,10 +26,10 @@
       </cursor></TextField>
 
     <Label alignment="CENTER" layoutX="564.0" layoutY="188.0" prefHeight="18.0" prefWidth="200.0" style="-fx-text-fill: #34495e;" text="Password" />
-    <TextField fx:id="passwordField" layoutX="565.0" layoutY="206.0" prefWidth="200.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #95a5a6; -fx-border-radius: 5; -fx-background-radius: 5;">
+    <PasswordField fx:id="passwordField" layoutX="565.0" layoutY="206.0" prefWidth="200.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #95a5a6; -fx-border-radius: 5; -fx-background-radius: 5;">
       <cursor>
          <Cursor fx:constant="HAND" />
-      </cursor></TextField>
+      </cursor></PasswordField>
 
     <Label alignment="CENTER" layoutX="564.0" layoutY="239.0" prefHeight="18.0" prefWidth="200.0" style="-fx-text-fill: #34495e;" text="Email" />
     <TextField fx:id="emailField" layoutX="565.0" layoutY="257.0" prefWidth="200.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #95a5a6; -fx-border-radius: 5; -fx-background-radius: 5;">
@@ -54,12 +55,12 @@
          <Cursor fx:constant="HAND" />
       </cursor></Button>
 
-    <Button fx:id="backBtn" layoutX="147.0" layoutY="42.0" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Back">
+    <Button fx:id="backBtn" layoutX="147.0" layoutY="42.0" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Back" AnchorPane.leftAnchor="147.0">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></Button>
 
-    <Button fx:id="logoutBtn" layoutX="1060.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 8;" text="Logout">
+    <Button fx:id="logoutBtn" layoutX="1060.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 8;" text="Logout" AnchorPane.rightAnchor="147.0">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></Button>

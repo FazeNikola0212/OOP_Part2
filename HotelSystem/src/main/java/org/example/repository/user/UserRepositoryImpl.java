@@ -3,6 +3,7 @@ package org.example.repository.user;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
@@ -18,6 +19,7 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
 
     public User findByUsername(String username) {
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         List<User> result = em
                 .createQuery
                         ("SELECT u FROM User u WHERE u.username = :username", User.class)
@@ -30,6 +32,7 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
     @Override
     public User findByUsernameAndPassword(String username, String password) {
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         User user = em.createQuery("SELECT u FROM User u WHERE " +
                 "u.username = :username AND u.password = :password ", User.class)
                 .setParameter("username", username)
@@ -39,4 +42,14 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
         return user;
     }
 
+    @Override
+    public List<User> findAllManagers() {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<User> managers = em.createQuery("SELECT u FROM User u WHERE u.role = :role", User.class)
+                .setParameter("role", Role.MANAGER)
+                .getResultList();
+        em.close();
+        return managers;
+    }
 }

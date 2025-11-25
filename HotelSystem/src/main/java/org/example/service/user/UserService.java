@@ -10,8 +10,10 @@ import org.example.exceptions.PasswordRequiredException;
 import org.example.model.user.User;
 import org.example.repository.user.UserRepository;
 import org.example.session.Session;
+import org.example.util.AlertMessage;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class UserService {
     private static final Logger log = LogManager.getLogger(UserService.class);
@@ -26,6 +28,10 @@ public class UserService {
             throw new InvalidUserNameException(username);
         }
         return userRepository.findByUsername(username);
+    }
+
+    public List<User> getAllManagers() {
+        return userRepository.findAllManagers();
     }
 
     public User loginUser(String username, String password) {

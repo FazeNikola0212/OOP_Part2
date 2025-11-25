@@ -36,7 +36,7 @@ public abstract class GenericRepositoryImpl<T, ID> implements CrudRepository<T, 
     @Override
     public List<T> findAll() {
         EntityManager em = emf.createEntityManager();
-        List<T> result =  em.createNamedQuery("FROM " + entityClass.getSimpleName(), entityClass)
+        List<T> result =  em.createQuery("FROM " + entityClass.getSimpleName(), entityClass)
                 .getResultList();
         return result;
     }

@@ -3,15 +3,18 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\mod
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\additional_services\AdditionalService.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\baserepository\GenericRepositoryImpl.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\user\UserRepositoryImpl.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\DTO\CreateHotelRequest.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\ReservationType.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\user\UserRepository.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\client\Client.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\user\UserService.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\hotel\HotelRepository.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\InvalidEmailException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\hotel\HotelRepositoryImpl.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\util\SceneSwitcher.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\room\RoomCategory.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\room\RoomStatus.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\ExistingHotelException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\MainApp.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\hotel\HotelService.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\LoginController.java
@@ -26,6 +29,8 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\con
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\additional_services\SeasonService.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\hotel\Hotel.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\user\Role.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateHotelController.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\util\AlertMessage.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\TerminationType.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\room\Room.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\ReservationStatus.java

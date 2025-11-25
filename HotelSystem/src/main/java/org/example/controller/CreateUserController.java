@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import org.example.model.user.Role;
 import org.example.repository.user.UserRepository;
 import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.user.UserService;
+import org.example.util.AlertMessage;
 import org.example.util.SceneSwitcher;
 
 import java.io.IOException;
@@ -27,7 +29,7 @@ public class CreateUserController {
     private TextField usernameField;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     private TextField emailField;
@@ -58,7 +60,7 @@ public class CreateUserController {
     }
 
     @FXML
-    private void createUser(ActionEvent event) {
+    private void createUser(ActionEvent event) throws  IOException {
         RegisterUserRequest request = new RegisterUserRequest();
         request.setUsername(usernameField.getText());
         request.setPassword(passwordField.getText());
@@ -67,6 +69,8 @@ public class CreateUserController {
         request.setFullName(fullnameField.getText());
 
         userService.createUser(request);
+        AlertMessage.showMessage("User Creation", "User " +  request.getUsername() + " has been created successfully");
+        SceneSwitcher.goBack((Stage) backBtn.getScene().getWindow());
     }
 
     @FXML
