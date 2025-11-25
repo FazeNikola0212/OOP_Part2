@@ -11,6 +11,7 @@ import org.example.model.user.User;
 import org.example.repository.user.UserRepository;
 import org.example.session.Session;
 import org.example.util.AlertMessage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -35,12 +36,17 @@ public class UserService {
     }
 
     public User loginUser(String username, String password) {
-        if (userRepository.findByUsernameAndPassword(username, password) == null) {
+        if (userRepository.findByUsername(username) == null) {
             log.error("Incorrect username or password");
             throw new InvalidUserNameException(username);
         }
-        log.info("Successfully logged in USER : " + username);
-        return userRepository.findByUsername(username);
+        if (BCrypt.checkpw(password, userRepository.findByUsername(username).getPassword())) {
+            log.info("Successfully logged in USER : " + username);
+            return userRepository.findByUsername(username);
+        } else {
+            log.error("Incorrect username or password");
+            throw new InvalidUserNameException(username);
+        }
     }
 
     @Transactional
@@ -64,7 +70,7 @@ public class UserService {
 
         User user = User.builder()
                 .username(request.getUsername())
-                .password(request.getPassword())
+                .password(BCrypt.hashpw(request.getPassword(), BCrypt.gensalt()))
                 .email(request.getEmail())
                 .role(request.getRole())
                 .createdAt(LocalDateTime.now())
