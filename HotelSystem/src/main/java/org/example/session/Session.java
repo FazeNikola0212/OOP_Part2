@@ -4,6 +4,9 @@ import org.example.model.user.User;
 
 import java.util.logging.Logger;
 
+/* Through Singleton Pattern, which works as Session,
+accesses the current user using the application. */
+
 public class Session {
 
     private static final Logger logger = Logger.getLogger(Session.class.getName());

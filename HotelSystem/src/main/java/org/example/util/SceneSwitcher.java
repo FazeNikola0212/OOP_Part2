@@ -9,6 +9,10 @@ import org.example.session.Session;
 import java.io.IOException;
 import java.util.Stack;
 
+/* Utility Class which helps to navigate
+easier between scenes mainly to get back
+to previous scene and logging out */
+
 public class SceneSwitcher {
     private static final Stack<String> history = new Stack<>();
 

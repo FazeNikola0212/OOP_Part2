@@ -3,6 +3,9 @@ package org.example.util;
 import javafx.scene.control.Alert;
 import lombok.experimental.UtilityClass;
 
+/* Utility Class to display any
+messages as information, error and etc. */
+
 @UtilityClass
 public class AlertMessage {
     public static void showMessage(String title, String message) {

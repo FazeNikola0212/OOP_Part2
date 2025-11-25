@@ -36,6 +36,7 @@ public class UserService {
 
     public User loginUser(String username, String password) {
         if (userRepository.findByUsernameAndPassword(username, password) == null) {
+            log.error("Incorrect username or password");
             throw new InvalidUserNameException(username);
         }
         log.info("Successfully logged in USER : " + username);
@@ -45,15 +46,19 @@ public class UserService {
     @Transactional
     public User createUser(RegisterUserRequest request) {
         if (userRepository.findByUsername(request.getUsername()) != null) {
+            log.error("Username already exists");
             throw new InvalidUserNameException("The username is already taken " + request.getUsername());
         }
         if (request.getUsername() == null || request.getUsername().isEmpty()) {
+            log.error("Username field is empty");
             throw new InvalidUserNameException("The username is required");
         }
         if (request.getPassword() == null || request.getPassword().isEmpty()) {
+            log.error("Password field is empty");
             throw new PasswordRequiredException("The password is required");
         }
         if (request.getEmail() == null || !request.getEmail().contains("@")) {
+            log.error("Email field is empty or the email is not valid");
             throw new InvalidEmailException("Required email address or is not valid");
         }
 
