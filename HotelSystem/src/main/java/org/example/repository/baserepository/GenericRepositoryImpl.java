@@ -6,6 +6,11 @@ import jakarta.persistence.Persistence;
 
 import java.util.List;
 
+/* Base Repository implementation for the
+base operations like save, delete, read.
+Using EntityManagerFactory with Persistence configuration.
+Also benefits from the Generics to make suitable for any entity */
+
 public abstract class GenericRepositoryImpl<T, ID> implements CrudRepository<T, ID> {
 
     private static final EntityManagerFactory emf =
@@ -36,7 +41,7 @@ public abstract class GenericRepositoryImpl<T, ID> implements CrudRepository<T, 
     @Override
     public List<T> findAll() {
         EntityManager em = emf.createEntityManager();
-        List<T> result =  em.createNamedQuery("FROM " + entityClass.getSimpleName(), entityClass)
+        List<T> result =  em.createQuery("FROM " + entityClass.getSimpleName(), entityClass)
                 .getResultList();
         return result;
     }

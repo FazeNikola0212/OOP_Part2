@@ -23,7 +23,7 @@ public class ReservationService {
     private Reservation Reservation;
 
     @ManyToOne()
-    @JoinColumn(name = "additional_service_id")
+    @JoinColumn(name = "service_id")
     private AdditionalService additionalService;
 
     private int quantity;

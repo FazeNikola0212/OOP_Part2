@@ -3,6 +3,8 @@ package org.example.model.client;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -21,7 +23,7 @@ public class Client {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
 
     @Column(unique = true)
@@ -29,4 +31,9 @@ public class Client {
 
     @Column(nullable = false)
     private int rating;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

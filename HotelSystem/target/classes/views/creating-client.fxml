@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CreateClientController">
+   <children>
+      <Label layoutX="547.0" layoutY="50.0" prefHeight="40.0" prefWidth="186.0" text="Creating Client" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="547.4">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="602.0" layoutY="124.0" text="First Name">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="firstNameField" layoutX="565.0" layoutY="150.0" />
+      <TextField fx:id="lastNameField" layoutX="565.0" layoutY="226.0" />
+      <Label layoutX="602.0" layoutY="200.0" text="Last Name">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="587.0" layoutY="272.0" text="Phone Number">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phoneNumberField" layoutX="564.0" layoutY="298.0" />
+      <Label layoutX="620.0" layoutY="347.0" text="Email">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailField" layoutX="563.0" layoutY="373.0" />
+      <Button fx:id="createBtn" layoutX="580.0" layoutY="433.0" mnemonicParsing="false" onAction="#createClient" prefHeight="30.0" prefWidth="118.0" text="Create Client" />
+      <Button fx:id="backBtn" layoutX="115.0" layoutY="55.0" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" prefWidth="75.0" text="Back" AnchorPane.leftAnchor="115.0" />
+      <Button fx:id="logoutBtn" layoutX="1088.0" layoutY="55.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="75.0" text="Logout" AnchorPane.rightAnchor="115.0" />
+   </children>
+</AnchorPane>
