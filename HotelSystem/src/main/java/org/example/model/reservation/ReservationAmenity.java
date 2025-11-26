@@ -2,7 +2,7 @@ package org.example.model.reservation;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.model.additional_services.AdditionalService;
+import org.example.model.amenity.Amenity;
 
 import java.math.BigDecimal;
 
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ReservationService {
+public class ReservationAmenity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,8 +23,8 @@ public class ReservationService {
     private Reservation Reservation;
 
     @ManyToOne()
-    @JoinColumn(name = "service_id")
-    private AdditionalService additionalService;
+    @JoinColumn(name = "amenity_id")
+    private Amenity amenity;
 
     private int quantity;
     private BigDecimal price;

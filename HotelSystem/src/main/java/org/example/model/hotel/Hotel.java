@@ -2,7 +2,7 @@ package org.example.model.hotel;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.model.additional_services.AdditionalService;
+import org.example.model.amenity.Amenity;
 import org.example.model.user.User;
 
 import java.util.List;
@@ -41,5 +41,5 @@ public class Hotel {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "hotel_services", joinColumns = @JoinColumn(name ="hotel_id"),
                             inverseJoinColumns = @JoinColumn(name = "service_id"))
-    private List<AdditionalService> additionalServices;
+    private List<Amenity> amenities;
 }
