@@ -1,8 +1,6 @@
 package org.example.strategy;
 
-import org.example.controller.CreateAmenityController;
-import org.example.controller.CreateUserController;
-import org.example.controller.DashboardController;
+import org.example.controller.*;
 
 public class ReceptionistStrategy implements RoleStrategy {
 
@@ -15,6 +13,10 @@ public class ReceptionistStrategy implements RoleStrategy {
             d.getBtnCreateUser().setStyle("-fx-background-color: #f0f0f0;");
             d.getBtnCreateAmenity().setDisable(true);
             d.getBtnCreateAmenity().setStyle("-fx-background-color: #f0f0f0;");
+        }
+        if (controller instanceof HotelOperationsController h) {
+            h.getAddReceptionistButton().setDisable(true);
+            h.getAddReceptionistButton().setStyle("-fx-background-color: #f0f0f0;");
         }
     }
 }

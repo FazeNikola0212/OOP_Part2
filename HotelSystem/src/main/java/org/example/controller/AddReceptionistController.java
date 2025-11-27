@@ -1,9 +1,12 @@
 package org.example.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import org.example.command.BackCommand;
+import org.example.command.LogoutCommand;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepositoryImpl;
 import org.example.repository.user.UserRepository;
@@ -60,13 +63,15 @@ public class AddReceptionistController {
     }
 
     @FXML
-    private void goBack() throws IOException {
-        SceneSwitcher.goBack((Stage) backBtn.getScene().getWindow());
+    private void goBack(ActionEvent event) {
+        Stage  stage = (Stage) backBtn.getScene().getWindow();
+        new BackCommand(stage).execute();
     }
 
     @FXML
-    private void logout() throws IOException {
-        SceneSwitcher.goLogout((Stage) logoutBtn.getScene().getWindow());
+    private void logout(ActionEvent event) {
+        Stage stage = (Stage) logoutBtn.getScene().getWindow();
+        new LogoutCommand(stage).execute();
     }
 
 }

@@ -52,11 +52,13 @@ org\example\model\reservation\Reservation$ReservationBuilder.class
 org\example\model\reservation\ReservationAmenity.class
 org\example\model\user\Role.class
 org\example\service\amenity\AmenityService.class
+org\example\command\LogoutCommand.class
 org\example\session\Session.class
 org\example\controller\CreateHotelController.class
 org\example\strategy\AdminStrategy.class
 org\example\MainApp.class
 org\example\service\client\ClientService.class
+org\example\command\BackCommand.class
 org\example\command\SwitchSceneCommand.class
 org\example\model\amenity\SeasonAmenity.class
 org\example\repository\client\ClientRepositoryImpl.class

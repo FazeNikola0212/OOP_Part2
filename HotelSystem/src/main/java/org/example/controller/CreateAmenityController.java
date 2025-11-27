@@ -7,6 +7,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Getter;
+import org.example.command.BackCommand;
+import org.example.command.LogoutCommand;
 import org.example.model.amenity.SeasonAmenity;
 import org.example.repository.amenity.AmenityRepositoryImpl;
 import org.example.service.amenity.AmenityService;
@@ -47,12 +49,14 @@ public class CreateAmenityController implements RoleConfigurable {
     }
 
     @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        SceneSwitcher.goBack((Stage) createBtn.getScene().getWindow());
+    private void goBack(ActionEvent event) {
+        Stage  stage = (Stage) backBtn.getScene().getWindow();
+        new BackCommand(stage).execute();
     }
 
     @FXML
-    private void logout(ActionEvent event) throws IOException {
-        SceneSwitcher.goLogout((Stage) createBtn.getScene().getWindow());
+    private void logout(ActionEvent event) {
+        Stage stage = (Stage) logoutBtn.getScene().getWindow();
+        new LogoutCommand(stage).execute();
     }
 }

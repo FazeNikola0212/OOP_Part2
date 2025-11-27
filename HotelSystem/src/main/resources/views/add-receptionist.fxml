@@ -13,7 +13,7 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="584.0" layoutY="112.0"  AnchorPane.leftAnchor="584.0" AnchorPane.rightAnchor="584.0">
+      <Label fx:id="hotelName" layoutX="534.0" layoutY="112.0" alignment="CENTER"  AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
          <font>
             <Font size="21.0" />
          </font>
@@ -25,7 +25,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="587.0" layoutY="542.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Add Receptionist" />
+      <Button onAction="#addReceptionist" layoutX="587.0" layoutY="542.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Add Receptionist" />
       <Button fx:id="logoutBtn" layoutX="1070.0" layoutY="51.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="75.0" text="Logout" AnchorPane.rightAnchor="149.0" />
    </children>
 </AnchorPane>

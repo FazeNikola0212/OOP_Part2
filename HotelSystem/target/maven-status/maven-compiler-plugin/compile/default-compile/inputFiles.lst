@@ -52,6 +52,7 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exc
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\AmenityNameAlreadyExistsException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\DashboardController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\hotel\Hotel.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\command\LogoutCommand.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\client\ClientService.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\ReceptionistStrategy.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\util\AlertMessage.java
@@ -60,4 +61,5 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exc
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\amenity\Amenity.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\ReservationStatus.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\ReservationAmenity.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\command\BackCommand.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\amenity\AmenityRepositoryImpl.java
