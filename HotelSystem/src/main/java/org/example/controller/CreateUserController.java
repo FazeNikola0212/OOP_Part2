@@ -8,20 +8,26 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import lombok.Getter;
 import org.example.DTO.RegisterUserRequest;
 import org.example.authorization.AuthorizationService;
+import org.example.command.BackCommand;
+import org.example.command.LogoutCommand;
 import org.example.model.user.Role;
 import org.example.repository.user.UserRepository;
 import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.user.UserService;
+import org.example.session.Session;
+import org.example.strategy.RoleConfigurable;
+import org.example.strategy.RoleStrategy;
+import org.example.strategy.RoleStrategyFactory;
 import org.example.util.AlertMessage;
 import org.example.util.SceneSwitcher;
 
 import java.io.IOException;
 
-
-
-public class CreateUserController {
+@Getter
+public class CreateUserController implements RoleConfigurable {
     private final UserRepository userRepository = new UserRepositoryImpl();
     private final UserService userService = new UserService(userRepository);
 
@@ -48,7 +54,12 @@ public class CreateUserController {
 
     @FXML
     public void initialize() {
-        if (AuthorizationService.hasRole(Role.ADMIN)) {
+        RoleStrategy strategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
+
+        strategy.applyPermissions(this);
+
+
+        /*if (AuthorizationService.hasRole(Role.ADMIN)) {
             roleChoiceBox.getItems().add(Role.ADMIN);
             roleChoiceBox.getItems().add(Role.OWNER);
         } else if  (AuthorizationService.hasRole(Role.OWNER)) {
@@ -56,7 +67,7 @@ public class CreateUserController {
             roleChoiceBox.getItems().add(Role.MANAGER);
         } else if (AuthorizationService.hasRole(Role.MANAGER)) {
             roleChoiceBox.getItems().add(Role.RECEPTIONIST);
-        }
+        }*/
     }
 
     @FXML
@@ -74,12 +85,14 @@ public class CreateUserController {
     }
 
     @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        SceneSwitcher.goBack((Stage) backBtn.getScene().getWindow());
+    private void goBack(ActionEvent event) {
+        Stage  stage = (Stage) backBtn.getScene().getWindow();
+        new BackCommand(stage).execute();
     }
 
     @FXML
-    private void logout(ActionEvent event) throws IOException {
-        SceneSwitcher.goLogout((Stage) logoutBtn.getScene().getWindow());
+    private void logout(ActionEvent event) {
+        Stage stage = (Stage) logoutBtn.getScene().getWindow();
+        new LogoutCommand(stage).execute();
     }
 }

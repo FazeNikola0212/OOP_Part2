@@ -3,5 +3,5 @@ package org.example.strategy;
 import org.example.controller.DashboardController;
 
 public interface RoleStrategy {
-    void applyPermissions(DashboardController controller);
+    void applyPermissions(RoleConfigurable controller);
 }

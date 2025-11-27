@@ -41,4 +41,17 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
         em.close();
         return managers;
     }
+
+    @Override
+    public List<User> findAllReceptionists() {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        List<User> managers = em.createQuery("SELECT u FROM User u WHERE u.role = :role", User.class)
+                .setParameter("role", Role.RECEPTIONIST)
+                .getResultList();
+        em.close();
+        return managers;
+    }
+
+
 }

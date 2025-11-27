@@ -1,8 +1,7 @@
-package org.example.model.additional_services;
+package org.example.model.amenity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.model.hotel.Hotel;
 
 @Entity
 @Builder
@@ -10,8 +9,8 @@ import org.example.model.hotel.Hotel;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "additional_services")
-public class AdditionalService {
+@Table(name = "amenities")
+public class Amenity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +22,7 @@ public class AdditionalService {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private SeasonService season;
+    private SeasonAmenity season;
 
     private int usageCount;
 }

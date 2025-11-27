@@ -8,7 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.DTO.CreateClientRequest;
+import org.example.command.BackCommand;
+import org.example.command.LogoutCommand;
 import org.example.repository.client.ClientRepositoryImpl;
+import org.example.repository.hotel.HotelRepositoryImpl;
 import org.example.service.client.ClientService;
 import org.example.util.AlertMessage;
 import org.example.util.SceneSwitcher;
@@ -18,7 +21,7 @@ import java.io.IOException;
 
 public class CreateClientController {
 
-    private final ClientService clientService = new ClientService(new ClientRepositoryImpl());
+    private final ClientService clientService = new ClientService(new ClientRepositoryImpl(), new HotelRepositoryImpl());
 
     @FXML
     private TextField firstNameField;
@@ -55,15 +58,16 @@ public class CreateClientController {
     }
 
     @FXML
-    private void goBack(ActionEvent event) throws IOException {
-        SceneSwitcher.goBack((Stage) backBtn.getScene().getWindow());
+    private void goBack(ActionEvent event) {
+        Stage  stage = (Stage) backBtn.getScene().getWindow();
+        new BackCommand(stage).execute();
     }
 
     @FXML
-    private void logout(ActionEvent event) throws IOException {
-        SceneSwitcher.goLogout((Stage) logoutBtn.getScene().getWindow());
+    private void logout(ActionEvent event) {
+        Stage stage = (Stage) logoutBtn.getScene().getWindow();
+        new LogoutCommand(stage).execute();
     }
-
     private void clearTextFields(AnchorPane anchorPane) {
         for (Node node : anchorPane.getChildren()) {
             if (node instanceof TextField) {

@@ -5,16 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.repository.client.ClientRepositoryImpl;
-import org.example.repository.hotel.HotelRepositoryImpl;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class MainApp extends Application {
-    private final HotelRepositoryImpl hotelRepository = new HotelRepositoryImpl();
-    private final ClientRepositoryImpl clientRepository = new ClientRepositoryImpl();
 
     private final Logger logger = Logger.getLogger(MainApp.class.getName());
     public void start(Stage primaryStage) throws Exception {

@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.example.DTO.CreateHotelRequest;
+import org.example.command.BackCommand;
+import org.example.command.LogoutCommand;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepositoryImpl;
 import org.example.repository.user.UserRepositoryImpl;
@@ -70,12 +72,14 @@ public class CreateHotelController {
     }
 
     @FXML
-    private void goBack(ActionEvent actionEvent) throws IOException {
-        SceneSwitcher.goBack((Stage) backBtn.getScene().getWindow());
+    private void goBack(ActionEvent event) {
+        Stage  stage = (Stage) backBtn.getScene().getWindow();
+        new BackCommand(stage).execute();
     }
 
     @FXML
-    private void logout(ActionEvent actionEvent) throws IOException {
-        SceneSwitcher.goLogout((Stage) logoutBtn.getScene().getWindow());
+    private void logout(ActionEvent event) {
+        Stage stage = (Stage) logoutBtn.getScene().getWindow();
+        new LogoutCommand(stage).execute();
     }
 }

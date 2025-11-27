@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CreateHotelServiceController">
+   <children>
+      <Label layoutX="503.0" layoutY="47.0" text="Hotel Service Creation">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="134.0" layoutY="50.0" mnemonicParsing="false" onAction="#goBack" prefHeight="33.0" prefWidth="74.0" text="Back" AnchorPane.leftAnchor="134.0" />
+      <Button fx:id="logoutBtn" layoutX="1091.0" layoutY="50.0" mnemonicParsing="false" onAction="#logout" prefHeight="33.0" prefWidth="74.0" text="Logout" AnchorPane.rightAnchor="134.0" />
+      <Label layoutX="592.0" layoutY="117.0" text="Service Name">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameField" layoutX="565.0" layoutY="143.0" />
+      <Label layoutX="615.0" layoutY="182.0" text="Season">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="600.0" layoutY="250.0" text="Description">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="descriptionArea" layoutX="540.0" layoutY="283.0" prefHeight="111.0" prefWidth="200.0" />
+      <Button fx:id="createBtn" layoutX="584.0" layoutY="422.0" mnemonicParsing="false" onAction="#createService" prefHeight="40.0" prefWidth="111.0" text="Create Service" />
+      <ChoiceBox fx:id="seasonChoiceBox" layoutX="565.0" layoutY="208.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
