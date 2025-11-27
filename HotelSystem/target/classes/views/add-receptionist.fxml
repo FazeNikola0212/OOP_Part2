@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" fx:controller="org.example.controller.AddReceptionistController" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="515.0" layoutY="51.0" text="Adding Receptionist">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="hotelName" prefWidth="250.0" layoutX="584.0" layoutY="112.0" text="Hotel Name">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ListView fx:id="receptionistList" layoutX="540.0" layoutY="198.0" prefHeight="318.0" prefWidth="200.0" />
+      <Label layoutX="579.0" layoutY="172.0" text="Receptionists List">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="addReceptionistButton" onAction="#addReceptionist" layoutX="587.0" layoutY="542.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Add Receptionist" />
+   </children>
+</AnchorPane>

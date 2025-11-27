@@ -3,8 +3,10 @@ package org.example.model.hotel;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.model.amenity.Amenity;
+import org.example.model.client.Client;
 import org.example.model.user.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,10 +38,13 @@ public class Hotel {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "receptionists")
-    private List<User> receptionists;
+    private List<User> receptionists = new ArrayList<>();
+
+    @OneToMany(mappedBy = "hotel")
+    private List<Client> clients  = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "hotel_services", joinColumns = @JoinColumn(name ="hotel_id"),
-                            inverseJoinColumns = @JoinColumn(name = "service_id"))
-    private List<Amenity> amenities;
+    @JoinTable(name = "hotel_amenities", joinColumns = @JoinColumn(name ="hotel_id"),
+                            inverseJoinColumns = @JoinColumn(name = "amenity_id"))
+    private List<Amenity> amenities = new ArrayList<>();
 }

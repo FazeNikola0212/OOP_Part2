@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.DTO.CreateClientRequest;
 import org.example.repository.client.ClientRepositoryImpl;
+import org.example.repository.hotel.HotelRepositoryImpl;
 import org.example.service.client.ClientService;
 import org.example.util.AlertMessage;
 import org.example.util.SceneSwitcher;
@@ -18,7 +19,7 @@ import java.io.IOException;
 
 public class CreateClientController {
 
-    private final ClientService clientService = new ClientService(new ClientRepositoryImpl());
+    private final ClientService clientService = new ClientService(new ClientRepositoryImpl(), new HotelRepositoryImpl());
 
     @FXML
     private TextField firstNameField;

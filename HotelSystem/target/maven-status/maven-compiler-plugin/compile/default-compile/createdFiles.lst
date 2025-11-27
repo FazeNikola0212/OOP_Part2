@@ -28,6 +28,7 @@ org\example\command\Command.class
 org\example\controller\CreateAmenityController.class
 org\example\exceptions\PasswordRequiredException.class
 org\example\service\user\UserService.class
+org\example\controller\AddReceptionistController.class
 org\example\exceptions\InvalidUserNameOrPassword.class
 org\example\model\user\User$UserBuilder.class
 org\example\DTO\CreateClientRequest.class
@@ -50,7 +51,6 @@ org\example\model\reservation\ReservationType.class
 org\example\model\reservation\Reservation$ReservationBuilder.class
 org\example\model\reservation\ReservationAmenity.class
 org\example\model\user\Role.class
-org\example\repository\hotel_service\AmenityRepositoryImpl.class
 org\example\service\amenity\AmenityService.class
 org\example\session\Session.class
 org\example\controller\CreateHotelController.class
@@ -60,13 +60,14 @@ org\example\service\client\ClientService.class
 org\example\command\SwitchSceneCommand.class
 org\example\model\amenity\SeasonAmenity.class
 org\example\repository\client\ClientRepositoryImpl.class
-org\example\repository\hotel_service\AmenityRepository.class
 org\example\util\AlertMessage.class
 org\example\exceptions\InvalidUserNameException.class
+org\example\repository\amenity\AmenityRepository.class
 org\example\model\amenity\Amenity$AmenityBuilder.class
 org\example\model\reservation\ReservationRoom$ReservationRoomBuilder.class
 org\example\model\notification\Notification$NotificationBuilder.class
 org\example\DTO\RegisterUserRequest.class
 org\example\controller\CreateUserController.class
 org\example\model\reservation\Reservation.class
+org\example\repository\amenity\AmenityRepositoryImpl.class
 org\example\model\reservation\ReservationRoom.class

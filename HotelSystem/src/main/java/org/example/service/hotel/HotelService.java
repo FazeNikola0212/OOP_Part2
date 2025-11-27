@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.DTO.CreateHotelRequest;
 import org.example.exceptions.ExistingHotelException;
 import org.example.model.hotel.Hotel;
+import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
 import org.example.repository.hotel.HotelRepositoryImpl;
 
@@ -35,8 +36,14 @@ public class HotelService {
                 .manager(request.getManager())
                 .owner(request.getOwner())
                 .build();
+
         hotelRepository.save(hotel);
         log.info("Hotel with name {} has been created", hotel.getName());
         return hotel;
     }
+
+    public void addReceptionist(Long hotelId, User receptionist) {
+        hotelRepository.addReceptionist(hotelId, receptionist);
+    }
+
 }

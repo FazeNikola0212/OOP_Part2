@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Getter;
 import org.example.model.amenity.SeasonAmenity;
-import org.example.repository.hotel_service.AmenityRepositoryImpl;
+import org.example.repository.amenity.AmenityRepositoryImpl;
 import org.example.service.amenity.AmenityService;
 import org.example.strategy.RoleConfigurable;
 import javafx.scene.control.Button;

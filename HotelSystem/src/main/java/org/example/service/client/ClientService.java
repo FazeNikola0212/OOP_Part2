@@ -8,6 +8,8 @@ import org.example.exceptions.EmailIsExistingException;
 import org.example.exceptions.PhoneNumberIsExistingException;
 import org.example.model.client.Client;
 import org.example.repository.client.ClientRepository;
+import org.example.repository.hotel.HotelRepository;
+import org.example.session.Session;
 
 import java.time.LocalDateTime;
 
@@ -15,9 +17,11 @@ public class ClientService {
 
     private static final Logger log = LogManager.getLogger(ClientService.class);
     private ClientRepository clientRepository;
+    private HotelRepository hotelRepository;
 
-    public ClientService(ClientRepository clientRepository) {
+    public ClientService(ClientRepository clientRepository, HotelRepository hotelRepository) {
         this.clientRepository = clientRepository;
+        this.hotelRepository = hotelRepository;
     }
 
     @Transactional
@@ -47,6 +51,7 @@ public class ClientService {
                 .rating(0)
                 .updatedAt(LocalDateTime.now())
                 .createdAt(LocalDateTime.now())
+                .hotel(hotelRepository.findByReceptionist(Session.getSession().getLoggedUser()))
                 .build();
 
         clientRepository.save(client);

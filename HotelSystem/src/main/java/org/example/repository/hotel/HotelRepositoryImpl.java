@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.example.model.hotel.Hotel;
+import org.example.model.user.User;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
 public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> implements HotelRepository {
@@ -43,4 +44,43 @@ public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> impl
         }
     }
 
+    @Override
+    public Hotel findByReceptionist(User receptionist) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            return em.createQuery("SELECT h FROM Hotel h " +
+                    "JOIN h.receptionists r  WHERE r.id = :userId", Hotel.class)
+                    .setParameter("userId", receptionist.getId())
+                    .getSingleResult();
+
+        } finally {
+            em.getTransaction().commit();
+            em.close();
+        }
+    }
+
+    @Override
+    public Hotel findByManager(User manager) {
+        return null;
+    }
+
+    @Override
+    public void addReceptionist(Long hotelId, User receptionist) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            em.createNativeQuery("INSERT INTO receptionists (hotel_id, receptionists_id) " +
+                    "VALUES (?, ?)")
+                    .setParameter(1, hotelId)
+                    .setParameter(2, receptionist.getId())
+                    .executeUpdate();
+            em.getTransaction().commit();
+
+        } finally {
+            em.close();
+        }
+    }
 }

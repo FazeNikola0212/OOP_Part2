@@ -2,6 +2,7 @@ package org.example.model.client;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.example.model.hotel.Hotel;
 
 import java.time.LocalDateTime;
 
@@ -31,6 +32,13 @@ public class Client {
 
     @Column(nullable = false)
     private int rating;
+
+    @Column(nullable = false)
+    private boolean risk;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hotel_id")
+    private Hotel hotel;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

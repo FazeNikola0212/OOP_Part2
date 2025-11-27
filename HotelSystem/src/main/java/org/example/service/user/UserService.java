@@ -52,22 +52,7 @@ public class UserService {
     @Transactional
     public User createUser(RegisterUserRequest request) {
 
-        if (userRepository.findByUsername(request.getUsername()) != null) {
-            log.error("Username already exists");
-            throw new InvalidUserNameException("The username is already taken " + request.getUsername());
-        }
-        if (request.getUsername() == null || request.getUsername().isEmpty()) {
-            log.error("Username field is empty");
-            throw new InvalidUserNameException("The username is required");
-        }
-        if (request.getPassword() == null || request.getPassword().isEmpty()) {
-            log.error("Password field is empty");
-            throw new PasswordRequiredException("The password is required");
-        }
-        if (request.getEmail() == null || !request.getEmail().contains("@")) {
-            log.error("Email field is empty or the email is not valid");
-            throw new InvalidEmailException("Required email address or is not valid");
-        }
+        validation(request);
 
         User user = User.builder()
                 .username(request.getUsername())
@@ -84,5 +69,26 @@ public class UserService {
         log.info("USER " + user.getUsername() + " HAS BEEN CREATED BY " + Session.getSession().getLoggedUser());
 
         return user;
+    }
+
+
+
+    private void validation(RegisterUserRequest request) {
+        if (userRepository.findByUsername(request.getUsername()) != null) {
+            log.error("Username already exists");
+            throw new InvalidUserNameException("The username is already taken " + request.getUsername());
+        }
+        if (request.getUsername() == null || request.getUsername().isEmpty()) {
+            log.error("Username field is empty");
+            throw new InvalidUserNameException("The username is required");
+        }
+        if (request.getPassword() == null || request.getPassword().isEmpty()) {
+            log.error("Password field is empty");
+            throw new PasswordRequiredException("The password is required");
+        }
+        if (request.getEmail() == null || !request.getEmail().contains("@")) {
+            log.error("Email field is empty or the email is not valid");
+            throw new InvalidEmailException("Required email address or is not valid");
+        }
     }
 }

@@ -56,6 +56,10 @@ public class User {
 
     private LocalDateTime updatedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "hotel_id")
+    private Hotel assignedHotel;
+
     @PrePersist
     public void onCreate() {
         createdAt = LocalDateTime.now();

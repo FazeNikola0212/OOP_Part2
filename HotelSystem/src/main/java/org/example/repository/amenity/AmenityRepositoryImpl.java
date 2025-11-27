@@ -1,4 +1,4 @@
-package org.example.repository.hotel_service;
+package org.example.repository.amenity;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

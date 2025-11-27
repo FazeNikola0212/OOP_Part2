@@ -1,4 +1,4 @@
-package org.example.repository.hotel_service;
+package org.example.repository.amenity;
 
 import org.example.model.amenity.Amenity;
 import org.example.repository.baserepository.CrudRepository;

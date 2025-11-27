@@ -1,6 +1,8 @@
 package org.example.DTO;
 
 import lombok.*;
+import org.example.model.hotel.Hotel;
+import org.example.model.user.User;
 
 @Data
 @Builder
