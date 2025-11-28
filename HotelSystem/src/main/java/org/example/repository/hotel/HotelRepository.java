@@ -10,4 +10,6 @@ public interface HotelRepository extends CrudRepository<Hotel, Long> {
     Hotel findByReceptionist(User receptionist);
     Hotel findByManager(User manager);
     void addReceptionist(Long hotelId, User receptionist);
+    void removeReceptionist(Long hotelId, User receptionist);
+
 }

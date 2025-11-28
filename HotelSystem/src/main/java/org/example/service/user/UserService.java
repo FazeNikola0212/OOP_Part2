@@ -4,10 +4,13 @@ import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.DTO.RegisterUserRequest;
+import org.example.exceptions.ExistingHotelException;
 import org.example.exceptions.InvalidEmailException;
 import org.example.exceptions.InvalidUserNameException;
 import org.example.exceptions.PasswordRequiredException;
+import org.example.model.hotel.Hotel;
 import org.example.model.user.User;
+import org.example.repository.hotel.HotelRepository;
 import org.example.repository.user.UserRepository;
 import org.example.session.Session;
 import org.example.util.AlertMessage;
@@ -19,9 +22,11 @@ import java.util.List;
 public class UserService {
     private static final Logger log = LogManager.getLogger(UserService.class);
     private final UserRepository userRepository;
+    private final HotelRepository hotelRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, HotelRepository hotelRepository) {
         this.userRepository = userRepository;
+        this.hotelRepository = hotelRepository;
     }
 
     public User getUserByUsername(String username) {
@@ -33,6 +38,19 @@ public class UserService {
 
     public List<User> getAllManagers() {
         return userRepository.findAllManagers();
+    }
+
+    public List<User> getReceptionistsByHotelId(Long hotelId) {
+        Hotel hotel = hotelRepository.findById(hotelId);
+        if (hotel == null) {
+            log.error("Hotel with id {} not found", hotelId);
+            throw new ExistingHotelException("Hotel with id " + hotelId + " not found");
+        }
+        return userRepository.findReceptionistByHotelId(hotelId);
+    }
+
+    public List<User> getAllNotAssignedReceptionists() {
+        return userRepository.findAllNotAssignedReceptionists();
     }
 
     public User loginUser(String username, String password) {

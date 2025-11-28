@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import lombok.Getter;
 import org.example.command.BackCommand;
 import org.example.command.LogoutCommand;
+import org.example.factory.ServiceFactory;
 import org.example.model.user.Role;
 import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.user.UserService;
@@ -17,17 +18,15 @@ import org.example.command.Command;
 import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
 import org.example.strategy.RoleStrategyFactory;
-import org.example.util.SceneSwitcher;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.Button;
 import org.example.command.SwitchSceneCommand;
 
-import java.io.IOException;
 
 @Getter
-public class DashboardController implements RoleConfigurable {
-    private UserService userService = new UserService(new UserRepositoryImpl());
+public class DashboardController extends NavigationController implements RoleConfigurable {
+    private final UserService userService = ServiceFactory.getUserService();
 
     private Command createUserCommand;
     private Command createHotelCommand;
@@ -53,8 +52,6 @@ public class DashboardController implements RoleConfigurable {
     @FXML
     private Button btnHotelOps;
 
-    @FXML
-    private Button logoutBtn;
 
     @FXML
     public void initialize() {
@@ -104,10 +101,8 @@ public class DashboardController implements RoleConfigurable {
         redirectHotelOps.execute();
     }
 
-    @FXML
-    private void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutBtn.getScene().getWindow();
-        new LogoutCommand(stage).execute();
+    protected Stage getCurrentStage() {
+        return (Stage) welcomeLabel.getScene().getWindow();
     }
 
 }

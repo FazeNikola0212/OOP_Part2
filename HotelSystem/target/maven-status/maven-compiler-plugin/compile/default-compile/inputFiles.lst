@@ -1,8 +1,10 @@
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\factory\RepositoryFactory.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\ManagerStrategy.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\user\UserRepositoryImpl.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\RoleConfigurable.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateClientController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\RoleStrategyFactory.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\RemoveReceptionistController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateAmenityController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\amenity\AmenityRepository.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\hotel\HotelRepository.java
@@ -36,8 +38,11 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\mod
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\baserepository\GenericRepositoryImpl.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\DTO\CreateHotelRequest.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\ReservationType.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\InvalidRoleException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\HotelOperationsController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\user\UserRepository.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\NavigationController.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\factory\ServiceFactory.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\client\Client.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\AddReceptionistController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\user\UserService.java

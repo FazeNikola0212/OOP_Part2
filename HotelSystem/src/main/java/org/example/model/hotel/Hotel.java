@@ -36,10 +36,6 @@ public class Hotel {
     @JoinColumn(name = "manager_id", nullable = false, unique = true)
     private User manager;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "receptionists")
-    private List<User> receptionists = new ArrayList<>();
-
     @OneToMany(mappedBy = "hotel")
     private List<Client> clients  = new ArrayList<>();
 

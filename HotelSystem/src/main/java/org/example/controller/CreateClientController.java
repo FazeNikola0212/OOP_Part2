@@ -3,25 +3,17 @@ package org.example.controller;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.DTO.CreateClientRequest;
-import org.example.command.BackCommand;
-import org.example.command.LogoutCommand;
-import org.example.repository.client.ClientRepositoryImpl;
-import org.example.repository.hotel.HotelRepositoryImpl;
+import org.example.factory.ServiceFactory;
 import org.example.service.client.ClientService;
 import org.example.util.AlertMessage;
-import org.example.util.SceneSwitcher;
 
-import javax.swing.*;
-import java.io.IOException;
+public class CreateClientController extends NavigationController {
 
-public class CreateClientController {
-
-    private final ClientService clientService = new ClientService(new ClientRepositoryImpl(), new HotelRepositoryImpl());
+    private final ClientService clientService = ServiceFactory.getClientService();
 
     @FXML
     private TextField firstNameField;
@@ -32,19 +24,13 @@ public class CreateClientController {
     @FXML
     private TextField phoneNumberField;
     @FXML
-    private Button createBtn;
-    @FXML
-    private Button backBtn;
-    @FXML
-    private Button logoutBtn;
-    @FXML
     private AnchorPane anchorPane;
 
     @FXML
     public void initialize() {}
 
     @FXML
-    private void createClient(ActionEvent event) throws IOException {
+    private void createClient(ActionEvent event) {
         CreateClientRequest request = CreateClientRequest
                 .builder()
                 .firstName(firstNameField.getText())
@@ -57,17 +43,11 @@ public class CreateClientController {
         clearTextFields(anchorPane);
     }
 
-    @FXML
-    private void goBack(ActionEvent event) {
-        Stage  stage = (Stage) backBtn.getScene().getWindow();
-        new BackCommand(stage).execute();
+    @Override
+    protected Stage getCurrentStage() {
+        return (Stage) firstNameField.getScene().getWindow();
     }
 
-    @FXML
-    private void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutBtn.getScene().getWindow();
-        new LogoutCommand(stage).execute();
-    }
     private void clearTextFields(AnchorPane anchorPane) {
         for (Node node : anchorPane.getChildren()) {
             if (node instanceof TextField) {

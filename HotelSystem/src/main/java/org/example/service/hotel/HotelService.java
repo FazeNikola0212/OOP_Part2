@@ -5,7 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.DTO.CreateHotelRequest;
 import org.example.exceptions.ExistingHotelException;
+import org.example.exceptions.InvalidRoleException;
 import org.example.model.hotel.Hotel;
+import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
 import org.example.repository.hotel.HotelRepositoryImpl;
@@ -42,8 +44,30 @@ public class HotelService {
         return hotel;
     }
 
+    @Transactional
     public void addReceptionist(Long hotelId, User receptionist) {
+        validatingHotelReceptionist(hotelId, receptionist);
         hotelRepository.addReceptionist(hotelId, receptionist);
+    }
+
+    @Transactional
+    public void removeReceptionist(Long hotelId, User receptionist) {
+        validatingHotelReceptionist(hotelId, receptionist);
+        hotelRepository.removeReceptionist(hotelId, receptionist);
+    }
+
+
+    private void validatingHotelReceptionist(Long hotelId, User receptionist) {
+        Hotel hotel = hotelRepository.findById(hotelId);
+        if (hotel == null) {
+            log.error("Hotel with id {} does not exist", hotelId);
+            throw new ExistingHotelException("Hotel with id " + hotelId + " does not exist");
+        }
+
+        if (!receptionist.getRole().equals(Role.RECEPTIONIST)) {
+            log.error("The user {} does not have role Receptionist", receptionist.getUsername());
+            throw new InvalidRoleException("The user " + receptionist.getUsername() + " does not have role Receptionist");
+        }
     }
 
 }
