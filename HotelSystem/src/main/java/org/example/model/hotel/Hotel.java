@@ -32,7 +32,7 @@ public class Hotel {
     @JoinColumn(name = "owner_id",  nullable = false)
     private User owner;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manager_id", nullable = false, unique = true)
     private User manager;
 

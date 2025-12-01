@@ -10,7 +10,8 @@ import org.example.model.hotel.Hotel;
 import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
-import org.example.repository.hotel.HotelRepositoryImpl;
+
+import java.util.List;
 
 public class HotelService {
     private static final Logger log = LogManager.getLogger(HotelService.class);
@@ -18,6 +19,10 @@ public class HotelService {
 
     public HotelService(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
+    }
+
+    public List<Hotel> getAllHotels(User owner) {
+        return hotelRepository.findAllByOwner(owner);
     }
 
     @Transactional

@@ -1,17 +1,13 @@
 package org.example.controller;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import lombok.Getter;
-import org.example.command.BackCommand;
-import org.example.command.LogoutCommand;
 import org.example.factory.ServiceFactory;
 import org.example.model.user.Role;
-import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.user.UserService;
 import org.example.session.Session;
 import org.example.command.Command;
@@ -32,7 +28,8 @@ public class DashboardController extends NavigationController implements RoleCon
     private Command createHotelCommand;
     private Command createClientCommand;
     private Command createAmenityCommand;
-    private Command redirectHotelOps;
+    private Command redirectHotelOpsCommand;
+    private Command selectOwnedHotelsCommand;
 
     @FXML
     private Label welcomeLabel;
@@ -52,6 +49,9 @@ public class DashboardController extends NavigationController implements RoleCon
     @FXML
     private Button btnHotelOps;
 
+    @FXML
+    private Button selectHotelBtn;
+
 
     @FXML
     public void initialize() {
@@ -61,7 +61,8 @@ public class DashboardController extends NavigationController implements RoleCon
             createHotelCommand = new SwitchSceneCommand(stage, "/views/creating-hotel.fxml");
             createClientCommand = new SwitchSceneCommand(stage, "/views/creating-client.fxml");
             createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
-            redirectHotelOps = new SwitchSceneCommand(stage, "/views/hotel-operations.fxml");
+            redirectHotelOpsCommand = new SwitchSceneCommand(stage, "/views/hotel-operations.fxml");
+            selectOwnedHotelsCommand = new SwitchSceneCommand(stage, "/views/owned-hotels.fxml");
 
 
             welcomeLabel.setText("Welcome " + Session.getSession().getLoggedUser().getUsername()
@@ -98,7 +99,12 @@ public class DashboardController extends NavigationController implements RoleCon
 
     @FXML
     private void hotelOperations() throws Exception {
-        redirectHotelOps.execute();
+        redirectHotelOpsCommand.execute();
+    }
+
+    @FXML
+    private void selectHotel() throws Exception {
+        selectOwnedHotelsCommand.execute();
     }
 
     protected Stage getCurrentStage() {

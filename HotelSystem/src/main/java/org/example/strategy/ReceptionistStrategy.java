@@ -17,6 +17,8 @@ public class ReceptionistStrategy implements RoleStrategy {
         if (controller instanceof HotelOperationsController h) {
             h.getAddReceptionistBtn().setDisable(true);
             h.getAddReceptionistBtn().setStyle("-fx-background-color: #f0f0f0;");
+            h.getRemoveReceptionistBtn().setDisable(true);
+            h.getRemoveReceptionistBtn().setStyle("-fx-background-color: #f0f0f0;");
         }
     }
 }

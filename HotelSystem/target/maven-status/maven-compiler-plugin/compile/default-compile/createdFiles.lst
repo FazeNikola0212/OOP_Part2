@@ -19,12 +19,15 @@ org\example\model\client\Client$ClientBuilder.class
 org\example\model\notification\Notification.class
 org\example\repository\baserepository\CrudRepository.class
 org\example\util\SceneSwitcher.class
+org\example\controller\ListHotelsController$1.class
 org\example\model\reservation\ReservationAmenity$ReservationAmenityBuilder.class
 org\example\exceptions\ExistingHotelException.class
 org\example\model\amenity\Amenity.class
 org\example\repository\baserepository\GenericRepositoryImpl.class
 org\example\strategy\RoleStrategy.class
 org\example\DTO\RegisterUserRequest$RegisterUserRequestBuilder.class
+org\example\session\SelectedHotelHolder.class
+org\example\controller\ListHotelsController.class
 org\example\model\room\RoomStatus.class
 org\example\model\reservation\Reservation$ReservationBuilder.class
 org\example\model\user\Role.class
@@ -63,6 +66,7 @@ org\example\repository\client\ClientRepository.class
 org\example\factory\RepositoryFactory.class
 org\example\controller\CreateAmenityController.class
 org\example\service\user\UserService.class
+org\example\controller\OwnerPanelController.class
 org\example\model\hotel\Hotel.class
 org\example\repository\user\UserRepositoryImpl.class
 org\example\repository\hotel\HotelRepositoryImpl.class

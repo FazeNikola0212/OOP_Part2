@@ -5,13 +5,16 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import lombok.Getter;
 import org.example.session.Session;
+import org.example.strategy.RoleConfigurable;
+import org.example.strategy.RoleStrategy;
+import org.example.strategy.RoleStrategyFactory;
 import org.example.util.SceneSwitcher;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
 @Getter
-public class HotelOperationsController extends NavigationController {
+public class HotelOperationsController extends NavigationController implements RoleConfigurable {
 
     @FXML
     private Button addReceptionistBtn;
@@ -25,6 +28,9 @@ public class HotelOperationsController extends NavigationController {
     @FXML
     public void initialize() {
         hotelLabel.setText("Hotel " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
+
+        RoleStrategy strategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
+        strategy.applyPermissions(this);
     }
 
     @FXML

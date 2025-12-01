@@ -3,9 +3,11 @@ package org.example.repository.hotel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.model.hotel.Hotel;
 import org.example.model.user.User;
+import org.example.model.hotel.Hotel;
 import org.example.repository.baserepository.GenericRepositoryImpl;
+
+import java.util.List;
 
 public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> implements HotelRepository {
     private final static EntityManagerFactory emf = Persistence
@@ -54,6 +56,19 @@ public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> impl
     }
 
     @Override
+    public List<Hotel> findAllByOwner(User owner) {
+        EntityManager em  = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT h FROM Hotel h WHERE h.owner.id = :owner", Hotel.class)
+                    .setParameter("owner", owner.getId())
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+
+    }
+
+    @Override
     public Hotel findByManager(User manager) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -70,7 +85,7 @@ public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> impl
         try {
             em.getTransaction().begin();
 
-            Hotel hotel = em.find(Hotel.class, hotelId);
+            org.example.model.hotel.Hotel hotel = em.find(org.example.model.hotel.Hotel.class, hotelId);
             receptionist = em.find(User.class, receptionist.getId());
 
             receptionist.setAssignedHotel(hotel);

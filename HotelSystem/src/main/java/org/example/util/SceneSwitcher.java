@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 
 import java.io.IOException;
@@ -54,5 +55,6 @@ public class SceneSwitcher {
         stage.show();
 
         Session.getSession().clearSession();
+        SelectedHotelHolder.clear();
     }
 }
