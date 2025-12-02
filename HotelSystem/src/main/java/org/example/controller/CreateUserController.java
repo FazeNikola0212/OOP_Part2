@@ -10,7 +10,6 @@ import org.example.DTO.RegisterUserRequest;
 import org.example.factory.ServiceFactory;
 import org.example.model.user.Role;
 import org.example.service.user.UserService;
-import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
@@ -45,7 +44,6 @@ public class CreateUserController extends NavigationController implements RoleCo
     @FXML
     public void initialize() {
         RoleStrategy strategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
-
         strategy.applyPermissions(this);
     }
 

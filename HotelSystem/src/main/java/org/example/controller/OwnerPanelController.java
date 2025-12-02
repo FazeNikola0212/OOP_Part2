@@ -15,6 +15,7 @@ public class OwnerPanelController extends NavigationController {
     private Command listReservationsCommand;
     private Command showAmenitiesCommand;
     private Command listRoomInfoCommand;
+    private Command createRoomCommand;
 
     @FXML
     private Label currentHotelLabel;
@@ -33,6 +34,7 @@ public class OwnerPanelController extends NavigationController {
             listReservationsCommand = new SwitchSceneCommand(stage, "/views/list-reservations.fxml");
             showAmenitiesCommand = new SwitchSceneCommand(stage, "/views/show-amenities.fxml");
             listRoomInfoCommand = new SwitchSceneCommand(stage, "/views/list-room-info.fxml");
+            createRoomCommand = new SwitchSceneCommand(stage, "/views/creating-room.fxml");
         });
 
     }
@@ -60,6 +62,11 @@ public class OwnerPanelController extends NavigationController {
     @FXML
     private void listRoomInfo() throws Exception {
         listRoomInfoCommand.execute();
+    }
+
+    @FXML
+    private void createRoom() throws Exception {
+        createRoomCommand.execute();
     }
 
     @Override

@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString(exclude = {"clients", "amenities", "owner", "manager"})
 @Table(name = "hotels")
 public class Hotel {
     @Id
@@ -43,4 +44,6 @@ public class Hotel {
     @JoinTable(name = "hotel_amenities", joinColumns = @JoinColumn(name ="hotel_id"),
                             inverseJoinColumns = @JoinColumn(name = "amenity_id"))
     private List<Amenity> amenities = new ArrayList<>();
+
+
 }

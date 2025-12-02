@@ -31,6 +31,7 @@ public class UserService {
 
     public User getUserByUsername(String username) {
         if (userRepository.findByUsername(username) == null) {
+            log.error("User with username " + username + " not found");
             throw new InvalidUserNameException(username);
         }
         return userRepository.findByUsername(username);

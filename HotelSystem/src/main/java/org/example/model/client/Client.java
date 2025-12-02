@@ -31,7 +31,7 @@ public class Client {
     private String email;
 
     @Column(nullable = false)
-    private int rating;
+    private double rating;
 
     @Column(nullable = false)
     private boolean risk;

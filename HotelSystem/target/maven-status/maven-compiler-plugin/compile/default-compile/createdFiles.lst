@@ -1,5 +1,8 @@
+org\example\DTO\CreateRoomDTO$CreateRoomDTOBuilder.class
 org\example\service\hotel\HotelService.class
+org\example\controller\AmenitiesListController.class
 org\example\strategy\ManagerStrategy.class
+org\example\repository\room\RoomRepository.class
 org\example\controller\CreateClientController.class
 org\example\model\client\Client.class
 org\example\model\reservation\ReservationStatus.class
@@ -7,8 +10,11 @@ org\example\model\room\RoomCategory.class
 org\example\controller\HotelOperationsController.class
 org\example\repository\hotel\HotelRepository.class
 org\example\DTO\CreateHotelRequest.class
+org\example\exceptions\ExistingRoomException.class
+org\example\controller\CreateRoomController.class
 org\example\model\reservation\TerminationType.class
 org\example\model\room\Room.class
+org\example\controller\AmenitiesListController$1.class
 org\example\command\Command.class
 org\example\exceptions\PasswordRequiredException.class
 org\example\controller\AddReceptionistController.class
@@ -56,6 +62,7 @@ org\example\exceptions\EmailIsExistingException.class
 org\example\DTO\CreateHotelRequest$CreateHotelRequestBuilder.class
 org\example\exceptions\PhoneNumberIsExistingException.class
 org\example\strategy\RoleConfigurable.class
+org\example\service\room\RoomService.class
 org\example\strategy\ReceptionistStrategy.class
 org\example\controller\DashboardController.class
 org\example\exceptions\InvalidEmailException.class
@@ -69,7 +76,9 @@ org\example\service\user\UserService.class
 org\example\controller\OwnerPanelController.class
 org\example\model\hotel\Hotel.class
 org\example\repository\user\UserRepositoryImpl.class
+org\example\DTO\CreateRoomDTO.class
 org\example\repository\hotel\HotelRepositoryImpl.class
+org\example\model\room\Room$RoomBuilder.class
 org\example\exceptions\AmenityNameAlreadyExistsException.class
 org\example\model\reservation\ReservationType.class
 org\example\model\reservation\ReservationAmenity.class
@@ -79,6 +88,7 @@ org\example\controller\RemoveReceptionistController.class
 org\example\MainApp.class
 org\example\command\SwitchSceneCommand.class
 org\example\factory\ServiceFactory.class
+org\example\repository\room\RoomRepositoryImpl.class
 org\example\exceptions\InvalidRoleException.class
 org\example\model\notification\Notification$NotificationBuilder.class
 org\example\model\reservation\ReservationRoom.class

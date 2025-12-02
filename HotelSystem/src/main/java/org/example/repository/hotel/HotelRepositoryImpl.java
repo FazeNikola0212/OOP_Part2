@@ -117,4 +117,18 @@ public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> impl
             em.close();
         }
     }
+
+    @Override
+    public Hotel findByHotelName(String hotelName) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT h FROM Hotel h WHERE h.name = :name", Hotel.class)
+                    .setParameter("name", hotelName)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 }

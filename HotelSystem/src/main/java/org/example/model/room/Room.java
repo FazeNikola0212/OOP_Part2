@@ -1,10 +1,16 @@
 package org.example.model.room;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.example.model.hotel.Hotel;
 
 import java.math.BigDecimal;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "rooms")
 public class Room {
@@ -33,5 +39,5 @@ public class Room {
     private Hotel hotel;
 
     @Column(nullable = false)
-    private int rating;
+    private double rating;
 }

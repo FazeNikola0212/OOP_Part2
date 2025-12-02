@@ -25,6 +25,14 @@ public class HotelService {
         return hotelRepository.findAllByOwner(owner);
     }
 
+    public Hotel getHotelByName(String hotelName) {
+        if (hotelRepository.findByHotelName(hotelName) == null) {
+            log.error("Hotel with this name does not exist");
+            throw new ExistingHotelException("Hotel with name " + hotelName + " does not exist");
+        }
+        return hotelRepository.findByHotelName(hotelName);
+    }
+
     @Transactional
     public Hotel createHotel(CreateHotelRequest request) {
         if (hotelRepository.existsByName(request.getName())) {
@@ -53,12 +61,14 @@ public class HotelService {
     public void addReceptionist(Long hotelId, User receptionist) {
         validatingHotelReceptionist(hotelId, receptionist);
         hotelRepository.addReceptionist(hotelId, receptionist);
+        log.info("Successfully added receptionist with name: " + receptionist.getFullName());
     }
 
     @Transactional
     public void removeReceptionist(Long hotelId, User receptionist) {
         validatingHotelReceptionist(hotelId, receptionist);
         hotelRepository.removeReceptionist(hotelId, receptionist);
+        log.info("Successfully removed receptionist with name: " + receptionist.getFullName());
     }
 
 

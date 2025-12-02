@@ -79,7 +79,6 @@ public class ListHotelsController extends NavigationController {
                 }
             }
         });
-
         loadHotels();
         styleColumns(this.hotelTable);
     }
@@ -96,7 +95,6 @@ public class ListHotelsController extends NavigationController {
 
     private void loadHotels() {
         List<Hotel> allHotels = hotelService.getAllHotels(Session.getSession().getLoggedUser());
-        System.out.println("Total number of hotels: " + allHotels.size());
         hotelTable.setItems(FXCollections.observableArrayList(allHotels));
     }
 

@@ -3,7 +3,8 @@ package org.example.repository.user;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.model.hotel.Hotel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.baserepository.GenericRepositoryImpl;
@@ -13,6 +14,7 @@ import java.util.List;
 public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implements UserRepository {
     private static final EntityManagerFactory emf = Persistence
             .createEntityManagerFactory("myPU");
+    private static final Logger log = LogManager.getLogger(UserRepositoryImpl.class);
 
     public UserRepositoryImpl() {
         super(User.class);

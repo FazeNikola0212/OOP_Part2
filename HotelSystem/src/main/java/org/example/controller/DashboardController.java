@@ -26,7 +26,6 @@ public class DashboardController extends NavigationController implements RoleCon
 
     private Command createUserCommand;
     private Command createHotelCommand;
-    private Command createClientCommand;
     private Command createAmenityCommand;
     private Command redirectHotelOpsCommand;
     private Command selectOwnedHotelsCommand;
@@ -40,8 +39,6 @@ public class DashboardController extends NavigationController implements RoleCon
     @FXML
     private Button btnCreateHotel;
 
-    @FXML
-    private Button btnCreateClient;
 
     @FXML
     private Button btnCreateAmenity;
@@ -59,7 +56,6 @@ public class DashboardController extends NavigationController implements RoleCon
             Stage stage = (Stage) welcomeLabel.getScene().getWindow();
             createUserCommand = new SwitchSceneCommand(stage, "/views/creating-user.fxml");
             createHotelCommand = new SwitchSceneCommand(stage, "/views/creating-hotel.fxml");
-            createClientCommand = new SwitchSceneCommand(stage, "/views/creating-client.fxml");
             createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
             redirectHotelOpsCommand = new SwitchSceneCommand(stage, "/views/hotel-operations.fxml");
             selectOwnedHotelsCommand = new SwitchSceneCommand(stage, "/views/owned-hotels.fxml");
@@ -72,8 +68,8 @@ public class DashboardController extends NavigationController implements RoleCon
             Role userRole = Session.getSession().getLoggedUser().getRole();
 
             RoleStrategy strategy = RoleStrategyFactory.getStrategy(userRole);
-
             strategy.applyPermissions(this);
+
         });
     }
 
@@ -85,11 +81,6 @@ public class DashboardController extends NavigationController implements RoleCon
     @FXML
     private void createHotel() throws Exception {
         createHotelCommand.execute();
-    }
-
-    @FXML
-    private void createClient() throws Exception {
-        createClientCommand.execute();
     }
 
     @FXML

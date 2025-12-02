@@ -23,16 +23,10 @@ public class MainApp extends Application {
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
-
-
-            logger.log(Level.INFO, "User table created");
-            logger.log(Level.INFO, "Hotel table created");
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     public static void main(String[] args) {
         launch(args);
     }

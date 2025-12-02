@@ -17,11 +17,10 @@
             </Label>
             <Button fx:id="btnCreateHotel" layoutX="577.0" layoutY="186.0" mnemonicParsing="false" onAction="#createHotel" prefHeight="49.0" prefWidth="126.0" text="Create Hotel" />
             <Button fx:id="btnCreateUser" layoutX="958.0" layoutY="186.0" mnemonicParsing="false" onAction="#createUser" prefHeight="49.0" prefWidth="126.0" text="Create User" />
-            <Button fx:id="btnCreateClient" layoutX="194.0" layoutY="186.0" mnemonicParsing="false" onAction="#createClient" prefHeight="49.0" prefWidth="126.0" text="Create Client" />
             <Button layoutX="194.0" layoutY="582.0" mnemonicParsing="false" onAction="#logout" prefHeight="49.0" prefWidth="126.0" text="Log out" />
             <Button fx:id="btnCreateAmenity" layoutX="958.0" layoutY="582.0" mnemonicParsing="false" onAction="#createAmenity" prefHeight="49.0" prefWidth="126.0" text="Create Service" />
             <Button fx:id="btnHotelOps" layoutX="958.0" layoutY="310.0" mnemonicParsing="false" onAction="#hotelOperations" prefHeight="49.0" prefWidth="126.0" text="Hotel Operations" />
-            <Button fx:id="selectHotelBtn" layoutX="194.0" layoutY="310.0" mnemonicParsing="false" onAction="#selectHotel" prefHeight="49.0" prefWidth="126.0" text="Select Hotel" />
+            <Button fx:id="selectHotelBtn" layoutX="194.0" layoutY="186.0" mnemonicParsing="false" onAction="#selectHotel" prefHeight="49.0" prefWidth="126.0" text="Select Hotel" />
          </children>
     </AnchorPane>
   </children>

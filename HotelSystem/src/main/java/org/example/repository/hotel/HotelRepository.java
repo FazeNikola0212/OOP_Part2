@@ -14,5 +14,6 @@ public interface HotelRepository extends CrudRepository<Hotel, Long> {
     void addReceptionist(Long hotelId, User receptionist);
     void removeReceptionist(Long hotelId, User receptionist);
     List<Hotel> findAllByOwner(User owner);
+    Hotel findByHotelName(String hotelName);
 
 }

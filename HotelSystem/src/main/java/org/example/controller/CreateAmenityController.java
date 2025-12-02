@@ -10,6 +10,7 @@ import lombok.Getter;
 import org.example.factory.ServiceFactory;
 import org.example.model.amenity.SeasonAmenity;
 import org.example.service.amenity.AmenityService;
+import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import javafx.scene.control.Button;
 import org.example.util.AlertMessage;
@@ -36,7 +37,10 @@ public class CreateAmenityController extends NavigationController implements Rol
 
     @FXML
     private void createAmenity(ActionEvent event) {
-        amenityService.createAmenity(nameField.getText(), descriptionArea.getText(), seasonChoiceBox.getValue());
+        amenityService.createAmenity(nameField.getText(),
+                descriptionArea.getText(),
+                seasonChoiceBox.getValue());
+
         AlertMessage.showMessage("Amenity Creation", "Amenity with " +  nameField.getText() + " was successfully created.");
     }
 

@@ -12,9 +12,9 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button layoutX="117.0" onAction="#goBack" layoutY="47.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Back" AnchorPane.leftAnchor="100.0" />
-      <Button layoutX="1135.0" onAction="#logout" layoutY="47.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Logout" AnchorPane.rightAnchor="100.0" />
-      <Label fx:id="currentHotelLabel" alignment="CENTER" layoutX="568.0" layoutY="105.0" prefHeight="27.0" prefWidth="343.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+      <Button layoutX="117.0" layoutY="47.0" mnemonicParsing="false" onAction="#goBack" prefHeight="34.0" prefWidth="72.0" text="Back" AnchorPane.leftAnchor="100.0" />
+      <Button layoutX="1135.0" layoutY="47.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="72.0" text="Logout" AnchorPane.rightAnchor="100.0" />
+      <Label fx:id="currentHotelLabel" alignment="CENTER" layoutX="568.0" layoutY="105.0" prefHeight="27.0" prefWidth="343.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -24,5 +24,6 @@
       <Button fx:id="managerOpsBtn" layoutX="309.0" layoutY="320.0" mnemonicParsing="false" onAction="#showManager" prefHeight="40.0" prefWidth="143.0" text="Manager Operations" />
       <Button fx:id="showAmenitiesBtn" layoutX="573.0" layoutY="181.0" mnemonicParsing="false" onAction="#showAmenities" prefHeight="40.0" prefWidth="143.0" text="Show Hotel services" />
       <Button fx:id="listRoomInfoBtn" layoutX="574.0" layoutY="248.0" mnemonicParsing="false" onAction="#listRoomInfo" prefHeight="40.0" prefWidth="143.0" text="List Room information" />
+      <Button fx:id="createRoomBtn" layoutX="574.0" layoutY="320.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="40.0" prefWidth="143.0" text="Create Room" />
    </children>
 </AnchorPane>

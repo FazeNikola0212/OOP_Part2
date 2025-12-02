@@ -24,8 +24,6 @@ public class AddReceptionistController extends NavigationController {
     @FXML
     private ListView<String> receptionistList;
 
-
-
     @FXML
     public void initialize() {
         hotelName.setText("Hotel " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
