@@ -1,31 +1,22 @@
 package org.example.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
-import org.example.command.BackCommand;
-import org.example.command.LogoutCommand;
+import org.example.factory.ServiceFactory;
 import org.example.model.user.User;
-import org.example.repository.hotel.HotelRepositoryImpl;
-import org.example.repository.user.UserRepository;
-import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.hotel.HotelService;
 import org.example.service.user.UserService;
-import javafx.scene.control.Button;
 import org.example.session.Session;
 import org.example.util.AlertMessage;
-import org.example.util.SceneSwitcher;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
-public class AddReceptionistController {
+public class AddReceptionistController extends NavigationController {
 
-    private final UserRepository userRepository = new UserRepositoryImpl();
-    private final UserService userService = new UserService(userRepository);
-    private final HotelService hotelService = new HotelService(new HotelRepositoryImpl());
+    private final HotelService hotelService = ServiceFactory.getHotelService();
+    private final UserService userService = ServiceFactory.getUserService();
 
     @FXML
     private Label hotelName;
@@ -34,18 +25,12 @@ public class AddReceptionistController {
     private ListView<String> receptionistList;
 
     @FXML
-    private Button backBtn;
-
-    @FXML
-    private Button logoutBtn;
-
-    @FXML
     public void initialize() {
         hotelName.setText("Hotel " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
         receptionistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         receptionistList.getItems().addAll(
-                userRepository.findAllReceptionists()
+                userService.getAllNotAssignedReceptionists()
                         .stream()
                         .map(User::getUsername)
                         .toList());
@@ -57,21 +42,13 @@ public class AddReceptionistController {
         String receptionistName = receptionistList.
                 getSelectionModel().
                 getSelectedItem();
-        User receptionist = userRepository.findByUsername(receptionistName);
+        User receptionist = userService.getUserByUsername(receptionistName);
         hotelService.addReceptionist(hotelId, receptionist);
         AlertMessage.showMessage("Adding Receptionist", "Successfully added Receptionist");
     }
 
-    @FXML
-    private void goBack(ActionEvent event) {
-        Stage  stage = (Stage) backBtn.getScene().getWindow();
-        new BackCommand(stage).execute();
+    @Override
+    protected Stage getCurrentStage() {
+        return (Stage) hotelName.getScene().getWindow();
     }
-
-    @FXML
-    private void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutBtn.getScene().getWindow();
-        new LogoutCommand(stage).execute();
-    }
-
 }

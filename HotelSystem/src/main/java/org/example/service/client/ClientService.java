@@ -51,7 +51,7 @@ public class ClientService {
                 .rating(0)
                 .updatedAt(LocalDateTime.now())
                 .createdAt(LocalDateTime.now())
-                .hotel(hotelRepository.findByReceptionist(Session.getSession().getLoggedUser()))
+                .hotel(Session.getSession().getLoggedUser().getAssignedHotel())
                 .build();
 
         clientRepository.save(client);

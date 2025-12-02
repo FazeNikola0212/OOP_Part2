@@ -13,10 +13,17 @@ public class ReceptionistStrategy implements RoleStrategy {
             d.getBtnCreateUser().setStyle("-fx-background-color: #f0f0f0;");
             d.getBtnCreateAmenity().setDisable(true);
             d.getBtnCreateAmenity().setStyle("-fx-background-color: #f0f0f0;");
+            d.getSelectHotelBtn().setDisable(true);
+            d.getSelectHotelBtn().setStyle("-fx-background-color: #f0f0f0;");
         }
         if (controller instanceof HotelOperationsController h) {
-            h.getAddReceptionistButton().setDisable(true);
-            h.getAddReceptionistButton().setStyle("-fx-background-color: #f0f0f0;");
+            h.getAddReceptionistBtn().setDisable(true);
+            h.getAddReceptionistBtn().setStyle("-fx-background-color: #f0f0f0;");
+            h.getRemoveReceptionistBtn().setDisable(true);
+            h.getRemoveReceptionistBtn().setStyle("-fx-background-color: #f0f0f0;");
+            h.getCreateRoomBtn().setDisable(true);
+            h.getCreateRoomBtn().setStyle("-fx-background-color: #f0f0f0;");
         }
+
     }
 }

@@ -7,22 +7,19 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Getter;
-import org.example.command.BackCommand;
-import org.example.command.LogoutCommand;
+import org.example.factory.ServiceFactory;
 import org.example.model.amenity.SeasonAmenity;
-import org.example.repository.amenity.AmenityRepositoryImpl;
 import org.example.service.amenity.AmenityService;
+import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import javafx.scene.control.Button;
 import org.example.util.AlertMessage;
-import org.example.util.SceneSwitcher;
 
-import java.io.IOException;
 
 @Getter
-public class CreateAmenityController implements RoleConfigurable {
+public class CreateAmenityController extends NavigationController implements RoleConfigurable {
 
-    private final AmenityService amenityService = new AmenityService(new AmenityRepositoryImpl());
+    private final AmenityService amenityService = ServiceFactory.getAmenityService();
 
     @FXML
     private TextField nameField;
@@ -32,10 +29,6 @@ public class CreateAmenityController implements RoleConfigurable {
     private TextArea descriptionArea;
     @FXML
     private Button createBtn;
-    @FXML
-    private Button backBtn;
-    @FXML
-    private Button logoutBtn;
 
     @FXML
     public void initialize() {
@@ -44,19 +37,15 @@ public class CreateAmenityController implements RoleConfigurable {
 
     @FXML
     private void createAmenity(ActionEvent event) {
-        amenityService.createAmenity(nameField.getText(), descriptionArea.getText(), seasonChoiceBox.getValue());
+        amenityService.createAmenity(nameField.getText(),
+                descriptionArea.getText(),
+                seasonChoiceBox.getValue());
+
         AlertMessage.showMessage("Amenity Creation", "Amenity with " +  nameField.getText() + " was successfully created.");
     }
 
-    @FXML
-    private void goBack(ActionEvent event) {
-        Stage  stage = (Stage) backBtn.getScene().getWindow();
-        new BackCommand(stage).execute();
-    }
-
-    @FXML
-    private void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutBtn.getScene().getWindow();
-        new LogoutCommand(stage).execute();
+    @Override
+    protected Stage getCurrentStage() {
+        return (Stage)  nameField.getScene().getWindow();
     }
 }

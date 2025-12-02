@@ -2,13 +2,10 @@ package org.example.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.example.DTO.CreateHotelRequest;
-import org.example.command.BackCommand;
-import org.example.command.LogoutCommand;
+import org.example.factory.ServiceFactory;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepositoryImpl;
 import org.example.repository.user.UserRepositoryImpl;
@@ -22,10 +19,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CreateHotelController {
+public class CreateHotelController extends NavigationController {
 
-    private final UserService userService = new UserService(new UserRepositoryImpl());
-    private final HotelService hotelService = new HotelService(new HotelRepositoryImpl());
+    private final UserService userService = ServiceFactory.getUserService();
+    private final HotelService hotelService = ServiceFactory.getHotelService();
 
     @FXML
     private TextField hotelNameField;
@@ -38,15 +35,6 @@ public class CreateHotelController {
 
     @FXML
     private ChoiceBox<String> managerChoiceBox;
-
-    @FXML
-    private Button backBtn;
-
-    @FXML
-    private Button logoutBtn;
-
-    @FXML
-    private Button createBtn;
 
     @FXML
     public void initialize() {
@@ -68,18 +56,11 @@ public class CreateHotelController {
 
         hotelService.createHotel(createHotelRequest);
         AlertMessage.showMessage("Hotel Creation", "Hotel with name " + createHotelRequest.getName() + " was successfully created.");
-        SceneSwitcher.goBack((Stage) backBtn.getScene().getWindow());
+        SceneSwitcher.goBack((Stage) hotelNameField.getScene().getWindow());
     }
 
-    @FXML
-    private void goBack(ActionEvent event) {
-        Stage  stage = (Stage) backBtn.getScene().getWindow();
-        new BackCommand(stage).execute();
-    }
-
-    @FXML
-    private void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutBtn.getScene().getWindow();
-        new LogoutCommand(stage).execute();
+    @Override
+    protected Stage getCurrentStage() {
+        return (Stage) hotelNameField.getScene().getWindow();
     }
 }

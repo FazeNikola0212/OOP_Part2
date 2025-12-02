@@ -11,14 +11,12 @@
 <?import javafx.scene.control.PasswordField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CreateUserController">
 
-    <!-- Header -->
-    <Label alignment="CENTER" layoutX="61.0" layoutY="25.0" prefHeight="64.0" prefWidth="992.0" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;" text="User Creating" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="9.400000000000091">
+    <Label fx:id="headingLabel" alignment="CENTER" layoutX="61.0" layoutY="25.0" prefHeight="64.0" prefWidth="992.0" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;" text="User Creating" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="9.400000000000091">
         <font>
             <Font name="Times New Roman" size="31.0" />
         </font>
     </Label>
 
-    <!-- Form Labels & Fields -->
     <Label alignment="CENTER" layoutX="565.0" layoutY="137.0" prefHeight="18.0" prefWidth="200.0" style="-fx-text-fill: #34495e;" text="Username" />
     <TextField fx:id="usernameField" layoutX="566.0" layoutY="156.0" prefWidth="200.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #95a5a6; -fx-border-radius: 5; -fx-background-radius: 5;" AnchorPane.leftAnchor="566.0" AnchorPane.rightAnchor="513.6">
       <cursor>

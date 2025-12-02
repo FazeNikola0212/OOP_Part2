@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString(exclude = {"clients", "amenities", "owner", "manager"})
 @Table(name = "hotels")
 public class Hotel {
     @Id
@@ -32,13 +33,9 @@ public class Hotel {
     @JoinColumn(name = "owner_id",  nullable = false)
     private User owner;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manager_id", nullable = false, unique = true)
     private User manager;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "receptionists")
-    private List<User> receptionists = new ArrayList<>();
 
     @OneToMany(mappedBy = "hotel")
     private List<Client> clients  = new ArrayList<>();
@@ -47,4 +44,6 @@ public class Hotel {
     @JoinTable(name = "hotel_amenities", joinColumns = @JoinColumn(name ="hotel_id"),
                             inverseJoinColumns = @JoinColumn(name = "amenity_id"))
     private List<Amenity> amenities = new ArrayList<>();
+
+
 }

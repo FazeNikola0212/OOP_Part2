@@ -14,5 +14,9 @@ public class AdminStrategy implements RoleStrategy {
             c.getRoleChoiceBox().getItems().add(Role.MANAGER);
             c.getRoleChoiceBox().getItems().add(Role.RECEPTIONIST);
         }
+        if (controller instanceof DashboardController d) {
+            d.getBtnHotelOps().setDisable(true);
+            d.getBtnHotelOps().setStyle("-fx-background-color: #f0f0f0;");
+        }
     }
 }

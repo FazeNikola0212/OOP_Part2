@@ -19,13 +19,13 @@
          </font>
       </Label>
       <ListView fx:id="receptionistList" layoutX="540.0" layoutY="198.0" prefHeight="328.0" prefWidth="200.0" />
-      <Button fx:id="backBtn" layoutX="149.0" layoutY="51.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="75.0" text="Back" AnchorPane.leftAnchor="149.0" />
-      <Label layoutX="579.0" layoutY="172.0" text="Receptionists List">
+      <Button layoutX="149.0" layoutY="51.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="75.0" text="Back" AnchorPane.leftAnchor="149.0" />
+      <Label layoutX="579.0" layoutY="172.0" alignment="CENTER" text="Available Receptionists List" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <Button onAction="#addReceptionist" layoutX="587.0" layoutY="542.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Add Receptionist" />
-      <Button fx:id="logoutBtn" layoutX="1070.0" layoutY="51.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="75.0" text="Logout" AnchorPane.rightAnchor="149.0" />
+      <Button layoutX="1070.0" layoutY="51.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="75.0" text="Logout" AnchorPane.rightAnchor="149.0" />
    </children>
 </AnchorPane>

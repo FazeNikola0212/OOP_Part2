@@ -1,39 +1,34 @@
 package org.example.controller;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import lombok.Getter;
-import org.example.command.BackCommand;
-import org.example.command.LogoutCommand;
+import org.example.factory.ServiceFactory;
 import org.example.model.user.Role;
-import org.example.repository.user.UserRepositoryImpl;
 import org.example.service.user.UserService;
 import org.example.session.Session;
 import org.example.command.Command;
 import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
 import org.example.strategy.RoleStrategyFactory;
-import org.example.util.SceneSwitcher;
 import javafx.scene.control.Label;
 
 import javafx.scene.control.Button;
 import org.example.command.SwitchSceneCommand;
 
-import java.io.IOException;
 
 @Getter
-public class DashboardController implements RoleConfigurable {
-    private UserService userService = new UserService(new UserRepositoryImpl());
+public class DashboardController extends NavigationController implements RoleConfigurable {
+    private final UserService userService = ServiceFactory.getUserService();
 
     private Command createUserCommand;
     private Command createHotelCommand;
-    private Command createClientCommand;
     private Command createAmenityCommand;
-    private Command redirectHotelOps;
+    private Command redirectHotelOpsCommand;
+    private Command selectOwnedHotelsCommand;
 
     @FXML
     private Label welcomeLabel;
@@ -44,8 +39,6 @@ public class DashboardController implements RoleConfigurable {
     @FXML
     private Button btnCreateHotel;
 
-    @FXML
-    private Button btnCreateClient;
 
     @FXML
     private Button btnCreateAmenity;
@@ -54,7 +47,8 @@ public class DashboardController implements RoleConfigurable {
     private Button btnHotelOps;
 
     @FXML
-    private Button logoutBtn;
+    private Button selectHotelBtn;
+
 
     @FXML
     public void initialize() {
@@ -62,9 +56,9 @@ public class DashboardController implements RoleConfigurable {
             Stage stage = (Stage) welcomeLabel.getScene().getWindow();
             createUserCommand = new SwitchSceneCommand(stage, "/views/creating-user.fxml");
             createHotelCommand = new SwitchSceneCommand(stage, "/views/creating-hotel.fxml");
-            createClientCommand = new SwitchSceneCommand(stage, "/views/creating-client.fxml");
             createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
-            redirectHotelOps = new SwitchSceneCommand(stage, "/views/hotel-operations.fxml");
+            redirectHotelOpsCommand = new SwitchSceneCommand(stage, "/views/hotel-operations.fxml");
+            selectOwnedHotelsCommand = new SwitchSceneCommand(stage, "/views/owned-hotels.fxml");
 
 
             welcomeLabel.setText("Welcome " + Session.getSession().getLoggedUser().getUsername()
@@ -74,8 +68,8 @@ public class DashboardController implements RoleConfigurable {
             Role userRole = Session.getSession().getLoggedUser().getRole();
 
             RoleStrategy strategy = RoleStrategyFactory.getStrategy(userRole);
-
             strategy.applyPermissions(this);
+
         });
     }
 
@@ -90,24 +84,22 @@ public class DashboardController implements RoleConfigurable {
     }
 
     @FXML
-    private void createClient() throws Exception {
-        createClientCommand.execute();
-    }
-
-    @FXML
     private void createAmenity() throws Exception {
         createAmenityCommand.execute();
     }
 
     @FXML
     private void hotelOperations() throws Exception {
-        redirectHotelOps.execute();
+        redirectHotelOpsCommand.execute();
     }
 
     @FXML
-    private void logout(ActionEvent event) {
-        Stage stage = (Stage) logoutBtn.getScene().getWindow();
-        new LogoutCommand(stage).execute();
+    private void selectHotel() throws Exception {
+        selectOwnedHotelsCommand.execute();
+    }
+
+    protected Stage getCurrentStage() {
+        return (Stage) welcomeLabel.getScene().getWindow();
     }
 
 }
