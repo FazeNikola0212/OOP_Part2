@@ -23,6 +23,7 @@ public class HotelOperationsController extends NavigationController implements R
     private Command addReceptionistCommand;
     private Command removeReceptionistCommand;
     private Command createClientCommand;
+    private Command listAmenitiesCommand;
     private Command createAmenityCommand;
 
     @FXML
@@ -35,6 +36,15 @@ public class HotelOperationsController extends NavigationController implements R
     private Button createRoomBtn;
 
     @FXML
+    private Button createClientBtn;
+
+    @FXML
+    private Button listAmenitiesBtn;
+
+    @FXML
+    private Button createAmenityBtn;
+
+    @FXML
     private Label hotelLabel;
 
     @FXML
@@ -43,6 +53,8 @@ public class HotelOperationsController extends NavigationController implements R
             RoleStrategy strategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
             strategy.applyPermissions(this);
 
+            System.out.println(Session.getSession().getLoggedUser().getAssignedHotel().getId());
+
             hotelLabel.setText("Hotel " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
             Stage stage =  (Stage) hotelLabel.getScene().getWindow();
 
@@ -50,7 +62,8 @@ public class HotelOperationsController extends NavigationController implements R
             removeReceptionistCommand = new SwitchSceneCommand(stage, "/views/remove-receptionist.fxml");
             createRoomCommand = new SwitchSceneCommand(stage, "/views/creating-room.fxml");
             createClientCommand = new SwitchSceneCommand(stage, "/views/creating-client.fxml");
-            createAmenityCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
+            listAmenitiesCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
+            createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
 
         });
     }
@@ -77,6 +90,11 @@ public class HotelOperationsController extends NavigationController implements R
 
     @FXML
     private void listAmenity() throws Exception {
+        listAmenitiesCommand.execute();
+    }
+
+    @FXML
+    private void createAmenity() throws Exception {
         createAmenityCommand.execute();
     }
 

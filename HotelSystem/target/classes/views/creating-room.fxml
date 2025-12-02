@@ -46,7 +46,7 @@
       <ChoiceBox fx:id="statusChoiceBox" layoutX="558.0" layoutY="484.0" prefWidth="150.0" />
       <Button layoutX="126.0" layoutY="41.0" mnemonicParsing="false" onAction="#goBack" prefHeight="34.0" prefWidth="64.0" text="Back" AnchorPane.leftAnchor="100.0" />
       <Button layoutX="1113.0" layoutY="41.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="64.0" text="Logout" AnchorPane.rightAnchor="100.0" />
-      <Button fx:id="createRoomBtn" layoutX="587.0" layoutY="548.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="34.0" prefWidth="90.0" text="Create Hotel" />
+      <Button fx:id="createRoomBtn" layoutX="587.0" layoutY="548.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="34.0" prefWidth="90.0" text="Create Room" />
       <Label fx:id="currentHotelLabel" layoutX="575.0" layoutY="106.0" prefHeight="27.0" prefWidth="114.0" AnchorPane.rightAnchor="0.0" AnchorPane.leftAnchor="0.0" alignment="CENTER">
          <font>
             <Font size="18.0" />

@@ -4,10 +4,7 @@ import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.DTO.RegisterUserRequest;
-import org.example.exceptions.ExistingHotelException;
-import org.example.exceptions.InvalidEmailException;
-import org.example.exceptions.InvalidUserNameException;
-import org.example.exceptions.PasswordRequiredException;
+import org.example.exceptions.*;
 import org.example.model.hotel.Hotel;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
@@ -59,6 +56,10 @@ public class UserService {
             log.error("Incorrect username or password");
             throw new InvalidUserNameException(username);
         }
+        if (userRepository.isActive(userRepository.findByUsername(username))) {
+            log.error("The account is inactive");
+            throw new InactiveProfileException(username);
+        }
         if (BCrypt.checkpw(password, userRepository.findByUsername(username).getPassword())) {
             log.info("Successfully logged in USER : " + username);
             return userRepository.findByUsername(username);
@@ -81,7 +82,7 @@ public class UserService {
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
                 .fullName(request.getFullName())
-                .isActive(true)
+                .isActive(false)
                 .createdBy(Session.getSession().getLoggedUser())
                 .build();
         userRepository.save(user);

@@ -31,7 +31,19 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
         return result.isEmpty() ? null : result.get(0);
     }
 
-
+    @Override
+    public boolean isActive(User user) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT u FROM User u WHERE u.username = :username " +
+                            "AND u.isActive = :active", User.class)
+                    .setParameter("active", true)
+                    .setParameter("username", user.getUsername())
+                    .getResultList().isEmpty();
+        } finally {
+            em.close();
+        }
+    }
 
     @Override
     public List<User> findAllManagers() {

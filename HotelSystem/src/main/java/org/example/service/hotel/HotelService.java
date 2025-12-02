@@ -10,15 +10,19 @@ import org.example.model.hotel.Hotel;
 import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
+import org.example.repository.user.UserRepository;
 
 import java.util.List;
+
 
 public class HotelService {
     private static final Logger log = LogManager.getLogger(HotelService.class);
     private final HotelRepository hotelRepository;
+    private final UserRepository userRepository;
 
-    public HotelService(HotelRepository hotelRepository) {
+    public HotelService(HotelRepository hotelRepository, UserRepository userRepository) {
         this.hotelRepository = hotelRepository;
+        this.userRepository = userRepository;
     }
 
     public List<Hotel> getAllHotels(User owner) {
@@ -52,7 +56,15 @@ public class HotelService {
                 .owner(request.getOwner())
                 .build();
 
+        User manager = request.getManager();
+        manager.setActive(true);
         hotelRepository.save(hotel);
+
+        manager.setAssignedHotel(hotel);
+        userRepository.update(manager);
+
+
+
         log.info("Hotel with name {} has been created", hotel.getName());
         return hotel;
     }
@@ -60,6 +72,8 @@ public class HotelService {
     @Transactional
     public void addReceptionist(Long hotelId, User receptionist) {
         validatingHotelReceptionist(hotelId, receptionist);
+        receptionist.setActive(true);
+        userRepository.update(receptionist);
         hotelRepository.addReceptionist(hotelId, receptionist);
         log.info("Successfully added receptionist with name: " + receptionist.getFullName());
     }
@@ -67,6 +81,8 @@ public class HotelService {
     @Transactional
     public void removeReceptionist(Long hotelId, User receptionist) {
         validatingHotelReceptionist(hotelId, receptionist);
+        receptionist.setActive(false);
+        userRepository.update(receptionist);
         hotelRepository.removeReceptionist(hotelId, receptionist);
         log.info("Successfully removed receptionist with name: " + receptionist.getFullName());
     }

@@ -7,4 +7,5 @@ public interface CrudRepository<T, ID> {
     T findById(ID id);
     List<T> findAll();
     void deleteById(ID id);
+    void update(T entity);
 }

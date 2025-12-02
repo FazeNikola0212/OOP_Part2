@@ -40,6 +40,7 @@ org\example\model\user\Role.class
 org\example\service\amenity\AmenityService.class
 org\example\command\LogoutCommand.class
 org\example\controller\CreateHotelController.class
+org\example\DTO\EditAmenityDTO.class
 org\example\service\client\ClientService.class
 org\example\command\BackCommand.class
 org\example\model\amenity\SeasonAmenity.class
@@ -48,6 +49,7 @@ org\example\util\AlertMessage.class
 org\example\exceptions\InvalidUserNameException.class
 org\example\repository\amenity\AmenityRepository.class
 org\example\model\amenity\Amenity$AmenityBuilder.class
+org\example\DTO\EditAmenityDTO$EditAmenityDTOBuilder.class
 org\example\model\reservation\ReservationRoom$ReservationRoomBuilder.class
 org\example\DTO\RegisterUserRequest.class
 org\example\controller\CreateUserController.class
@@ -72,11 +74,13 @@ org\example\model\hotel\Hotel$HotelBuilder.class
 org\example\repository\client\ClientRepository.class
 org\example\factory\RepositoryFactory.class
 org\example\controller\CreateAmenityController.class
+org\example\controller\EditAmenityController.class
 org\example\service\user\UserService.class
 org\example\controller\OwnerPanelController.class
 org\example\model\hotel\Hotel.class
 org\example\repository\user\UserRepositoryImpl.class
 org\example\DTO\CreateRoomDTO.class
+org\example\exceptions\InactiveProfileException.class
 org\example\repository\hotel\HotelRepositoryImpl.class
 org\example\model\room\Room$RoomBuilder.class
 org\example\exceptions\AmenityNameAlreadyExistsException.class

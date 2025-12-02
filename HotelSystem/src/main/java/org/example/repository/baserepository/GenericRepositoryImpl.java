@@ -39,6 +39,23 @@ public abstract class GenericRepositoryImpl<T, ID> implements CrudRepository<T, 
     }
 
     @Override
+    public void update(T entity) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try {
+            tx.begin();
+            em.merge(entity);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
     public T findById(ID id) {
         EntityManager em = emf.createEntityManager();
         T result =  em.find(entityClass, id);

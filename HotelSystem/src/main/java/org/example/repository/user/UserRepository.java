@@ -11,4 +11,5 @@ public interface UserRepository extends CrudRepository<User,Long> {
     List<User> findAllManagers();
     List<User> findReceptionistByHotelId(Long hotelId);
     List<User> findAllNotAssignedReceptionists();
+    boolean isActive(User user);
 }

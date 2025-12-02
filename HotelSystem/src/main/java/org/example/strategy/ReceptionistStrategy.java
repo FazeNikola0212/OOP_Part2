@@ -1,6 +1,7 @@
 package org.example.strategy;
 
 import org.example.controller.*;
+import org.example.session.Session;
 
 public class ReceptionistStrategy implements RoleStrategy {
 
@@ -17,13 +18,24 @@ public class ReceptionistStrategy implements RoleStrategy {
             d.getSelectHotelBtn().setStyle("-fx-background-color: #f0f0f0;");
         }
         if (controller instanceof HotelOperationsController h) {
+
             h.getAddReceptionistBtn().setDisable(true);
             h.getAddReceptionistBtn().setStyle("-fx-background-color: #f0f0f0;");
             h.getRemoveReceptionistBtn().setDisable(true);
             h.getRemoveReceptionistBtn().setStyle("-fx-background-color: #f0f0f0;");
             h.getCreateRoomBtn().setDisable(true);
             h.getCreateRoomBtn().setStyle("-fx-background-color: #f0f0f0;");
+            h.getCreateAmenityBtn().setDisable(true);
+            h.getCreateAmenityBtn().setStyle("-fx-background-color: #f0f0f0;");
         }
+        if (controller instanceof AmenitiesListController al) {
+            al.setHotel(Session.getSession().getLoggedUser().getAssignedHotel());
+            al.getEditColumn().setVisible(false);
+        }
+        if (controller instanceof CreateAmenityController am) {
+            am.setCurrentHotel(Session.getSession().getLoggedUser().getAssignedHotel());
+        }
+
 
     }
 }

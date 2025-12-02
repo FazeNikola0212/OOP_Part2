@@ -131,4 +131,16 @@ public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> impl
             em.close();
         }
     }
+
+    @Override
+    public Hotel fetchByHotelId(Long hotelId) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT h FROM Hotel h LEFT JOIN FETCH h.amenities WHERE h.id = :hotelId", Hotel.class)
+                    .setParameter("hotelId", hotelId)
+                    .getSingleResult();
+        } finally {
+            em.close();
+        }
+    }
 }

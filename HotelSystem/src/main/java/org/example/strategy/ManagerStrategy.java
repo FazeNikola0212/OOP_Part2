@@ -1,10 +1,9 @@
 package org.example.strategy;
 
-import org.example.controller.CreateRoomController;
-import org.example.controller.CreateUserController;
-import org.example.controller.DashboardController;
+import org.example.controller.*;
 import org.example.model.user.Role;
 import org.example.session.Session;
+
 
 public class ManagerStrategy implements RoleStrategy {
     @Override
@@ -20,6 +19,12 @@ public class ManagerStrategy implements RoleStrategy {
         }
         if (controller instanceof CreateRoomController r) {
             r.getCurrentHotelLabel().setText(Session.getSession().getLoggedUser().getAssignedHotel().getName());
+        }
+        if (controller instanceof CreateAmenityController am) {
+            am.setCurrentHotel(Session.getSession().getLoggedUser().getAssignedHotel());
+        }
+        if (controller instanceof AmenitiesListController al) {
+            al.setHotel(Session.getSession().getLoggedUser().getAssignedHotel());
         }
 
     }

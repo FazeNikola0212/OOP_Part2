@@ -40,7 +40,7 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel")
     private List<Client> clients  = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "hotel_amenities", joinColumns = @JoinColumn(name ="hotel_id"),
                             inverseJoinColumns = @JoinColumn(name = "amenity_id"))
     private List<Amenity> amenities = new ArrayList<>();
