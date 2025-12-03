@@ -8,6 +8,7 @@ import org.example.factory.ServiceFactory;
 import org.example.model.user.User;
 import org.example.service.hotel.HotelService;
 import org.example.service.user.UserService;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 import org.example.util.AlertMessage;
 import javafx.stage.Stage;
@@ -26,7 +27,7 @@ public class AddReceptionistController extends NavigationController {
 
     @FXML
     public void initialize() {
-        hotelName.setText("Hotel " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
+        hotelName.setText("Hotel " + SelectedHotelHolder.getHotel().getName());
         receptionistList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         receptionistList.getItems().addAll(
@@ -38,7 +39,7 @@ public class AddReceptionistController extends NavigationController {
 
     @FXML
     private void addReceptionist() {
-        Long hotelId = Session.getSession().getLoggedUser().getAssignedHotel().getId();
+        Long hotelId = SelectedHotelHolder.getHotel().getId();
         String receptionistName = receptionistList.
                 getSelectionModel().
                 getSelectedItem();

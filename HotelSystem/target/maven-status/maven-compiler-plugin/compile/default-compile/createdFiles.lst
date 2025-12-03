@@ -18,6 +18,7 @@ org\example\controller\AmenitiesListController$1.class
 org\example\command\Command.class
 org\example\exceptions\PasswordRequiredException.class
 org\example\controller\AddReceptionistController.class
+org\example\controller\ManagerOperationsController.class
 org\example\exceptions\InvalidUserNameOrPassword.class
 org\example\model\user\User$UserBuilder.class
 org\example\DTO\CreateClientRequest.class
@@ -25,6 +26,7 @@ org\example\model\client\Client$ClientBuilder.class
 org\example\model\notification\Notification.class
 org\example\repository\baserepository\CrudRepository.class
 org\example\util\SceneSwitcher.class
+org\example\exceptions\NotFoundManagersException.class
 org\example\controller\ListHotelsController$1.class
 org\example\model\reservation\ReservationAmenity$ReservationAmenityBuilder.class
 org\example\exceptions\ExistingHotelException.class
@@ -51,6 +53,7 @@ org\example\repository\amenity\AmenityRepository.class
 org\example\model\amenity\Amenity$AmenityBuilder.class
 org\example\DTO\EditAmenityDTO$EditAmenityDTOBuilder.class
 org\example\model\reservation\ReservationRoom$ReservationRoomBuilder.class
+org\example\controller\ReceptionistListController.class
 org\example\DTO\RegisterUserRequest.class
 org\example\controller\CreateUserController.class
 org\example\model\reservation\Reservation.class
@@ -66,6 +69,7 @@ org\example\exceptions\PhoneNumberIsExistingException.class
 org\example\strategy\RoleConfigurable.class
 org\example\service\room\RoomService.class
 org\example\strategy\ReceptionistStrategy.class
+org\example\exceptions\NotAccessibleToRemoveOwnerException.class
 org\example\controller\DashboardController.class
 org\example\exceptions\InvalidEmailException.class
 org\example\controller\NavigationController.class
@@ -76,6 +80,7 @@ org\example\factory\RepositoryFactory.class
 org\example\controller\CreateAmenityController.class
 org\example\controller\EditAmenityController.class
 org\example\service\user\UserService.class
+org\example\controller\ReceptionistListController$3.class
 org\example\controller\OwnerPanelController.class
 org\example\model\hotel\Hotel.class
 org\example\repository\user\UserRepositoryImpl.class
@@ -86,11 +91,15 @@ org\example\model\room\Room$RoomBuilder.class
 org\example\exceptions\AmenityNameAlreadyExistsException.class
 org\example\model\reservation\ReservationType.class
 org\example\model\reservation\ReservationAmenity.class
+org\example\controller\ReceptionistListController$2.class
 org\example\session\Session.class
 org\example\strategy\AdminStrategy.class
 org\example\controller\RemoveReceptionistController.class
 org\example\MainApp.class
+org\example\controller\ManagerOperationsController$1.class
 org\example\command\SwitchSceneCommand.class
+org\example\controller\ManagerOperationsController$2.class
+org\example\controller\ReceptionistListController$1.class
 org\example\factory\ServiceFactory.class
 org\example\repository\room\RoomRepositoryImpl.class
 org\example\exceptions\InvalidRoleException.class

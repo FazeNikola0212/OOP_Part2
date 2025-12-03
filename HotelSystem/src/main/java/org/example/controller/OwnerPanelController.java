@@ -21,6 +21,7 @@ public class OwnerPanelController extends NavigationController {
     private Command listRoomInfoCommand;
     private Command createRoomCommand;
     private Command createAmenityCommand;
+    private Command addReceptionistCommand;
 
     @FXML
     private Label currentHotelLabel;
@@ -32,13 +33,14 @@ public class OwnerPanelController extends NavigationController {
         Platform.runLater(() -> {
 
             Stage stage = (Stage) currentHotelLabel.getScene().getWindow();
-            listReceptionistsCommand = new SwitchSceneCommand(stage, "/views/list-receptionists.fxml");
-            managerOpsCommand = new SwitchSceneCommand(stage, "/views/manager-ops.fxml");
+            listReceptionistsCommand = new SwitchSceneCommand(stage, "/views/receptionists-list.fxml");
+            managerOpsCommand = new SwitchSceneCommand(stage, "/views/manager-operations.fxml");
             listReservationsCommand = new SwitchSceneCommand(stage, "/views/list-reservations.fxml");
             showAmenitiesCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
             listRoomInfoCommand = new SwitchSceneCommand(stage, "/views/list-room-info.fxml");
             createRoomCommand = new SwitchSceneCommand(stage, "/views/creating-room.fxml");
             createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
+            addReceptionistCommand = new SwitchSceneCommand(stage, "/views/add-receptionist.fxml");
         });
 
     }
@@ -76,6 +78,11 @@ public class OwnerPanelController extends NavigationController {
     @FXML
     private void createAmenity() throws Exception {
         createAmenityCommand.execute();
+    }
+
+    @FXML
+    private void addReceptionist() throws Exception {
+        addReceptionistCommand.execute();
     }
 
     @Override

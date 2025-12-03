@@ -13,6 +13,7 @@ import org.example.model.amenity.SeasonAmenity;
 import org.example.model.hotel.Hotel;
 import org.example.model.user.Role;
 import org.example.service.amenity.AmenityService;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import javafx.scene.control.Button;
@@ -26,7 +27,6 @@ import org.example.util.AlertMessage;
 public class CreateAmenityController extends NavigationController implements RoleConfigurable {
 
     private final AmenityService amenityService = ServiceFactory.getAmenityService();
-    private Hotel currentHotel;
 
     @FXML
     private TextField nameField;
@@ -42,12 +42,11 @@ public class CreateAmenityController extends NavigationController implements Rol
         RoleStrategy roleStrategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
         seasonChoiceBox.getItems().addAll(SeasonAmenity.values());
         roleStrategy.applyPermissions(this);
-        System.out.println(currentHotel.getName());
     }
 
     @FXML
     private void createAmenity(ActionEvent event) {
-        amenityService.createAmenity(nameField.getText(), descriptionArea.getText(), seasonChoiceBox.getValue(), currentHotel);
+        amenityService.createAmenity(nameField.getText(), descriptionArea.getText(), seasonChoiceBox.getValue(), SelectedHotelHolder.getHotel());
         AlertMessage.showMessage("Amenity Creation", "Amenity with " +  nameField.getText() + " was successfully created.");
     }
 

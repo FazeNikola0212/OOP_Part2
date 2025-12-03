@@ -39,7 +39,7 @@ public class CreateHotelController extends NavigationController {
     @FXML
     public void initialize() {
         managerChoiceBox.getItems()
-                .addAll(userService.getAllManagers()
+                .addAll(userService.getAllNotAssignedManagers()
                         .stream()
                         .map(User::getUsername)
                         .toList());

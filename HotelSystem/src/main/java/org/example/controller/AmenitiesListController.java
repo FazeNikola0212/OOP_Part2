@@ -13,6 +13,7 @@ import org.example.model.amenity.Amenity;
 import org.example.model.amenity.SeasonAmenity;
 import org.example.model.hotel.Hotel;
 import org.example.service.amenity.AmenityService;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
@@ -28,7 +29,6 @@ import java.util.List;
 public class AmenitiesListController extends NavigationController implements RoleConfigurable {
 
     private final AmenityService amenityService = ServiceFactory.getAmenityService();
-    private Hotel hotel;
 
     @FXML
     private Label currentHotel;
@@ -108,7 +108,7 @@ public class AmenitiesListController extends NavigationController implements Rol
 
 
     private void loadAmenities() {
-        List<Amenity> amenityList = amenityService.getAllAmenitiesByHotel(hotel);
+        List<Amenity> amenityList = amenityService.getAllAmenitiesByHotel(SelectedHotelHolder.getHotel());
         amenitiesTable.setItems(FXCollections.observableArrayList(amenityList));
     }
 

@@ -6,11 +6,13 @@ import org.apache.logging.log4j.Logger;
 import org.example.DTO.CreateHotelRequest;
 import org.example.exceptions.ExistingHotelException;
 import org.example.exceptions.InvalidRoleException;
+import org.example.exceptions.NotAccessibleToRemoveOwnerException;
 import org.example.model.hotel.Hotel;
 import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
 import org.example.repository.user.UserRepository;
+import org.example.session.SelectedHotelHolder;
 
 import java.util.List;
 
@@ -87,6 +89,54 @@ public class HotelService {
         log.info("Successfully removed receptionist with name: " + receptionist.getFullName());
     }
 
+    @Transactional
+    public void removeManager(Long hotelId, User manager) {
+        Hotel hotel = hotelRepository.findById(hotelId);
+        if (hotel == null) {
+            log.error("Hotel with this name does not exist");
+            throw new ExistingHotelException("Hotel with id " + hotelId + " does not exist");
+        }
+        if (manager.getId().equals(hotel.getOwner().getId())) {
+            log.error("You are not allowed to remove the manager which is owner");
+            throw new NotAccessibleToRemoveOwnerException("You are not allowed to remove the owner of the hotel");
+        }
+
+        manager.setAssignedHotel(null);
+        manager.setActive(false);
+        User owner = hotel.getOwner();
+
+        hotel.setManager(owner);
+        userRepository.update(manager);
+        hotelRepository.update(hotel);
+        SelectedHotelHolder.setHotel(hotel);
+    }
+
+    @Transactional
+    public void assignManager(Long hotelId, Long newManagerId) {
+        Hotel hotel = hotelRepository.findById(hotelId);
+        if (hotel == null) {
+            log.error("Hotel with id " + hotelId + " does not exist");
+            throw new ExistingHotelException("Hotel with id " + hotelId + " does not exist");
+        }
+        User newManager = userRepository.findById(newManagerId);
+        if (newManager == null) {
+            log.error("New manager with id {} does not exist", newManagerId);
+            throw new ExistingHotelException("New manager with id " + newManagerId + " does not exist");
+        }
+        if (hotel.getManager().getId().equals(hotel.getOwner().getId())) {
+            hotel.setManager(newManager);
+            newManager.setAssignedHotel(hotel);
+            newManager.setActive(true);
+            userRepository.update(newManager);
+            hotelRepository.update(hotel);
+            log.info("Successfully assigned manager to hotel with id: " + hotelId);
+            SelectedHotelHolder.setHotel(hotel);
+        } else {
+            log.error("Firstly remove the current manager of the hotel");
+            throw new NotAccessibleToRemoveOwnerException("Remove the current manager of the hotel");
+        }
+
+    }
 
     private void validatingHotelReceptionist(Long hotelId, User receptionist) {
         Hotel hotel = hotelRepository.findById(hotelId);

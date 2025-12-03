@@ -13,6 +13,7 @@ import org.example.repository.hotel.HotelRepository;
 
 import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class AmenityService {
                             .season(season)
                             .usageCount(0)
                             .enabled(false)
-                            .hotels(new ArrayList<>())
+                            .hotels(new HashSet<>())
                             .build();
                     amenityRepository.save(newAmenity);
                     return newAmenity;
@@ -57,7 +58,7 @@ public class AmenityService {
         Hotel managedHotel = hotelRepository.fetchByHotelId(hotel.getId());
 
         if (managedHotel.getAmenities() == null) {
-            managedHotel.setAmenities(new ArrayList<>());
+            managedHotel.setAmenities(new HashSet<>());
         }
 
         if (!managedHotel.getAmenities().contains(amenity)) {

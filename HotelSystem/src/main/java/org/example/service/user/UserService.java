@@ -13,6 +13,7 @@ import org.example.session.Session;
 import org.example.util.AlertMessage;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -34,8 +35,8 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public List<User> getAllManagers() {
-        return userRepository.findAllManagers();
+    public List<User> getAllNotAssignedManagers() {
+        return userRepository.findAllNotAssignedManagers();
     }
 
     public List<User> getReceptionistsByHotelId(Long hotelId) {

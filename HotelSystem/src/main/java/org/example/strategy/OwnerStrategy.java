@@ -23,11 +23,9 @@ public class OwnerStrategy implements RoleStrategy {
             ow.getCurrentHotelLabel().setText("Current hotel: " + SelectedHotelHolder.getHotel().getName());
             ow.getCurrentHotelLabel().setStyle("-fx-background-color: #f0f0f0;");
         }
-        if (controller instanceof CreateAmenityController am) {
-            am.setCurrentHotel(SelectedHotelHolder.getHotel());
-        }
-        if (controller instanceof AmenitiesListController al) {
-            al.setHotel(SelectedHotelHolder.getHotel());
+
+        if (controller instanceof ReceptionistListController re) {
+            re.getWelcomeLabel().setText("Current hotel: " + SelectedHotelHolder.getHotel().getName());
         }
     }
 }

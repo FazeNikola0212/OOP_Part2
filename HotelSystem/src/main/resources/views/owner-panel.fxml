@@ -19,12 +19,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="listReceptionistBtn" layoutX="309.0" layoutY="181.0" mnemonicParsing="false" onAction="#listReceptionists" prefHeight="40.0" prefWidth="143.0" text="List all Receptionists" />
-      <Button fx:id="listReservationBtn" layoutX="309.0" layoutY="248.0" mnemonicParsing="false" onAction="#listReservations" prefHeight="40.0" prefWidth="143.0" text="List all Reservations" />
+      <Button fx:id="listReceptionistBtn" layoutX="309.0" layoutY="248.0" mnemonicParsing="false" onAction="#listReceptionists" prefHeight="40.0" prefWidth="143.0" text="List all Receptionists" />
+      <Button fx:id="listReservationBtn" layoutX="574.0" layoutY="248.0" mnemonicParsing="false" onAction="#listReservations" prefHeight="40.0" prefWidth="143.0" text="List all Reservations" />
       <Button fx:id="managerOpsBtn" layoutX="309.0" layoutY="320.0" mnemonicParsing="false" onAction="#showManager" prefHeight="40.0" prefWidth="143.0" text="Manager Operations" />
-      <Button fx:id="showAmenitiesBtn" layoutX="573.0" layoutY="181.0" mnemonicParsing="false" onAction="#showAmenities" prefHeight="40.0" prefWidth="143.0" text="Show Hotel amenities" />
-      <Button fx:id="listRoomInfoBtn" layoutX="574.0" layoutY="248.0" mnemonicParsing="false" onAction="#listRoomInfo" prefHeight="40.0" prefWidth="143.0" text="List Room information" />
-      <Button fx:id="createRoomBtn" layoutX="574.0" layoutY="320.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="40.0" prefWidth="143.0" text="Create Room" />
+      <Button fx:id="showAmenitiesBtn" layoutX="813.0" layoutY="248.0" mnemonicParsing="false" onAction="#showAmenities" prefHeight="40.0" prefWidth="143.0" text="Show Hotel amenities" />
+      <Button fx:id="listRoomInfoBtn" layoutX="574.0" layoutY="320.0" mnemonicParsing="false" onAction="#listRoomInfo" prefHeight="40.0" prefWidth="143.0" text="List Room information" />
+      <Button fx:id="createRoomBtn" layoutX="574.0" layoutY="181.0" mnemonicParsing="false" onAction="#createRoom" prefHeight="40.0" prefWidth="143.0" text="Create Room" />
       <Button fx:id="createAmenityBtn" layoutX="813.0" layoutY="181.0" mnemonicParsing="false" onAction="#createAmenity" prefHeight="40.0" prefWidth="143.0" text="Create Amenity" />
+      <Button fx:id="addReceptionistBtn" layoutX="309.0" layoutY="181.0" mnemonicParsing="false" onAction="#addReceptionist" prefHeight="40.0" prefWidth="143.0" text="Add Receptionist" />
    </children>
 </AnchorPane>

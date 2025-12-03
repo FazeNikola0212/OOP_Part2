@@ -5,7 +5,9 @@ import lombok.*;
 import org.example.model.hotel.Hotel;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -28,8 +30,8 @@ public class Amenity {
     @Column(nullable = false)
     private SeasonAmenity season;
 
-    @ManyToMany(mappedBy = "amenities")
-    private List<Hotel> hotels = new ArrayList<>();
+    @ManyToMany(mappedBy = "amenities", fetch = FetchType.EAGER)
+    private Set<Hotel> hotels = new HashSet<>();
 
     private int usageCount;
 
