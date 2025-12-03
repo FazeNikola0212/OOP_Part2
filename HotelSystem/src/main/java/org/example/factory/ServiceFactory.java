@@ -1,6 +1,5 @@
 package org.example.factory;
 
-import org.example.repository.hotel.HotelRepository;
 import org.example.service.room.RoomService;
 import org.example.service.amenity.AmenityService;
 import org.example.service.client.ClientService;
@@ -27,7 +26,8 @@ public class ServiceFactory {
     public static HotelService getHotelService() {
         if (hotelService == null) {
             hotelService = new HotelService(
-                    RepositoryFactory.getHotelRepository()
+                    RepositoryFactory.getHotelRepository(),
+                    RepositoryFactory.getUserRepository()
             );
         }
         return hotelService;
@@ -36,7 +36,8 @@ public class ServiceFactory {
     public static AmenityService getAmenityService() {
         if (amenityService == null) {
             amenityService = new AmenityService(
-                    RepositoryFactory.getAmenityRepository()
+                    RepositoryFactory.getAmenityRepository(),
+                    RepositoryFactory.getHotelRepository()
             );
         }
         return amenityService;

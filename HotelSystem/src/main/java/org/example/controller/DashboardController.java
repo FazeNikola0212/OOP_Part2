@@ -26,7 +26,6 @@ public class DashboardController extends NavigationController implements RoleCon
 
     private Command createUserCommand;
     private Command createHotelCommand;
-    private Command createAmenityCommand;
     private Command redirectHotelOpsCommand;
     private Command selectOwnedHotelsCommand;
 
@@ -56,7 +55,6 @@ public class DashboardController extends NavigationController implements RoleCon
             Stage stage = (Stage) welcomeLabel.getScene().getWindow();
             createUserCommand = new SwitchSceneCommand(stage, "/views/creating-user.fxml");
             createHotelCommand = new SwitchSceneCommand(stage, "/views/creating-hotel.fxml");
-            createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
             redirectHotelOpsCommand = new SwitchSceneCommand(stage, "/views/hotel-operations.fxml");
             selectOwnedHotelsCommand = new SwitchSceneCommand(stage, "/views/owned-hotels.fxml");
 
@@ -83,10 +81,6 @@ public class DashboardController extends NavigationController implements RoleCon
         createHotelCommand.execute();
     }
 
-    @FXML
-    private void createAmenity() throws Exception {
-        createAmenityCommand.execute();
-    }
 
     @FXML
     private void hotelOperations() throws Exception {

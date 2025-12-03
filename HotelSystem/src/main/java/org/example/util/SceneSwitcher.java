@@ -30,6 +30,20 @@ public class SceneSwitcher {
         history.push(fxml);
     }
 
+    public static FXMLLoader switchSceneWithLoader(Stage stage, String fxml) throws IOException {
+        if (stage.getScene() != null) {
+            history.push(stage.getScene().getRoot().getId());
+        }
+
+        FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        history.push(fxml);
+        return loader;
+    }
+
     public static void goBack(Stage stage)  throws IOException {
         if (history.size() <= 1) {
             return;

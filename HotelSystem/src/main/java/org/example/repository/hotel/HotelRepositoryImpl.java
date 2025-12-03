@@ -3,6 +3,7 @@ package org.example.repository.hotel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceContext;
 import org.example.model.user.User;
 import org.example.model.hotel.Hotel;
 import org.example.repository.baserepository.GenericRepositoryImpl;
@@ -10,6 +11,9 @@ import org.example.repository.baserepository.GenericRepositoryImpl;
 import java.util.List;
 
 public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> implements HotelRepository {
+    @PersistenceContext
+    private EntityManager em;
+
     private final static EntityManagerFactory emf = Persistence
             .createEntityManagerFactory("myPU");
 
@@ -127,6 +131,21 @@ public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> impl
                     .getSingleResult();
         } catch (Exception e) {
             return null;
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public Hotel fetchByHotelId(Long hotelId) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT h FROM Hotel h " +
+                            "LEFT JOIN FETCH h.amenities a " +
+                            "LEFT JOIN FETCH a.hotels" +
+                            " WHERE h.id = :hotelId", Hotel.class)
+                    .setParameter("hotelId", hotelId)
+                    .getSingleResult();
         } finally {
             em.close();
         }

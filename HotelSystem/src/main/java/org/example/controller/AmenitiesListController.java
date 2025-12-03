@@ -2,21 +2,31 @@ package org.example.controller;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lombok.Getter;
+import lombok.Setter;
+import org.example.DTO.EditAmenityDTO;
 import org.example.factory.ServiceFactory;
 import org.example.model.amenity.Amenity;
 import org.example.model.amenity.SeasonAmenity;
+import org.example.model.hotel.Hotel;
 import org.example.service.amenity.AmenityService;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
+import org.example.strategy.RoleConfigurable;
+import org.example.strategy.RoleStrategy;
+import org.example.strategy.RoleStrategyFactory;
 import org.example.util.SceneSwitcher;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
 
-
-public class AmenitiesListController extends NavigationController {
+@Getter
+@Setter
+public class AmenitiesListController extends NavigationController implements RoleConfigurable {
 
     private final AmenityService amenityService = ServiceFactory.getAmenityService();
 
@@ -49,8 +59,8 @@ public class AmenitiesListController extends NavigationController {
 
     @FXML
     public void initialize() {
-        currentHotel.setText("Current hotel: " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
-        currentHotel.setStyle("-fx-text-fill: lightgray;");
+        RoleStrategy strategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
+        strategy.applyPermissions(this);
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -65,7 +75,18 @@ public class AmenitiesListController extends NavigationController {
             {
                 editBtn.setOnAction(event -> {
                     try {
-                        SceneSwitcher.switchScene((Stage) amenitiesTable.getScene().getWindow(), "/views/edit-amenity.fxml");
+                        Amenity amenity = getTableView().getItems().get(getIndex());
+
+                        EditAmenityDTO dto =  new EditAmenityDTO();
+                        dto.setId(amenity.getId());
+                        dto.setName(amenity.getName());
+                        dto.setDescription(amenity.getDescription());
+                        dto.setSeasonAmenity(amenity.getSeason());
+                        dto.setEnabled(amenity.isEnabled());
+
+                        FXMLLoader fxmlLoader = SceneSwitcher.switchSceneWithLoader((Stage) amenitiesTable.getScene().getWindow(), "/views/edit-amenity.fxml");
+                        EditAmenityController controller = fxmlLoader.getController();
+                        controller.setAmenity(dto);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -87,7 +108,7 @@ public class AmenitiesListController extends NavigationController {
 
 
     private void loadAmenities() {
-        List<Amenity> amenityList = amenityService.getAllAmenities();
+        List<Amenity> amenityList = amenityService.getAllAmenitiesByHotel(SelectedHotelHolder.getHotel());
         amenitiesTable.setItems(FXCollections.observableArrayList(amenityList));
     }
 

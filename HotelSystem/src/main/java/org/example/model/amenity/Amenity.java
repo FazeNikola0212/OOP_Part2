@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.example.model.hotel.Hotel;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Builder
 @Getter
@@ -25,8 +30,8 @@ public class Amenity {
     @Column(nullable = false)
     private SeasonAmenity season;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Hotel hotel;
+    @ManyToMany(mappedBy = "amenities", fetch = FetchType.EAGER)
+    private Set<Hotel> hotels = new HashSet<>();
 
     private int usageCount;
 

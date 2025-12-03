@@ -1,10 +1,10 @@
 package org.example.strategy;
 
-import org.example.controller.CreateRoomController;
-import org.example.controller.CreateUserController;
-import org.example.controller.DashboardController;
+import org.example.controller.*;
 import org.example.model.user.Role;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
+
 
 public class ManagerStrategy implements RoleStrategy {
     @Override
@@ -14,12 +14,17 @@ public class ManagerStrategy implements RoleStrategy {
             d.getBtnCreateHotel().setStyle("-fx-background-color: #f0f0f0;");
             d.getSelectHotelBtn().setDisable(true);
             d.getSelectHotelBtn().setStyle("-fx-background-color: #f0f0f0;");
+            SelectedHotelHolder.setHotel(Session.getSession().getLoggedUser().getAssignedHotel());
         }
         if (controller instanceof CreateUserController c) {
             c.getRoleChoiceBox().getItems().add(Role.RECEPTIONIST);
         }
         if (controller instanceof CreateRoomController r) {
-            r.getCurrentHotelLabel().setText(Session.getSession().getLoggedUser().getAssignedHotel().getName());
+            r.getCurrentHotelLabel().setText(SelectedHotelHolder.getHotel().getName());
+        }
+
+        if (controller instanceof ReceptionistListController re) {
+            re.getWelcomeLabel().setText("Current hotel: " + SelectedHotelHolder.getHotel().getName());
         }
 
     }

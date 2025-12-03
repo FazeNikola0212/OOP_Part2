@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import lombok.Getter;
 import org.example.command.Command;
 import org.example.command.SwitchSceneCommand;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
@@ -21,21 +22,24 @@ public class HotelOperationsController extends NavigationController implements R
 
     private Command createRoomCommand;
     private Command addReceptionistCommand;
-    private Command removeReceptionistCommand;
     private Command createClientCommand;
+    private Command listAmenitiesCommand;
     private Command createAmenityCommand;
+    private Command listReceptionistsCommand;
 
-    @FXML
-    private Button addReceptionistBtn;
+    @FXML private Button addReceptionistBtn;
 
-    @FXML
-    private Button removeReceptionistBtn;
+    @FXML private Button createRoomBtn;
 
-    @FXML
-    private Button createRoomBtn;
+    @FXML private Button createClientBtn;
 
-    @FXML
-    private Label hotelLabel;
+    @FXML private Button listAmenitiesBtn;
+
+    @FXML private Button createAmenityBtn;
+
+    @FXML private Button listReceptionistsBtn;
+
+    @FXML private Label hotelLabel;
 
     @FXML
     public void initialize() {
@@ -43,14 +47,15 @@ public class HotelOperationsController extends NavigationController implements R
             RoleStrategy strategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
             strategy.applyPermissions(this);
 
-            hotelLabel.setText("Hotel " + Session.getSession().getLoggedUser().getAssignedHotel().getName());
+            hotelLabel.setText("Hotel " + SelectedHotelHolder.getHotel().getName());
             Stage stage =  (Stage) hotelLabel.getScene().getWindow();
 
             addReceptionistCommand = new SwitchSceneCommand(stage, "/views/add-receptionist.fxml");
-            removeReceptionistCommand = new SwitchSceneCommand(stage, "/views/remove-receptionist.fxml");
             createRoomCommand = new SwitchSceneCommand(stage, "/views/creating-room.fxml");
             createClientCommand = new SwitchSceneCommand(stage, "/views/creating-client.fxml");
-            createAmenityCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
+            listAmenitiesCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
+            createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
+            listReceptionistsCommand = new SwitchSceneCommand(stage, "/views/receptionists-list.fxml");
 
         });
     }
@@ -58,11 +63,6 @@ public class HotelOperationsController extends NavigationController implements R
     @FXML
     private void addReceptionist() throws Exception {
         addReceptionistCommand.execute();
-    }
-
-    @FXML
-    private void removeReceptionist() throws Exception {
-        removeReceptionistCommand.execute();
     }
 
     @FXML
@@ -77,7 +77,17 @@ public class HotelOperationsController extends NavigationController implements R
 
     @FXML
     private void listAmenity() throws Exception {
+        listAmenitiesCommand.execute();
+    }
+
+    @FXML
+    private void createAmenity() throws Exception {
         createAmenityCommand.execute();
+    }
+
+    @FXML
+    private void listReceptionists() throws Exception {
+        listReceptionistsCommand.execute();
     }
 
     @Override

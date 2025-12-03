@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User,Long> {
     User findByUsername(String username);
-    List<User> findAllManagers();
+    List<User> findAllNotAssignedManagers();
     List<User> findReceptionistByHotelId(Long hotelId);
     List<User> findAllNotAssignedReceptionists();
+    boolean isActive(User user);
 }

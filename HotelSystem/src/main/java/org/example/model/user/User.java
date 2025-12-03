@@ -6,6 +6,7 @@ import org.example.model.hotel.Hotel;
 import org.example.model.reservation.Reservation;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -68,5 +69,6 @@ public class User {
     public void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
 
 }

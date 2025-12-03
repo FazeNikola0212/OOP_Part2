@@ -6,6 +6,7 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\rep
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\RoleConfigurable.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateClientController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\RoleStrategyFactory.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\ReceptionistListController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\RemoveReceptionistController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateAmenityController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\amenity\AmenityRepository.java
@@ -29,11 +30,14 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exc
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\user\Role.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\DTO\CreateClientRequest.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateHotelController.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\EditAmenityController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\room\Room.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\amenity\AmenityService.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\session\SelectedHotelHolder.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\PasswordRequiredException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\authorization\AuthorizationService.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\DTO\EditAmenityDTO.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\InactiveProfileException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\baserepository\CrudRepository.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\command\Command.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\user\User.java
@@ -42,6 +46,7 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\rep
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\session\Session.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\Reservation.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\baserepository\GenericRepositoryImpl.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\NotAccessibleToRemoveOwnerException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\DTO\CreateHotelRequest.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\ReservationType.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateRoomController.java
@@ -54,6 +59,7 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\fac
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\client\Client.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\AddReceptionistController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\user\UserService.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\NotFoundManagersException.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\AdminStrategy.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\util\SceneSwitcher.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\amenity\SeasonAmenity.java
@@ -69,6 +75,7 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\mod
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\command\LogoutCommand.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\service\client\ClientService.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\strategy\ReceptionistStrategy.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\ManagerOperationsController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\util\AlertMessage.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\model\reservation\TerminationType.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\exceptions\EmailIsExistingException.java

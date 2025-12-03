@@ -13,6 +13,7 @@ import org.example.model.room.RoomCategory;
 import org.example.model.room.RoomStatus;
 import org.example.service.hotel.HotelService;
 import org.example.service.room.RoomService;
+import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
@@ -81,7 +82,7 @@ public class CreateRoomController extends NavigationController implements RoleCo
         request.setRoomStatus(statusChoiceBox.getValue());
         request.setRoomCategory(categoryChoiceBox.getValue());
         request.setPricePerNight(price);
-        request.setHotel(hotelService.getHotelByName(currentHotelLabel.getText()));
+        request.setHotel(SelectedHotelHolder.getHotel());
 
         roomService.createRoom(request);
         AlertMessage.showMessage("Room Creation", "Successfully Created Room");

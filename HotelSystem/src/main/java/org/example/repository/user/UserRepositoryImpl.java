@@ -31,12 +31,25 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
         return result.isEmpty() ? null : result.get(0);
     }
 
-
+    @Override
+    public boolean isActive(User user) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT u FROM User u WHERE u.username = :username " +
+                            "AND u.isActive = :active", User.class)
+                    .setParameter("active", true)
+                    .setParameter("username", user.getUsername())
+                    .getResultList().isEmpty();
+        } finally {
+            em.close();
+        }
+    }
 
     @Override
-    public List<User> findAllManagers() {
+    public List<User> findAllNotAssignedManagers() {
         EntityManager em = emf.createEntityManager();
-        List<User> managers = em.createQuery("SELECT u FROM User u WHERE u.role = :role", User.class)
+        List<User> managers = em.createQuery("SELECT u FROM User u WHERE u.role = :role " +
+                        "AND u.assignedHotel IS NULL", User.class)
                 .setParameter("role", Role.MANAGER)
                 .getResultList();
         em.close();
