@@ -3,6 +3,7 @@ package org.example.model.reservation;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.model.client.Client;
+import org.example.model.hotel.Hotel;
 import org.example.model.room.Room;
 import org.example.model.user.User;
 
@@ -25,7 +26,7 @@ public class Reservation {
     @Column(unique = true, nullable = false)
     private String reservationNumber;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Client mainClient;
 
     @ManyToMany
@@ -34,7 +35,7 @@ public class Reservation {
             inverseJoinColumns = @JoinColumn(name = "client_id"))
     private List<Client> guests;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User receptionist;
 
     @Enumerated(EnumType.STRING)
@@ -51,6 +52,9 @@ public class Reservation {
 
     private LocalDateTime createdAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Hotel hotel;
+    
 
 
 }

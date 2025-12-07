@@ -6,6 +6,8 @@ import org.example.repository.client.ClientRepository;
 import org.example.repository.client.ClientRepositoryImpl;
 import org.example.repository.hotel.HotelRepository;
 import org.example.repository.hotel.HotelRepositoryImpl;
+import org.example.repository.reservation.ReservationRepository;
+import org.example.repository.reservation.ReservationRepositoryImpl;
 import org.example.repository.room.RoomRepository;
 import org.example.repository.room.RoomRepositoryImpl;
 import org.example.repository.user.UserRepository;
@@ -17,6 +19,7 @@ public class RepositoryFactory {
     private static ClientRepository clientRepository;
     private static AmenityRepository amenityRepository;
     private static RoomRepository roomRepository;
+    private static ReservationRepository reservationRepository;
 
     public static UserRepository getUserRepository() {
         if (userRepository == null) {
@@ -52,4 +55,12 @@ public class RepositoryFactory {
         }
         return roomRepository;
     }
+
+    public static ReservationRepository getReservationRepository() {
+        if (reservationRepository == null) {
+            reservationRepository = new ReservationRepositoryImpl();
+        }
+        return reservationRepository;
+    }
+
 }

@@ -11,8 +11,6 @@ import org.example.repository.baserepository.GenericRepositoryImpl;
 import java.util.List;
 
 public class HotelRepositoryImpl extends GenericRepositoryImpl<Hotel, Long> implements HotelRepository {
-    @PersistenceContext
-    private EntityManager em;
 
     private final static EntityManagerFactory emf = Persistence
             .createEntityManagerFactory("myPU");

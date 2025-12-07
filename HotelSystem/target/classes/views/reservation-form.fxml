@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.CreateReservationController">
+    <padding>
+        <Insets top="20" bottom="20" left="20"></Insets>
+    </padding>
+
+    <Label text="Create Reservation" style="-fx-font-size: 18px;"/>
+
+    <HBox spacing="10">
+        <VBox spacing="5">
+            <Label text="Main Client:"/>
+            <TextField fx:id="mainClientField"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Check-in Date:"/>
+            <DatePicker fx:id="checkInDatePicker"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Check-out Date:"/>
+            <DatePicker fx:id="checkOutDatePicker"/>
+        </VBox>
+    </HBox>
+
+    <Button fx:id="btnCreate" text="Create Reservation" onAction="#createReservation"/>
+    <Button text="Back" onAction="#goBack"/>
+
+</VBox>

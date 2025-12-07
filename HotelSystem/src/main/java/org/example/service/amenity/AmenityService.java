@@ -4,18 +4,14 @@ import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.DTO.EditAmenityDTO;
-import org.example.exceptions.AmenityNameAlreadyExistsException;
 import org.example.model.amenity.Amenity;
 import org.example.model.amenity.SeasonAmenity;
 import org.example.model.hotel.Hotel;
 import org.example.repository.amenity.AmenityRepository;
 import org.example.repository.hotel.HotelRepository;
 
-import java.sql.ClientInfoStatus;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 
 public class AmenityService {
     private static final Logger log = LogManager.getLogger(AmenityService.class);
@@ -27,12 +23,12 @@ public class AmenityService {
         this.hotelRepository = hotelRepository;
     }
 
-    public List<Amenity> getAllAmenities() {
-        return amenityRepository.findAll();
+    public List<Amenity> getAllEnabledAmenitiesByHotel(Hotel hotel) {
+        return amenityRepository.findAllAmenitiesByHotelAndEnabled(hotel);
     }
 
     public List<Amenity> getAllAmenitiesByHotel(Hotel hotel) {
-        return amenityRepository.getAllAmenitiesByHotel(hotel);
+        return amenityRepository.findAllAmenitiesByHotel(hotel);
     }
 
     @Transactional

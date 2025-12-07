@@ -1,6 +1,8 @@
 package org.example.model.room;
 
 import jakarta.persistence.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import lombok.*;
 import org.example.model.hotel.Hotel;
 
@@ -40,4 +42,17 @@ public class Room {
 
     @Column(nullable = false)
     private double rating;
+
+    @Transient
+    private BooleanProperty selected = new SimpleBooleanProperty(false);
+
+    @Transient
+    public boolean isSelected() {
+        return selected.get();
+    }
+    @Transient
+    public void setSelected(boolean selected) {
+        this.selected.set(selected);
+    }
+
 }

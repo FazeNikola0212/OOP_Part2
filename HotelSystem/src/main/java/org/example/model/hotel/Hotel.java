@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.example.model.amenity.Amenity;
 import org.example.model.client.Client;
+import org.example.model.reservation.Reservation;
 import org.example.model.user.User;
 
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class Hotel {
     @JoinTable(name = "hotel_amenities", joinColumns = @JoinColumn(name ="hotel_id"),
                             inverseJoinColumns = @JoinColumn(name = "amenity_id"))
     private Set<Amenity> amenities = new HashSet<>();
+
+    @OneToMany
+    private Set<Reservation> reservations = new HashSet<>();
 
 
 }

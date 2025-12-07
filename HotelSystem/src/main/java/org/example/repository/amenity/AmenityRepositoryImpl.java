@@ -34,7 +34,7 @@ public class AmenityRepositoryImpl extends GenericRepositoryImpl<Amenity, Long> 
     }
 
     @Override
-    public List<Amenity> getAllAmenitiesByHotel(Hotel hotel) {
+    public List<Amenity> findAllAmenitiesByHotel(Hotel hotel) {
         EntityManager em = emf.createEntityManager();
         try {
             return em.createQuery(
@@ -46,7 +46,19 @@ public class AmenityRepositoryImpl extends GenericRepositoryImpl<Amenity, Long> 
         }
     }
 
+    @Override
+    public List<Amenity> findAllAmenitiesByHotelAndEnabled(Hotel hotel) {
+        EntityManager em = emf.createEntityManager();
 
+        try {
+          return em.createQuery("SELECT a FROM Hotel h " +
+                  "JOIN h.amenities a WHERE h.id = :hotelId " +
+                  "AND a.enabled IS TRUE", Amenity.class)
+                  .setParameter("hotelId", hotel.getId())
+                  .getResultList();
 
-
+        } finally {
+            em.close();
+        }
+    }
 }
