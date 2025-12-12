@@ -65,7 +65,10 @@ public class ServiceFactory {
     public static ReservationService getReservationService() {
         if (reservationService == null) {
             reservationService = new ReservationService(
-                    RepositoryFactory.getReservationRepository());
+                    RepositoryFactory.getReservationRepository(),
+                    RepositoryFactory.getReservationAmenityRepository(),
+                    RepositoryFactory.getReservationRoomRepository(),
+                    RepositoryFactory.getAmenityRepository());
         }
         return reservationService;
     }

@@ -16,6 +16,7 @@ to previous scene and logging out */
 
 public class SceneSwitcher {
     private static final Stack<String> history = new Stack<>();
+    private static final String GLOBAL_CSS = "/css/glassmorphism.css";
 
     public static void switchScene(Stage stage, String fxml) throws IOException {
         if (stage.getScene() == null) {
@@ -24,7 +25,9 @@ public class SceneSwitcher {
 
         FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
         Parent root = loader.load();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(SceneSwitcher.class.getResource(GLOBAL_CSS).toExternalForm());
+        stage.setScene(scene);
         stage.show();
 
         history.push(fxml);
@@ -37,7 +40,8 @@ public class SceneSwitcher {
 
         FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
         Parent root = loader.load();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
 
         history.push(fxml);

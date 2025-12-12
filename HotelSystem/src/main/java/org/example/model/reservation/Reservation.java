@@ -7,6 +7,7 @@ import org.example.model.hotel.Hotel;
 import org.example.model.room.Room;
 import org.example.model.user.User;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -47,14 +48,13 @@ public class Reservation {
     private ReservationType type;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private TerminationType terminationType;
 
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Hotel hotel;
-    
 
+    private BigDecimal totalPrice;
 
 }

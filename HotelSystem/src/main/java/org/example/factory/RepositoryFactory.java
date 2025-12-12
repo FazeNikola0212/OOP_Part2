@@ -1,13 +1,14 @@
 package org.example.factory;
 
+import org.example.model.reservation.ReservationAmenity;
+import org.example.model.reservation.ReservationRoom;
 import org.example.repository.amenity.AmenityRepository;
 import org.example.repository.amenity.AmenityRepositoryImpl;
 import org.example.repository.client.ClientRepository;
 import org.example.repository.client.ClientRepositoryImpl;
 import org.example.repository.hotel.HotelRepository;
 import org.example.repository.hotel.HotelRepositoryImpl;
-import org.example.repository.reservation.ReservationRepository;
-import org.example.repository.reservation.ReservationRepositoryImpl;
+import org.example.repository.reservation.*;
 import org.example.repository.room.RoomRepository;
 import org.example.repository.room.RoomRepositoryImpl;
 import org.example.repository.user.UserRepository;
@@ -20,6 +21,8 @@ public class RepositoryFactory {
     private static AmenityRepository amenityRepository;
     private static RoomRepository roomRepository;
     private static ReservationRepository reservationRepository;
+    private static ReservationRoomRepository reservationRoomRepository;
+    private static ReservationAmenityRepository reservationAmenityRepository;
 
     public static UserRepository getUserRepository() {
         if (userRepository == null) {
@@ -62,5 +65,21 @@ public class RepositoryFactory {
         }
         return reservationRepository;
     }
+
+    public static ReservationAmenityRepository getReservationAmenityRepository() {
+        if (reservationRoomRepository == null) {
+            reservationAmenityRepository = new ReservationAmenityRepositoryImpl();
+        }
+        return reservationAmenityRepository;
+    }
+
+    public static ReservationRoomRepository getReservationRoomRepository() {
+        if (reservationRoomRepository == null) {
+            reservationRoomRepository = new ReservationRoomRepositoryImpl();
+        }
+        return reservationRoomRepository;
+    }
+
+
 
 }
