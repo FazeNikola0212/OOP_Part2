@@ -1,18 +1,19 @@
 package org.example.service.reservation;
 
 import jakarta.transaction.Transactional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.DTO.PersistReservationDTO;
 import org.example.DTO.ReservationAmenityDTO;
 import org.example.DTO.ReservationRoomDTO;
 import org.example.exceptions.ValidationException;
 import org.example.model.amenity.Amenity;
+import org.example.model.client.Client;
 import org.example.model.hotel.Hotel;
-import org.example.model.reservation.Reservation;
-import org.example.model.reservation.ReservationAmenity;
-import org.example.model.reservation.ReservationRoom;
-import org.example.model.reservation.ReservationStatus;
+import org.example.model.reservation.*;
 import org.example.model.room.Room;
 import org.example.repository.amenity.AmenityRepository;
+import org.example.repository.client.ClientRepository;
 import org.example.repository.reservation.ReservationAmenityRepository;
 import org.example.repository.reservation.ReservationRepository;
 import org.example.repository.reservation.ReservationRoomRepository;
@@ -25,19 +26,23 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class ReservationService {
+    private static final Logger log = LogManager.getLogger(ReservationService.class);
     private final ReservationRepository reservationRepository;
     private final ReservationAmenityRepository reservationAmenityRepository;
     private final ReservationRoomRepository reservationRoomRepository;
     private final AmenityRepository amenityRepository;
+    private final ClientRepository clientRepository;
 
     public ReservationService(ReservationRepository reservationRepository,
                               ReservationAmenityRepository reservationAmenityRepository,
                               ReservationRoomRepository reservationRoomRepository,
-                              AmenityRepository amenityRepository) {
+                              AmenityRepository amenityRepository,
+                              ClientRepository clientRepository) {
         this.reservationRepository = reservationRepository;
         this.reservationAmenityRepository = reservationAmenityRepository;
         this.reservationRoomRepository = reservationRoomRepository;
         this.amenityRepository = amenityRepository;
+        this.clientRepository = clientRepository;
     }
 
 
@@ -91,12 +96,13 @@ public class ReservationService {
                 .mainClient(dto.getMainClient())
                 .guests(dto.getGuests())
                 .receptionist(Session.getSession().getLoggedUser())
-                .status(ReservationStatus.COMPLETED)
+                .status(ReservationStatus.ACTIVE)
                 .type(dto.getType())
                 .terminationType(null)
                 .createdAt(LocalDateTime.now())
                 .hotel(SelectedHotelHolder.getHotel())
                 .totalPrice(dto.getTotalPrice())
+                .isCheckedIn(false)
                 .build();
 
         reservationRepository.save(reservation);
@@ -129,6 +135,68 @@ public class ReservationService {
             reservationRoomRepository.save(rr);
         }
     }
+
+    public void terminateNoShownReservation() {
+        /*List<Reservation> activeReservations = reservationRepository.findAllByReservationStatus(ReservationStatus.ACTIVE);
+
+        for (Reservation reservation : activeReservations) {
+            if (reservation.isCheckedIn()) {
+                continue;
+            }
+
+            List<ReservationRoom> rooms =  reservationRoomRepository.findRoomsByReservation(reservation);
+
+            LocalDateTime earliestStart = rooms.stream()
+                    .map(ReservationRoom ::getStartDate)
+                    .min(LocalDateTime :: compareTo)
+                    .orElse(null);
+
+            if (earliestStart == null) {
+                continue;
+            }
+
+            if (earliestStart.isBefore(LocalDateTime.now().minusDays(2))) {
+
+                reservation.setStatus(ReservationStatus.EXPIRED);
+                reservation.setTerminationType(TerminationType.NO_SHOW);
+
+                Client client = reservation.getMainClient();
+                client.setNoShowCount(client.getNoShowCount() + 1);
+
+                if (client.getNoShowCount() >= 2) {
+                    client.setRisk(true);
+                }
+
+                reservationRepository.update(reservation);
+                clientRepository.update(client);
+
+            }
+
+        }*/
+
+        LocalDateTime threshold = LocalDateTime.now().minusDays(2);
+
+        int expired = reservationRepository.expireNoShowReservations(threshold);
+
+        if (expired == 0) {
+            log.info("0 needed Reservations for terminating");
+            return;
+        }
+
+        List<Client> clients = reservationRepository.findClientsWithExpiredNoShows(threshold);
+
+        for (Client client : clients) {
+            client.setNoShowCount(client.getNoShowCount() + 1);
+
+            if (client.getNoShowCount() >= 2) {
+                client.setRisk(true);
+            }
+
+            clientRepository.update(client);
+            log.info("Successfully terminated reservation");
+        }
+    }
+
 
     private void validate(PersistReservationDTO dto) {
         if (dto.getMainClient() == null)

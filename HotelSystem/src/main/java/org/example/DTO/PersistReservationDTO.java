@@ -1,11 +1,9 @@
 package org.example.DTO;
 
 import lombok.*;
-import org.example.model.amenity.Amenity;
 import org.example.model.client.Client;
 import org.example.model.hotel.Hotel;
 import org.example.model.reservation.*;
-import org.example.model.room.Room;
 import org.example.model.user.User;
 
 import java.math.BigDecimal;

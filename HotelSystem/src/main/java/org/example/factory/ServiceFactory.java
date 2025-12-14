@@ -68,7 +68,8 @@ public class ServiceFactory {
                     RepositoryFactory.getReservationRepository(),
                     RepositoryFactory.getReservationAmenityRepository(),
                     RepositoryFactory.getReservationRoomRepository(),
-                    RepositoryFactory.getAmenityRepository());
+                    RepositoryFactory.getAmenityRepository(),
+                    RepositoryFactory.getClientRepository());
         }
         return reservationService;
     }

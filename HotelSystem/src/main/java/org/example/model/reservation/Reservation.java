@@ -57,4 +57,7 @@ public class Reservation {
 
     private BigDecimal totalPrice;
 
+    @Column(nullable = false)
+    private boolean isCheckedIn;
+
 }

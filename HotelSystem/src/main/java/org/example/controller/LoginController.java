@@ -2,6 +2,7 @@ package org.example.controller;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,6 +31,7 @@ public class LoginController {
         try {
             User user = userService.loginUser(username, pass);
             Session.getSession().setLoggedUser(user);
+
             SceneSwitcher.switchScene((Stage) usernameField.getScene().getWindow(), "/views/dashboard.fxml");
         } catch (Exception e) {
             e.printStackTrace();

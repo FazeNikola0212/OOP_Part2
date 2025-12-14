@@ -41,6 +41,7 @@ public class SceneSwitcher {
         FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(SceneSwitcher.class.getResource(GLOBAL_CSS).toExternalForm());
         stage.setScene(scene);
         stage.show();
 
@@ -58,7 +59,9 @@ public class SceneSwitcher {
 
         FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(previousFXML));
         Parent root = loader.load();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(SceneSwitcher.class.getResource(GLOBAL_CSS).toExternalForm());
+        stage.setScene(scene);
         stage.show();
 
         history.push(previousFXML);

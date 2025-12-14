@@ -47,6 +47,9 @@ public class Client {
 
     private LocalDateTime updatedAt;
 
+    @Column(nullable = false)
+    private int noShowCount;
+
     @Transient
     private BooleanProperty selected = new SimpleBooleanProperty(false);
 

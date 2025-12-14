@@ -1,142 +1,162 @@
-/* -----------------------------------------------------------
-   AIRBNB STYLE — HOTEL BOOKING UI
-   Soft UI / Rounded / Clean / Modern
---------------------------------------------------------------*/
-
+/* =========================
+   GLOBAL
+   ========================= */
 .root {
-    -fx-background-color: #f7f7f7;
-    -fx-font-family: "Segoe UI", Roboto, sans-serif;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-background-color: linear-gradient(to bottom right, #1e293b, #0f172a);
 }
 
-/* --------- HEADERS ----------------------------- */
+/* =========================
+   LABELS
+   ========================= */
 .label {
-    -fx-text-fill: #2b2b2b;
+    -fx-text-fill: #e5e7eb;
 }
 
-.label-title {
-    -fx-font-size: 28px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-}
-
-.label-section {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #444444;
-}
-
-/* --------- TEXTFIELDS --------------------------- */
-.text-field {
-    -fx-background-color: white;
-    -fx-background-radius: 12;
-    -fx-border-radius: 12;
-    -fx-border-color: #e2e2e2;
-    -fx-padding: 8 12 8 12;
-}
-
-.text-field:focused {
-    -fx-border-color: #ff385c; /* Airbnb pink */
-    -fx-effect: dropshadow(gaussian, rgba(255,56,92,0.2), 8, 0.2, 0, 2);
-}
-
-/* --------- BUTTONS ------------------------------ */
+/* =========================
+   BUTTONS
+   ========================= */
 .button {
-    -fx-background-color: #ff385c;
-    -fx-background-radius: 14;
+    -fx-background-color: #2563eb;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-padding: 8 18 8 18;
-    -fx-border-radius: 14;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-size: 13px;
     -fx-cursor: hand;
 }
 
 .button:hover {
-    -fx-background-color: #ff5674;
+    -fx-background-color: #1d4ed8;
 }
 
-.button:pressed {
-    -fx-background-color: #d92e50;
+.button[text="Back"],
+.button[text="Logout"],
+.button[text="Abort"] {
+    -fx-background-color: #334155;
 }
 
-/* Secondary button */
-.button-secondary {
-    -fx-background-color: #ebebeb;
-    -fx-text-fill: #222;
+/* =========================
+   TEXT INPUTS
+   ========================= */
+.text-field,
+.password-field {
+    -fx-background-color: #020617;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
 }
 
-.button-secondary:hover {
-    -fx-background-color: #dedede;
+.text-area {
+    -fx-background-color: #020617;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
 }
 
-.button-secondary:pressed {
-    -fx-background-color: #cfcfcf;
+.text-area .content {
+    -fx-background-color: #020617;
 }
 
-/* --------- DATE PICKERS ------------------------- */
-.date-picker {
-    -fx-background-radius: 12;
-}
-
-.date-picker > .text-field {
-    -fx-background-radius: 12;
-}
-
-/* --------- CHOICEBOX ---------------------------- */
+/* =========================
+   CHOICE BOX (FIXED)
+   ========================= */
 .choice-box {
-    -fx-background-radius: 12;
-    -fx-border-radius: 12;
-    -fx-border-color: #e2e2e2;
+    -fx-background-color: #020617;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
 }
 
-.choice-box:focused {
-    -fx-border-color: #ff385c;
+.choice-box .label {
+    -fx-text-fill: #f8fafc;
 }
 
-/* --------- TABLE VIEW --------------------------- */
-.table-view {
+.choice-box .context-menu {
+    -fx-background-color: #020617;
+}
+
+.choice-box .menu-item .label {
+    -fx-text-fill: #f8fafc;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: #2563eb;
+}
+
+/* =========================
+   LIST VIEW (FIXED)
+   ========================= */
+.list-view {
+    -fx-background-color: #020617;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+}
+
+.list-cell {
     -fx-background-color: transparent;
-    -fx-border-color: transparent;
+    -fx-text-fill: #f8fafc;
+}
+
+.list-cell:selected {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+/* =========================
+   TABLE VIEW (FIXED)
+   ========================= */
+.table-view {
+    -fx-background-color: #020617;
+    -fx-border-color: #334155;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #020617;
 }
 
 .table-view .column-header {
-    -fx-background-color: #fafafa;
-    -fx-border-width: 0 0 1 0;
-    -fx-border-color: #e5e5e5;
-    -fx-padding: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: #334155;
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 14px;
-    -fx-text-fill: #444444;
+    -fx-text-fill: #93c5fd;
     -fx-font-weight: bold;
 }
 
-.table-view .cell {
-    -fx-padding: 10;
-    -fx-background-color: white;
-    -fx-font-size: 14px;
-    -fx-text-fill: #333333;
+/* table text color FIX */
+.table-cell {
+    -fx-text-fill: #f8fafc;
 }
 
-.table-row-cell:filled:selected {
-    -fx-background-color: #ffe2e9;
+.table-row-cell {
+    -fx-background-color: transparent;
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #f0f0f0;
+    -fx-background-color: #334155;
 }
 
-/* --------- VBOX / PANELS ------------------------ */
+.table-row-cell:selected {
+    -fx-background-color: #2563eb;
+}
+
+/* =========================
+   LOGIN SCREEN SAFETY
+   ========================= */
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: #2563eb;
+}
+
+/* =========================
+   PANES
+   ========================= */
+.anchor-pane,
 .vbox {
-    -fx-background-color: white;
-    -fx-background-radius: 18;
-    -fx-padding: 20;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0.1, 0, 4);
-}
-
-/* --------- PRICE LABEL -------------------------- */
-.price-label {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #ff385c;
+    -fx-background-color: transparent;
 }

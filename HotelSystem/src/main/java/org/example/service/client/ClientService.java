@@ -56,6 +56,7 @@ public class ClientService {
                 .updatedAt(LocalDateTime.now())
                 .createdAt(LocalDateTime.now())
                 .hotel(Session.getSession().getLoggedUser().getAssignedHotel())
+                .noShowCount(0)
                 .build();
 
         clientRepository.save(client);

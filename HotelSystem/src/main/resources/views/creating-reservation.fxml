@@ -33,7 +33,7 @@
             <TableColumn fx:id="clientAddColumn" prefWidth="58.39996337890625" text="Add" />
         </columns>
       </TableView>
-      <TableView fx:id="roomTable" layoutX="449.0" layoutY="180.0" prefHeight="258.0" prefWidth="330.0">
+      <TableView fx:id="roomTable" layoutX="460.0" layoutY="180.0" prefHeight="258.0" prefWidth="330.0">
          <columns>
             <TableColumn fx:id="roomNumberColumn" prefWidth="53.60003662109375" text="Number" />
             <TableColumn fx:id="roomTypeColumn" prefWidth="68.800048828125" text="Type" />
@@ -42,32 +42,32 @@
             <TableColumn fx:id="roomAddColumn" prefWidth="49.5999755859375" text="Add" />
          </columns>
       </TableView>
-      <TextField fx:id="searchRoom" layoutX="449.0" layoutY="150.0" prefHeight="26.0" prefWidth="330.0" />
-      <Label layoutX="541.0" layoutY="124.0" text="Search Room Number">
+      <TextField fx:id="searchRoom" layoutX="460.0" layoutY="150.0" prefHeight="26.0" prefWidth="330.0" />
+      <Label layoutX="552.0" layoutY="124.0" text="Search Room Number">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <DatePicker fx:id="startDatePick" layoutX="461.0" layoutY="465.0" prefHeight="26.0" prefWidth="124.0" />
-      <Label layoutX="490.0" layoutY="439.0" text="Start Date">
+      <DatePicker fx:id="startDatePick" layoutX="472.0" layoutY="465.0" prefHeight="26.0" prefWidth="124.0" />
+      <Label layoutX="501.0" layoutY="439.0" text="Start Date">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="490.0" layoutY="497.0" text="End Date">
+      <Label layoutX="501.0" layoutY="497.0" text="End Date">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <DatePicker fx:id="endDatePick" layoutX="460.0" layoutY="523.0" prefHeight="26.0" prefWidth="124.0" />
-      <ChoiceBox fx:id="reservationTypeChoice" layoutX="619.0" layoutY="466.0" prefWidth="150.0" />
-      <Label layoutX="634.0" layoutY="439.0" text="Reservation Type">
+      <DatePicker fx:id="endDatePick" layoutX="471.0" layoutY="523.0" prefHeight="26.0" prefWidth="124.0" />
+      <ChoiceBox fx:id="reservationTypeChoice" layoutX="630.0" layoutY="466.0" prefWidth="150.0" />
+      <Label layoutX="645.0" layoutY="439.0" text="Reservation Type">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="reservationNumber" editable="false" layoutX="620.0" layoutY="524.0" />
-      <Label layoutX="622.0" layoutY="497.0" text="Reservation Number">
+      <TextField fx:id="reservationNumber" editable="false" layoutX="631.0" layoutY="524.0" />
+      <Label layoutX="633.0" layoutY="497.0" text="Reservation Number">
          <font>
             <Font size="16.0" />
          </font>
@@ -86,6 +86,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="createReservationBtn" layoutX="578.0" layoutY="625.0" mnemonicParsing="false" onAction="#createReservation" prefHeight="40.0" prefWidth="124.0" text="Create Reservation" AnchorPane.leftAnchor="578.0" AnchorPane.rightAnchor="578.0" />
+      <Button fx:id="createReservationBtn" layoutX="565.0" layoutY="624.0" mnemonicParsing="false" onAction="#createReservation" prefHeight="40.0" prefWidth="150.0" text="Create Reservation" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="565.4" />
    </children>
 </AnchorPane>

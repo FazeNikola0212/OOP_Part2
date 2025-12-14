@@ -41,8 +41,10 @@ org\example\strategy\RoleStrategy.class
 org\example\DTO\RegisterUserRequest$RegisterUserRequestBuilder.class
 org\example\session\SelectedHotelHolder.class
 org\example\controller\ListHotelsController.class
+org\example\scheduler\SchedulerService.class
 org\example\model\room\RoomStatus.class
 org\example\model\reservation\Reservation$ReservationBuilder.class
+org\example\service\reservation\ReservationVerificationTask.class
 org\example\model\user\Role.class
 org\example\service\amenity\AmenityService.class
 org\example\command\LogoutCommand.class
@@ -90,6 +92,7 @@ org\example\repository\client\ClientRepository.class
 org\example\DTO\ReservationAmenityDTO.class
 org\example\DTO\ReservationCreationDTO$ReservationCreationDTOBuilder.class
 org\example\factory\RepositoryFactory.class
+org\example\util\ApplicationBootstrap.class
 org\example\controller\CreateAmenityController.class
 org\example\controller\EditAmenityController.class
 org\example\service\user\UserService.class
