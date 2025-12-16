@@ -5,8 +5,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.DTO.CreateRoomDTO;
 import org.example.exceptions.ExistingRoomException;
+import org.example.model.hotel.Hotel;
 import org.example.model.room.Room;
 import org.example.repository.room.RoomRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 public class RoomService {
@@ -15,6 +19,14 @@ public class RoomService {
 
     public RoomService(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
+    }
+
+    public List<Room> getAllRoomsByHotel(Hotel hotel) {
+        return roomRepository.findAllRoomsByHotel(hotel);
+    }
+
+    public List<Room> getAvailableRooms(LocalDateTime start, LocalDateTime end) {
+        return roomRepository.findAvailableRooms(start, end);
     }
 
     @Transactional

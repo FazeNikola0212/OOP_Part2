@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.VBox?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.VerifyReservationController">
+   <children>
+      <Label layoutX="505.0" layoutY="28.0" text="Verify the Reservation">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="209.0" layoutY="162.0" text="Clients">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="615.0" layoutY="162.0" text="Rooms">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="1002.0" layoutY="162.0" text="Amenities">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="reservationType" layoutX="747.0" layoutY="105.0" text="In-Person">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="468.0" layoutY="105.0" text="Reservation Number" AnchorPane.leftAnchor="468.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="reservationNumber" layoutX="633.0" layoutY="105.0" text="RE-482502" AnchorPane.rightAnchor="580.6">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="amenityTable" layoutX="928.0" layoutY="188.0" prefHeight="254.0" prefWidth="248.0" AnchorPane.rightAnchor="105.0">
+          <columns>
+              <TableColumn fx:id="amenityNameColumn" prefWidth="100.80005186796188" text="Name" />
+              <TableColumn fx:id="amenityPriceColumn" prefWidth="77.5999755859375" text="Price" />
+              <TableColumn fx:id="amenityQuantityColumn" prefWidth="63.2000732421875" text="Quantity" />
+          </columns>
+      </TableView>
+       <TableView fx:id="roomTable" layoutX="412.0" layoutY="188.0" prefHeight="254.0" prefWidth="441.0">
+           <columns>
+               <TableColumn fx:id="roomNumberColumn" prefWidth="54.4000244140625" text="Number" />
+               <TableColumn fx:id="roomTypeColumn" prefWidth="85.5999755859375" text="Type" />
+               <TableColumn fx:id="startDateColumn" prefWidth="108.0" text="Start" />
+               <TableColumn fx:id="endDateColumn" prefWidth="94.39996337890625" text="End" />
+               <TableColumn fx:id="totalPriceColumn" prefWidth="96.0" text="Total Price" />
+           </columns>
+       </TableView>
+       <VBox layoutY="500.0" prefWidth="200" spacing="10" alignment="CENTER">
+               <Label fx:id="totalPrice" text="The total price for the Reservation is: 0.00" />
+               <Button fx:id="verifyBtn" mnemonicParsing="false" onAction="#verifyReservation" prefHeight="40.0" prefWidth="100.0" text="Verify" />
+           <AnchorPane.leftAnchor>440.0</AnchorPane.leftAnchor>
+           <AnchorPane.rightAnchor>440.0</AnchorPane.rightAnchor>
+       </VBox>
+       <TableView fx:id="clientTable" layoutX="124.0" layoutY="188.0" prefHeight="254.0" prefWidth="224.0">
+        <columns>
+          <TableColumn fx:id="clientIdColumn" prefWidth="27.999969482421875" text="ID" />
+          <TableColumn fx:id="clientFirstNameColumn" prefWidth="75.19998168945312" text="First Name" />
+            <TableColumn fx:id="clientLastNameColumn" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="assignMainColumn" prefWidth="39.199987792968756" text="Main" />
+        </columns>
+      </TableView>
+      <Button layoutX="98.0" layoutY="31.0" mnemonicParsing="false" onAction="#goBack" prefHeight="34.0" prefWidth="70.0" text="Abort" AnchorPane.leftAnchor="100.0" />
+   </children>
+</AnchorPane>

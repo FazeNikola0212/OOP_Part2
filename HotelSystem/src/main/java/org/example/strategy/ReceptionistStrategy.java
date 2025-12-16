@@ -1,5 +1,6 @@
 package org.example.strategy;
 
+import javafx.scene.control.TableView;
 import org.example.controller.*;
 import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
@@ -29,6 +30,7 @@ public class ReceptionistStrategy implements RoleStrategy {
         }
         if (controller instanceof AmenitiesListController al) {
             al.getEditColumn().setVisible(false);
+            al.getAmenitiesTable().setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         }
 
 

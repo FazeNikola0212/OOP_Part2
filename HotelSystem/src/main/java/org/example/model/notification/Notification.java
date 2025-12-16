@@ -27,6 +27,9 @@ public class Notification {
 
     private boolean global;
 
+    @Enumerated(EnumType.STRING)
+    private NotificationType type;
+
     private String message;
 
     private LocalDateTime createdAt;

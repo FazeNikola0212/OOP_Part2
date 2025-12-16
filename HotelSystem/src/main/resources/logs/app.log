@@ -1,584 +1,133 @@
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:16:25 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:16:25 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:16:25 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:16:25 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:16:25 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:16:25 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:16:26 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:16:26 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:16:26 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:16:26 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2f743c29] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7885946] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:16:27 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:16:27 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@138541a8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:16:32 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:16:38 [JavaFX Application Thread] INFO  HotelService - Successfully assigned manager to hotel with id: 13
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:16:48 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:16:48 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ee97574] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:17:29 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Maxim
-2025-12-04 00:20:55 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Simeon
-2025-12-04 00:21:18 [JavaFX Application Thread] INFO  AmenityService - Amenity 'Ocean Diving' added to Hotel 'Reina Del Mar'
-2025-12-04 00:22:10 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Maxim
-2025-12-04 00:22:19 [JavaFX Application Thread] INFO  HotelService - Successfully added receptionist with name: Managerr
-2025-12-04 00:22:22 [JavaFX Application Thread] INFO  HotelService - Successfully removed receptionist with name: Managerr
-2025-12-04 00:22:30 [JavaFX Application Thread] INFO  HotelService - Successfully added receptionist with name: Managerr
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:22:34 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:22:34 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7f4854dd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:22:50 [JavaFX Application Thread] INFO  ClientService - Client Stefan Marinov has been created
-2025-12-04 00:24:02 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:34:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:34:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:34:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:34:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:34:44 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:34:44 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:34:45 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:34:45 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@240fc095] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6c36fa30] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:34:46 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:34:46 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@25247e76] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:35:05 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:35:07 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:35:07 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f5d441] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:38:46 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:38:47 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:38:47 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3bfe05a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@66f189ca] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:38:49 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:38:49 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@138541a8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:38:56 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:38:58 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:38:58 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1f30191] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:40:44 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:40:44 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:40:45 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:40:45 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7550429f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2c62f681] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:40:46 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:40:46 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2fbce152] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:41:01 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:41:04 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:41:04 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@47d06afe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:41:22 [JavaFX Application Thread] INFO  AmenityService - Amenity 'Surfing' added to Hotel 'Marinela'
-2025-12-04 00:41:58 [JavaFX Application Thread] INFO  AmenityService - Amenity 'Surfing' updated successfully
-2025-12-04 00:43:05 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Maxim
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:43:24 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:43:24 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@793093ea] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:46:29 [JavaFX Application Thread] INFO  UserService - USER Stoyan HAS BEEN CREATED BY org.example.model.user.User@74051c20
-2025-12-04 00:46:33 [JavaFX Application Thread] INFO  HotelService - Successfully added receptionist with name: Stoyan Stoyanov
-2025-12-04 00:46:39 [JavaFX Application Thread] INFO  HotelService - Successfully removed receptionist with name: Managerr
-2025-12-04 00:46:42 [JavaFX Application Thread] INFO  HotelService - Successfully added receptionist with name: Managerr
-2025-12-04 00:47:27 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:50:45 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:50:45 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:50:45 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:50:45 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:50:45 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:50:45 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:50:46 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:50:46 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@19bbd1eb] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@589e697b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:50:47 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:50:47 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:50:48 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:50:48 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7c24072d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:51:55 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:51:55 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@73ddd003] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:51:56 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:51:56 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@72a30353] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:51:57 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:51:57 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5f3373b6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:52:02 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Pavlo
-2025-12-04 00:52:15 [JavaFX Application Thread] INFO  HotelService - Successfully removed receptionist with name: Stoyan Stoyanov
-2025-12-04 00:52:19 [JavaFX Application Thread] INFO  HotelService - Successfully added receptionist with name: Stoyan Stoyanov
-2025-12-04 00:52:23 [JavaFX Application Thread] INFO  HotelService - Successfully removed receptionist with name: Managerr
-2025-12-04 00:52:26 [JavaFX Application Thread] INFO  HotelService - Successfully added receptionist with name: Managerr
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:52:29 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:52:29 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@302d746c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:52:40 [JavaFX Application Thread] INFO  RoomService - Successfully created room with number: 202
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:52:44 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:52:44 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@545dba94] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:52:47 [JavaFX Application Thread] INFO  AmenityService - Amenity 'Surfing' updated successfully
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:53:06 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:53:06 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@76beb17c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:53:07 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:53:07 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@566a8ebd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:53:08 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:53:08 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@198883b0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:53:11 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : stoyan
-2025-12-04 00:55:55 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:55:55 [JavaFX Application Thread] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
-2025-12-04 00:55:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:55:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:55:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:55:55 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:55:55 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:55:56 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:55:56 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:55:56 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:55:56 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:55:56 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:55:56 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:55:56 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:55:56 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@511b815] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1034db91] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:55:58 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:55:58 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@618a77e0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:56:13 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : Stoyan
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:56:35 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:56:35 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@267f0f62] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-12-04 00:56:51 [JavaFX Application Thread] INFO  ClientService - Client Martin Maximov has been created
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {user=root, password=****}
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-04 00:57:01 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-04 00:57:01 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6e611ef3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:21 [JavaFX-Launcher] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:21 [JavaFX-Launcher] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:22 [JavaFX-Launcher] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:22 [JavaFX-Launcher] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3f83ba31] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@45c7c704] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@284c1eb9] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@36a84703] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:23 [JavaFX-Launcher] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:23 [JavaFX-Launcher] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:24 [JavaFX-Launcher] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:24 [JavaFX-Launcher] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@25590e76] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1ddd32ff] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:25:24 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:25:24 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5509797b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-12-16 08:25:25 [pool-3-thread-1] INFO  ReservationRepositoryImpl - Expired reservations: 0
+2025-12-16 08:25:25 [pool-3-thread-1] INFO  ReservationService - 0 needed Reservations for terminating
+2025-12-16 08:25:33 [JavaFX Application Thread] ERROR UserService - Incorrect username or password
+2025-12-16 08:25:36 [JavaFX Application Thread] INFO  UserService - Successfully logged in USER : SIMEON
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: myPU]
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/hotel]
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  pooling - HHH10001001: Connection properties: {password=****, user=root}
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  pooling - HHH10001003: Autocommit mode: false
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-16 08:26:39 [JavaFX Application Thread] WARN  deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 08:26:39 [JavaFX Application Thread] INFO  access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@281786e9] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

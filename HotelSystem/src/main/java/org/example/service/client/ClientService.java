@@ -7,21 +7,24 @@ import org.example.DTO.CreateClientRequest;
 import org.example.exceptions.EmailIsExistingException;
 import org.example.exceptions.PhoneNumberIsExistingException;
 import org.example.model.client.Client;
+import org.example.model.hotel.Hotel;
 import org.example.repository.client.ClientRepository;
-import org.example.repository.hotel.HotelRepository;
 import org.example.session.Session;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ClientService {
 
     private static final Logger log = LogManager.getLogger(ClientService.class);
     private ClientRepository clientRepository;
-    private HotelRepository hotelRepository;
 
-    public ClientService(ClientRepository clientRepository, HotelRepository hotelRepository) {
+    public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
-        this.hotelRepository = hotelRepository;
+    }
+
+    public List<Client> getAllClientsByHotel(Hotel hotel) {
+        return clientRepository.findAllClientsByHotel(hotel);
     }
 
     @Transactional
@@ -52,6 +55,7 @@ public class ClientService {
                 .updatedAt(LocalDateTime.now())
                 .createdAt(LocalDateTime.now())
                 .hotel(Session.getSession().getLoggedUser().getAssignedHotel())
+                .noShowCount(0)
                 .build();
 
         clientRepository.save(client);

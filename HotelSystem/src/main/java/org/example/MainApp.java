@@ -5,21 +5,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.factory.ServiceFactory;
+import org.example.service.reservation.ReservationService;
+import org.example.util.ApplicationBootstrap;
+import org.example.util.SceneSwitcher;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class MainApp extends Application {
 
     private final Logger logger = Logger.getLogger(MainApp.class.getName());
+    private ApplicationBootstrap bootstrap;
+
+    @Override
+    public void init() throws Exception {
+        ReservationService reservationService = ServiceFactory.getReservationService();
+        bootstrap = new ApplicationBootstrap();
+        bootstrap.start(reservationService);
+        System.out.println("Successfully started bootstrap");
+    }
+
     public void start(Stage primaryStage) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/login.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-
-            primaryStage.setTitle("Login");
+            scene.getStylesheets().add(SceneSwitcher.class.getResource("/css/glassmorphism.css").toExternalForm());
+            primaryStage.setTitle("Hotel Management System");
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -27,6 +40,14 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void stop() throws Exception {
+        if (bootstrap != null) {
+            bootstrap.stop();
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

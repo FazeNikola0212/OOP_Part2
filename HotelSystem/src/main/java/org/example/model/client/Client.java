@@ -1,6 +1,8 @@
 package org.example.model.client;
 
 import jakarta.persistence.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import lombok.*;
 import org.example.model.hotel.Hotel;
 
@@ -44,4 +46,19 @@ public class Client {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @Column(nullable = false)
+    private int noShowCount;
+
+    @Transient
+    private BooleanProperty selected = new SimpleBooleanProperty(false);
+
+    @Transient
+    public boolean isSelected() {
+        return selected.get();
+    }
+    @Transient
+    public void setSelected(boolean selected) {
+        this.selected.set(selected);
+    }
 }

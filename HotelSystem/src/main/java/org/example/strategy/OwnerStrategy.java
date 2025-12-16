@@ -1,5 +1,6 @@
 package org.example.strategy;
 
+import javafx.scene.control.TableView;
 import org.example.controller.*;
 import org.example.model.user.Role;
 import org.example.session.SelectedHotelHolder;
@@ -19,6 +20,10 @@ public class OwnerStrategy implements RoleStrategy {
         if (controller instanceof CreateRoomController r) {
             r.getCurrentHotelLabel().setText(SelectedHotelHolder.getHotel().getName());
         }
+        if (controller instanceof ListHotelsController li) {
+            li.getHotelTable().setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        }
+
         if (controller instanceof OwnerPanelController ow) {
             ow.getCurrentHotelLabel().setText("Current hotel: " + SelectedHotelHolder.getHotel().getName());
             ow.getCurrentHotelLabel().setStyle("-fx-background-color: #f0f0f0;");

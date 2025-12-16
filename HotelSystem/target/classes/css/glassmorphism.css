@@ -1,0 +1,162 @@
+/* =========================
+   GLOBAL
+   ========================= */
+.root {
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-background-color: linear-gradient(to bottom right, #1e293b, #0f172a);
+}
+
+/* =========================
+   LABELS
+   ========================= */
+.label {
+    -fx-text-fill: #e5e7eb;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+.button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.button[text="Back"],
+.button[text="Logout"],
+.button[text="Abort"] {
+    -fx-background-color: #334155;
+}
+
+/* =========================
+   TEXT INPUTS
+   ========================= */
+.text-field,
+.password-field {
+    -fx-background-color: #020617;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.text-area {
+    -fx-background-color: #020617;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.text-area .content {
+    -fx-background-color: #020617;
+}
+
+/* =========================
+   CHOICE BOX (FIXED)
+   ========================= */
+.choice-box {
+    -fx-background-color: #020617;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.choice-box .label {
+    -fx-text-fill: #f8fafc;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #020617;
+}
+
+.choice-box .menu-item .label {
+    -fx-text-fill: #f8fafc;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: #2563eb;
+}
+
+/* =========================
+   LIST VIEW (FIXED)
+   ========================= */
+.list-view {
+    -fx-background-color: #020617;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f8fafc;
+}
+
+.list-cell:selected {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+/* =========================
+   TABLE VIEW (FIXED)
+   ========================= */
+.table-view {
+    -fx-background-color: #020617;
+    -fx-border-color: #334155;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #020617;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #334155;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #93c5fd;
+    -fx-font-weight: bold;
+}
+
+/* table text color FIX */
+.table-cell {
+    -fx-text-fill: #f8fafc;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #334155;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2563eb;
+}
+
+/* =========================
+   LOGIN SCREEN SAFETY
+   ========================= */
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: #2563eb;
+}
+
+/* =========================
+   PANES
+   ========================= */
+.anchor-pane,
+.vbox {
+    -fx-background-color: transparent;
+}

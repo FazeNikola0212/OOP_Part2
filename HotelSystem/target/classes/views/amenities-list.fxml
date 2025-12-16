@@ -14,12 +14,12 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Label fx:id="currentHotel" layoutX="586.0" layoutY="95.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" alignment="CENTER">
+      <Label fx:id="currentHotel" alignment="CENTER" layoutX="586.0" layoutY="95.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="amenitiesTable" layoutX="204.0" layoutY="168.0" prefHeight="448.0" prefWidth="823.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+      <TableView fx:id="amenitiesTable" layoutX="204.0" layoutY="168.0" prefHeight="448.0" prefWidth="983.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="147.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="nameColumn" prefWidth="124.800048828125" text="Name" />

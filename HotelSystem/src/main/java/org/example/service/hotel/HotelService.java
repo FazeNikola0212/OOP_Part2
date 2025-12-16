@@ -65,8 +65,6 @@ public class HotelService {
         manager.setAssignedHotel(hotel);
         userRepository.update(manager);
 
-
-
         log.info("Hotel with name {} has been created", hotel.getName());
         return hotel;
     }

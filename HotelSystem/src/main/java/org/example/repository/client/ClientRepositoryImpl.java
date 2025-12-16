@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.example.model.client.Client;
+import org.example.model.hotel.Hotel;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
 import java.util.List;
@@ -44,5 +45,18 @@ public class ClientRepositoryImpl extends GenericRepositoryImpl<Client, Long> im
         }
     }
 
+    @Override
+    public List<Client> findAllClientsByHotel(Hotel hotel) {
+        EntityManager em = emf.createEntityManager();
 
+        try {
+            return em.createQuery("SELECT c FROM Client c WHERE c.hotel.id = :hotel_id", Client.class)
+                    .setParameter("hotel_id", hotel.getId())
+                    .getResultList();
+
+        } finally {
+            em.close();
+        }
+
+    }
 }

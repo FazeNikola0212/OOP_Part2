@@ -9,5 +9,8 @@ import java.util.Optional;
 
 public interface AmenityRepository extends CrudRepository<Amenity, Long> {
     Optional<Amenity> findByName(String name);
-    List<Amenity> getAllAmenitiesByHotel(Hotel hotel);
+
+    List<Amenity> findAllAmenitiesByHotel(Hotel hotel);
+
+    List<Amenity> findAllAmenitiesByHotelAndEnabled(Hotel hotel);
 }

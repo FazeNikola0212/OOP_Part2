@@ -1,12 +1,12 @@
 package org.example.model.amenity;
 
 import jakarta.persistence.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import lombok.*;
 import org.example.model.hotel.Hotel;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -36,4 +36,16 @@ public class Amenity {
     private int usageCount;
 
     private boolean enabled;
+
+    @Transient
+    public BooleanProperty selected = new SimpleBooleanProperty(false);
+
+    @Transient
+    public Boolean isSelected() {
+        return selected.get();
+    }
+    @Transient
+    public void setSelected(boolean selected) {
+        this.selected.set(selected);
+    }
 }
