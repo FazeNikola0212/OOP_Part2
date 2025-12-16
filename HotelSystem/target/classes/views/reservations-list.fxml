@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:controller="org.example.controller.ReservationListController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="562.0" layoutY="23.0" text="Reservations">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="114.0" layoutY="32.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="74.0" text="Back" AnchorPane.leftAnchor="100.0" />
+      <Button layoutX="244.0" layoutY="32.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="74.0" text="Logout" AnchorPane.rightAnchor="100.0" />
+      <TableView fx:id="reservationsTable" layoutX="127.0" layoutY="159.0" prefHeight="388.0" prefWidth="1026.0">
+        <columns>
+          <TableColumn fx:id="reservationNumberCol" prefWidth="75.0" text="R-Number" />
+          <TableColumn fx:id="clientCol" prefWidth="139.19998168945312" text="Client" />
+            <TableColumn fx:id="reservationTypeCol" prefWidth="74.4000244140625" text="Book-Type" />
+            <TableColumn fx:id="terminationTypeCol" prefWidth="84.0" text="Termination" />
+            <TableColumn fx:id="createdAtCol" prefWidth="99.20004272460938" text="Created At" />
+            <TableColumn fx:id="roomsCol" prefWidth="94.4000244140625" text="Rooms" />
+            <TableColumn fx:id="guestAmountCol" prefWidth="75.20001220703125" text="Guests Num" />
+            <TableColumn fx:id="receptionistCol" prefWidth="122.39996337890625" text="Receptionist" />
+            <TableColumn fx:id="reservationStatusCol" prefWidth="72.79998779296875" text="Status" />
+            <TableColumn fx:id="changeStatus" prefWidth="100.0" text="Change Status" />
+            <TableColumn fx:id="details" prefWidth="91.2000732421875" text="Details" />
+        </columns>
+      </TableView>
+      <TextField fx:id="searchClientName" layoutX="402.0" layoutY="120.0" promptText="Client Name" />
+      <Label layoutX="422.0" layoutY="102.0" text="Search Client's name" />
+      <DatePicker fx:id="searchDateCreation" layoutX="724.0" layoutY="120.0" />
+      <Label layoutX="756.0" layoutY="102.0" text="Search Date Creation" />
+      <Label fx:id="currentHotel" layoutX="561.0" layoutY="72.0" text="Current Hotel name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

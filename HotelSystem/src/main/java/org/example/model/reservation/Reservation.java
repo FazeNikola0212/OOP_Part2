@@ -47,6 +47,9 @@ public class Reservation {
     @Column(nullable = false)
     private ReservationType type;
 
+    @OneToMany(mappedBy = "reservation",  fetch = FetchType.LAZY)
+    private Set<ReservationRoom> rooms;
+
     @Enumerated(EnumType.STRING)
     private TerminationType terminationType;
 

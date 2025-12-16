@@ -9,7 +9,6 @@ import org.example.exceptions.PhoneNumberIsExistingException;
 import org.example.model.client.Client;
 import org.example.model.hotel.Hotel;
 import org.example.repository.client.ClientRepository;
-import org.example.repository.hotel.HotelRepository;
 import org.example.session.Session;
 
 import java.time.LocalDateTime;

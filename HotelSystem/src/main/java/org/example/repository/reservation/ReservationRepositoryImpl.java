@@ -4,15 +4,14 @@ import jakarta.persistence.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.model.client.Client;
+import org.example.model.hotel.Hotel;
 import org.example.model.reservation.Reservation;
 import org.example.model.reservation.ReservationStatus;
-import org.example.model.reservation.ReservationType;
 import org.example.model.reservation.TerminationType;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Locale;
 
 public class ReservationRepositoryImpl extends GenericRepositoryImpl<Reservation, Long> implements ReservationRepository {
 
@@ -94,5 +93,26 @@ public class ReservationRepositoryImpl extends GenericRepositoryImpl<Reservation
                 .setParameter("terminationType", TerminationType.NO_SHOW)
                 .setParameter("threshold", threshold)
                 .getResultList();
+    }
+
+    @Override
+    public List<Reservation> findAllByHotel(Hotel hotel) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            return em.createQuery("SELECT DISTINCT r " +
+                    "FROM Reservation r " +
+                    "LEFT JOIN FETCH r.mainClient " +
+                    "LEFT JOIN FETCH r.receptionist " +
+                    "LEFT JOIN FETCH r.guests " +
+                    "LEFT JOIN FETCH r.rooms rr " +
+                    "LEFT JOIN FETCH rr.room " +
+                    "WHERE r.hotel = :hotel", Reservation.class)
+                    .setParameter("hotel", hotel)
+                    .getResultList();
+
+        } finally {
+            em.close();
+        }
     }
 }

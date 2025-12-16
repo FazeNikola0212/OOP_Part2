@@ -3,9 +3,12 @@ package org.example.repository.amenity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.model.amenity.Amenity;
 import org.example.model.hotel.Hotel;
 import org.example.repository.baserepository.GenericRepositoryImpl;
+import org.example.repository.notification.NotificationRepositoryImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +16,8 @@ import java.util.Optional;
 public class AmenityRepositoryImpl extends GenericRepositoryImpl<Amenity, Long> implements AmenityRepository {
     private static final EntityManagerFactory emf = Persistence
             .createEntityManagerFactory("myPU");
+    private static final Logger log = LogManager.getLogger(AmenityRepositoryImpl.class);
+
 
     public AmenityRepositoryImpl() {
         super(Amenity.class);

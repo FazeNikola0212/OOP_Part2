@@ -5,19 +5,23 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lombok.Getter;
 import org.example.factory.ServiceFactory;
 import org.example.model.hotel.Hotel;
 import org.example.service.hotel.HotelService;
 import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
+import org.example.strategy.RoleConfigurable;
+import org.example.strategy.RoleStrategy;
+import org.example.strategy.RoleStrategyFactory;
 import org.example.util.SceneSwitcher;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
 
-
-public class ListHotelsController extends NavigationController {
+@Getter
+public class ListHotelsController extends NavigationController implements RoleConfigurable {
 
     private final HotelService hotelService = ServiceFactory.getHotelService();
 
@@ -48,6 +52,9 @@ public class ListHotelsController extends NavigationController {
 
     @FXML
     public void initialize() {
+        RoleStrategy roleStrategy = RoleStrategyFactory.getStrategy(Session.getSession().getLoggedUser().getRole());
+        roleStrategy.applyPermissions(this);
+
         hotelIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         hotelNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         hotelAddressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));

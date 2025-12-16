@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.DTO.PersistReservationDTO;
 import org.example.DTO.ReservationAmenityDTO;
 import org.example.DTO.ReservationRoomDTO;
+import org.example.DTO.ReservationRowDTO;
 import org.example.exceptions.ValidationException;
 import org.example.model.amenity.Amenity;
 import org.example.model.client.Client;
@@ -24,6 +25,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ReservationService {
     private static final Logger log = LogManager.getLogger(ReservationService.class);
@@ -44,6 +46,28 @@ public class ReservationService {
         this.amenityRepository = amenityRepository;
         this.clientRepository = clientRepository;
     }
+
+    public List<ReservationRowDTO> getReservationRows(Hotel hotel) {
+        return reservationRepository.findAllByHotel(hotel)
+                .stream()
+                .map(r ->
+                    new ReservationRowDTO(
+                            r.getMainClient().getFirstName() + " " + r.getMainClient().getLastName(),
+                            r.getReservationNumber(),
+                            r.getTerminationType() != null ? r.getTerminationType().toString() : "-",
+                            r.getType().toString(),
+                            r.getCreatedAt(),
+                            r.getRooms().stream().map(rr -> rr.getRoom().getNumber()).collect(Collectors.joining(", ")),
+                            r.getGuests().size(),
+                            r.getReceptionist().getFullName(),
+                            r.getStatus().toString(),
+                            r.isCheckedIn()
+                    )
+                ).toList();
+
+    }
+
+
 
 
     //Creating Random reservation number by first 2 letters and 6-digit number connected by '-'
