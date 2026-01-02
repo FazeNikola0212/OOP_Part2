@@ -51,6 +51,7 @@ org\example\model\user\Role.class
 org\example\DTO\ReservationRowDTO.class
 org\example\service\amenity\AmenityService.class
 org\example\command\LogoutCommand.class
+org\example\controller\ReservationDetailsController.class
 org\example\controller\CreateHotelController.class
 org\example\DTO\EditAmenityDTO.class
 org\example\repository\reservation\ReservationAmenityRepository.class
@@ -116,6 +117,7 @@ org\example\model\reservation\ReservationType.class
 org\example\model\reservation\ReservationAmenity.class
 org\example\service\reservation\ReservationService.class
 org\example\controller\ReceptionistListController$2.class
+org\example\controller\ReservationListController$3.class
 org\example\session\Session.class
 org\example\strategy\AdminStrategy.class
 org\example\controller\RemoveReceptionistController.class

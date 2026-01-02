@@ -38,6 +38,10 @@ public class ManagerOperationsController extends NavigationController {
 
     @FXML
     public void initialize() {
+        if (!SelectedHotelHolder.getHotel().getManager().equals(SelectedHotelHolder.getHotel().getOwner())) {
+            managersTable.setVisible(false);
+        }
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));

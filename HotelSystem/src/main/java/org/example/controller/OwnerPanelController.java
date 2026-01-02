@@ -35,7 +35,7 @@ public class OwnerPanelController extends NavigationController {
             Stage stage = (Stage) currentHotelLabel.getScene().getWindow();
             listReceptionistsCommand = new SwitchSceneCommand(stage, "/views/receptionists-list.fxml");
             managerOpsCommand = new SwitchSceneCommand(stage, "/views/manager-operations.fxml");
-            listReservationsCommand = new SwitchSceneCommand(stage, "/views/list-reservations.fxml");
+            listReservationsCommand = new SwitchSceneCommand(stage, "/views/reservations-list.fxml");
             showAmenitiesCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
             listRoomInfoCommand = new SwitchSceneCommand(stage, "/views/list-room-info.fxml");
             createRoomCommand = new SwitchSceneCommand(stage, "/views/creating-room.fxml");
@@ -84,6 +84,7 @@ public class OwnerPanelController extends NavigationController {
     private void addReceptionist() throws Exception {
         addReceptionistCommand.execute();
     }
+
 
     @Override
     protected Stage getCurrentStage() {

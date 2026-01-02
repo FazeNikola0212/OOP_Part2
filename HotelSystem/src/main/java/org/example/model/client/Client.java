@@ -61,4 +61,9 @@ public class Client {
     public void setSelected(boolean selected) {
         this.selected.set(selected);
     }
+
+    @Transient
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 }

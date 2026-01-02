@@ -52,9 +52,11 @@ public class ReservationService {
                 .stream()
                 .map(r ->
                     new ReservationRowDTO(
+                            r.getId(),
                             r.getMainClient().getFirstName() + " " + r.getMainClient().getLastName(),
                             r.getReservationNumber(),
                             r.getTerminationType() != null ? r.getTerminationType().toString() : "-",
+                            r.getTotalPrice(),
                             r.getType().toString(),
                             r.getCreatedAt(),
                             r.getRooms().stream().map(rr -> rr.getRoom().getNumber()).collect(Collectors.joining(", ")),
@@ -64,10 +66,42 @@ public class ReservationService {
                             r.isCheckedIn()
                     )
                 ).toList();
+    }
 
+    public List<String> getAllAmenitiesNamesByReservationId(Long reservationId) {
+        if (reservationId == null) {
+            throw new ValidationException("Reservation id must not be null");
+        }
+
+        return reservationAmenityRepository.findAmenityNamesByReservationId(reservationId);
     }
 
 
+    public List<Client> getAllClientsByReservationId(Long reservationId) {
+
+        if (reservationId == null) {
+            throw new ValidationException("There is not any reservation with this id");
+        }
+
+        return reservationRepository.findAllClientsByReservationId(reservationId);
+    }
+
+    public void changeReservationStatus(Long id) {
+        if (id == null) {
+            throw new ValidationException("Reservation does not exist");
+        }
+        Reservation reservation = reservationRepository.findById(id);
+
+        if (reservation.isCheckedIn()) {
+            reservation.setStatus(ReservationStatus.ACTIVE);
+            reservation.setCheckedIn(false);
+        } else {
+            reservation.setStatus(ReservationStatus.CHECKED_IN);
+            reservation.setCheckedIn(true);
+        }
+
+        reservationRepository.update(reservation);
+    }
 
 
     //Creating Random reservation number by first 2 letters and 6-digit number connected by '-'
@@ -160,6 +194,67 @@ public class ReservationService {
         }
     }
 
+    /*Rating the main client of a reservation (That one which is the reservoir)*/
+    @Transactional
+    public void rateClient(Long reservationId, int rating) {
+
+        if (reservationId == null || reservationId <= 0) {
+            throw new IllegalArgumentException("Reservation id is required");
+        }
+
+        if (rating < 1 || rating > 5) {
+            throw new IllegalArgumentException("Rating must be between 1 and 5");
+        }
+
+        Reservation reservation = reservationRepository.findByIdWithClient(reservationId);
+        if (reservation == null) {
+            throw new IllegalArgumentException("Reservation not found");
+        }
+
+        Client mainClient = reservation.getMainClient();
+        if (mainClient == null) {
+            throw new IllegalStateException("Reservation has no main client");
+        }
+
+        double currentRating = mainClient.getRating();
+
+        mainClient.setRating((currentRating + rating) / 2);
+        mainClient.setUpdatedAt(LocalDateTime.now());
+
+        clientRepository.update(mainClient);
+    }
+
+    public void addReservationAmenity(Amenity amenity, Long reservationId, int quantity, BigDecimal price) {
+        Reservation reservation = reservationRepository.findById(reservationId);
+        if (reservation == null) {
+            throw new ValidationException("Reservation not found");
+        }
+        if (quantity <= 0) {
+            throw new ValidationException("Quantity must be greater 0");
+        }
+        if (price == null) {
+            throw new ValidationException("Price is required");
+        }
+        BigDecimal newAmenityPrice = price.multiply(BigDecimal.valueOf(quantity));
+
+        ReservationAmenity ra = ReservationAmenity.builder()
+                .amenity(amenity)
+                .reservation(reservation)
+                .quantity(quantity)
+                .price(price)
+                .build();
+
+        amenity.setUsageCount(amenity.getUsageCount() + quantity);
+
+        reservation.setTotalPrice(reservation.getTotalPrice().add(newAmenityPrice));
+
+        reservationAmenityRepository.save(ra);
+        reservationRepository.update(reservation);
+        amenityRepository.update(amenity);
+
+    }
+
+
     public void terminateNoShownReservation() {
         /*List<Reservation> activeReservations = reservationRepository.findAllByReservationStatus(ReservationStatus.ACTIVE);
 
@@ -220,7 +315,6 @@ public class ReservationService {
             log.info("Successfully terminated reservation");
         }
     }
-
 
     private void validate(PersistReservationDTO dto) {
         if (dto.getMainClient() == null)
