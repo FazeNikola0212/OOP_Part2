@@ -1,28 +1,28 @@
 package org.example.controller;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.stage.Stage.*;
-import javafx.scene.Scene.*;
 import org.example.DTO.ReservationRowDTO;
 import org.example.factory.ServiceFactory;
-import org.example.model.client.Client;
-import org.example.model.reservation.Reservation;
-import org.example.model.reservation.ReservationRoom;
+import org.example.model.reservation.ReservationStatus;
 import org.example.service.reservation.ReservationService;
 import org.example.session.SelectedHotelHolder;
+import org.example.util.SceneSwitcher;
 
-import java.time.LocalDateTime;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
-import java.util.stream.Collectors;
 
 
 public class ReservationListController extends NavigationController {
@@ -44,12 +44,18 @@ public class ReservationListController extends NavigationController {
     @FXML private TableColumn<ReservationRowDTO, Void> changeStatus;
     @FXML private TableColumn<ReservationRowDTO, Void> details;
 
+    private ObservableList<ReservationRowDTO> mainData;
+    private FilteredList<ReservationRowDTO> filteredData;
+    private SortedList<ReservationRowDTO> sortedData;
+
+
 
     @FXML private TextField searchClientName;
     @FXML private DatePicker searchDateCreation;
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
+        currentHotel.setText(SelectedHotelHolder.getHotel().getName());
 
         reservationNumberCol.setCellValueFactory(data ->
                 new SimpleStringProperty(data.getValue().getReservationNumber()));
@@ -66,7 +72,6 @@ public class ReservationListController extends NavigationController {
 
         createdAtCol.setCellValueFactory(data ->
                 new SimpleStringProperty(data.getValue().getCreatedAt().format(dateFormatter)));
-
 
         roomsCol.setCellValueFactory(data ->
                 new SimpleStringProperty(data.getValue().getRoomsNumber()));
@@ -85,15 +90,23 @@ public class ReservationListController extends NavigationController {
 
         styleColumns(reservationsTable);
         loadReservations();
+        disableFutureDates(searchDateCreation);
+        lifeSearch();
     }
 
-    private void addDetailsButton() {
+    private void addDetailsButton() throws IOException {
         details.setCellFactory(col -> new TableCell<>() {
             private final Button button = new Button("Details");
 
             {
                 button.setOnAction(event -> {
-                    openDetails();
+                    ReservationRowDTO dto = getTableView().getItems().get(getIndex());
+                    try {
+                        System.out.println(dto.getRoomsNumber());
+                        openDetails(dto);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -105,8 +118,10 @@ public class ReservationListController extends NavigationController {
         });
     }
 
-    private void openDetails() {
-
+    private void openDetails(ReservationRowDTO dto) throws IOException {
+        FXMLLoader loader = SceneSwitcher.switchSceneWithLoader((Stage) reservationsTable.getScene().getWindow(), "/views/reservation-details.fxml");
+        ReservationDetailsController controller = loader.getController();
+        controller.setReservation(dto);
     }
 
     private void addChangeStatusBtn() {
@@ -117,9 +132,10 @@ public class ReservationListController extends NavigationController {
             {
                 button.setOnAction(event -> {
                     ReservationRowDTO dto = getTableView().getItems().get(getIndex());
-
+                    reservationService.changeReservationStatus(dto.getId());
                     dto.setChecked(!dto.isChecked());
                     updateButtonText(dto);
+                    loadReservations();
                 });
             }
 
@@ -137,6 +153,11 @@ public class ReservationListController extends NavigationController {
             }
 
             private void updateButtonText(ReservationRowDTO dto) {
+                if (dto.getReservationStatus().equals(ReservationStatus.EXPIRED.toString())) {
+                    button.setText("Expired");
+                    button.setStyle("-fx-background-color: #ff0000");
+                    button.setDisable(true);
+                }
                 if (dto.isChecked()) {
                     button.setText("Checked In");
                     button.setStyle("-fx-background-color: green;");
@@ -149,9 +170,73 @@ public class ReservationListController extends NavigationController {
         });
     }
 
+    private void lifeSearch() {
+        searchClientName.textProperty().addListener((observable, oldValue, newValue) -> {
+            applyFilters();
+        });
+
+        searchDateCreation.valueProperty().addListener((observable, oldValue, newValue) -> {
+            applyFilters();
+        });
+    }
+
+    private void applyFilters() {
+            String nameFilter = searchClientName.getText();
+            LocalDate dateFilter = searchDateCreation.getValue();
+
+
+            filteredData.setPredicate(dto -> {
+
+                boolean matchesName = true;
+                if (nameFilter != null && !nameFilter.isBlank()) {
+                    String fullName = dto.getClientFullName();
+                    if (fullName == null) {
+                        matchesName = false;
+                    } else {
+                        matchesName = fullName
+                                .toLowerCase()
+                                .contains(nameFilter.trim().toLowerCase());
+                    }
+                }
+
+                boolean matchesDate = true;
+                if (dateFilter != null) {
+                    if (dto.getCreatedAt() == null) {
+                        matchesDate = false;
+                    } else {
+                        matchesDate = dto.getCreatedAt()
+                                .toLocalDate()
+                                .equals(dateFilter);
+                    }
+                }
+
+                return matchesName && matchesDate;
+            });
+    }
+
+    private void disableFutureDates(DatePicker datePicker) {
+        datePicker.setDayCellFactory(dp -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item.isAfter(LocalDate.now())) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb");
+                }
+
+            }
+        });
+    }
+
     private void loadReservations() {
         List<ReservationRowDTO> reservations = reservationService.getReservationRows(SelectedHotelHolder.getHotel());
-        reservationsTable.setItems(FXCollections.observableList(reservations));
+        mainData = FXCollections.observableList(reservations);
+        filteredData = new FilteredList<>(mainData, p -> true);
+        sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(reservationsTable.comparatorProperty());
+
+        reservationsTable.setItems(sortedData);
     }
 
     @Override

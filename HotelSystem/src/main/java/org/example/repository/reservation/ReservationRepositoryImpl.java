@@ -107,7 +107,8 @@ public class ReservationRepositoryImpl extends GenericRepositoryImpl<Reservation
                     "LEFT JOIN FETCH r.guests " +
                     "LEFT JOIN FETCH r.rooms rr " +
                     "LEFT JOIN FETCH rr.room " +
-                    "WHERE r.hotel = :hotel", Reservation.class)
+                    "WHERE r.hotel = :hotel " +
+                            "ORDER BY r.createdAt DESC", Reservation.class)
                     .setParameter("hotel", hotel)
                     .getResultList();
 
@@ -115,4 +116,37 @@ public class ReservationRepositoryImpl extends GenericRepositoryImpl<Reservation
             em.close();
         }
     }
+
+    @Override
+    public List<Client> findAllClientsByReservationId(Long reservationId) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            return em.createQuery("SELECT c FROM " +
+                    "Reservation r " +
+                    "JOIN r.guests c " +
+                    "WHERE r.id = :reservationId", Client.class
+            ).setParameter("reservationId", reservationId).getResultList();
+
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public Reservation findByIdWithClient(Long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("""
+            SELECT r FROM Reservation r
+            JOIN FETCH r.mainClient
+            WHERE r.id = :id
+        """, Reservation.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+        } finally {
+            em.close();
+        }
+    }
+
 }

@@ -8,7 +8,9 @@ import org.example.exceptions.EmailIsExistingException;
 import org.example.exceptions.PhoneNumberIsExistingException;
 import org.example.model.client.Client;
 import org.example.model.hotel.Hotel;
+import org.example.model.reservation.Reservation;
 import org.example.repository.client.ClientRepository;
+import org.example.repository.reservation.ReservationRepository;
 import org.example.session.Session;
 
 import java.time.LocalDateTime;
@@ -18,6 +20,7 @@ public class ClientService {
 
     private static final Logger log = LogManager.getLogger(ClientService.class);
     private ClientRepository clientRepository;
+
 
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
@@ -62,6 +65,7 @@ public class ClientService {
         log.info("Client " + request.getFirstName() + " " + request.getLastName() + " has been created");
         return client;
     }
+
 
 
 

@@ -4,6 +4,7 @@ C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\str
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\user\UserRepositoryImpl.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\CreateClientController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\RemoveReceptionistController.java
+C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\controller\ReservationDetailsController.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\amenity\AmenityRepository.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\hotel\HotelRepository.java
 C:\Users\Damian\IdeaProjects\OOP_Part2\HotelSystem\src\main\java\org\example\repository\hotel\HotelRepositoryImpl.java

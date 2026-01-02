@@ -40,7 +40,7 @@ public class Reservation {
     private User receptionist;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private ReservationStatus status;
 
     @Enumerated(EnumType.STRING)

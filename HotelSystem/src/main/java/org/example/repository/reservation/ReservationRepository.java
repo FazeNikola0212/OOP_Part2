@@ -14,4 +14,6 @@ public interface ReservationRepository extends CrudRepository<Reservation, Long>
     int expireNoShowReservations(LocalDateTime threshold);
     List<Reservation> findAllByHotel(Hotel hotel);
     List<Client> findClientsWithExpiredNoShows(LocalDateTime threshold);
+    List<Client> findAllClientsByReservationId(Long reservationId);
+    Reservation findByIdWithClient(Long reservationId);
 }
