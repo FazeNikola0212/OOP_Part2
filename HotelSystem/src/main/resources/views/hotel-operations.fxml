@@ -22,5 +22,6 @@
       <Button fx:id="listAmenitiesBtn" layoutX="883.0" layoutY="128.0" mnemonicParsing="false" onAction="#listAmenity" prefHeight="40.0" prefWidth="148.0" text="List Amenities" />
       <Button fx:id="createAmenityBtn" layoutX="883.0" layoutY="204.0" mnemonicParsing="false" onAction="#createAmenity" prefHeight="40.0" prefWidth="148.0" text="Create Amenity" />
       <Button fx:id="listReservationsBtn" layoutX="454.0" layoutY="204.0" mnemonicParsing="false" onAction="#listReservations" prefHeight="40.0" prefWidth="148.0" text="List Reservations" />
+      <Button fx:id="notificationBtn" layoutX="669.0" layoutY="204.0" mnemonicParsing="false" onAction="#listNotifications" prefHeight="40.0" prefWidth="148.0" text="Notifications" />
    </children>
 </AnchorPane>

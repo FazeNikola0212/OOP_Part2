@@ -35,6 +35,10 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
+    public List<User> getAllReceptionistsAndManagersByHotel(Hotel hotel) {
+        return userRepository.findAllReceptionistsAndManagersByHotel(hotel);
+    }
+
     public List<User> getAllNotAssignedManagers() {
         return userRepository.findAllNotAssignedManagers();
     }

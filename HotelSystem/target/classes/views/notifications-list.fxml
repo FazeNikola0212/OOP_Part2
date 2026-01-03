@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="org.example.controller.NotificationController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="562.0" layoutY="39.0" text="Notifications">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TableView fx:id="notificationTable" layoutX="215.0" layoutY="158.0" prefHeight="403.0" prefWidth="850.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="39.99998474121094" text="ID" />
+          <TableColumn fx:id="createdAtCol" prefWidth="120.0" text="Created At" />
+            <TableColumn fx:id="globalCol" prefWidth="80.00003051757812" text="Global" />
+            <TableColumn fx:id="messageCol" prefWidth="376.0" text="Message" />
+            <TableColumn fx:id="typeCol" prefWidth="113.60003662109375" text="Type" />
+            <TableColumn fx:id="readCol" prefWidth="116.0" text="Read" />
+        </columns>
+      </TableView>
+      <Button layoutX="137.0" layoutY="39.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="77.0" text="Back" AnchorPane.leftAnchor="100.0" />
+      <Button layoutX="351.0" layoutY="39.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="77.0" text="Back" AnchorPane.rightAnchor="100.0" />
+   </children>
+</AnchorPane>
