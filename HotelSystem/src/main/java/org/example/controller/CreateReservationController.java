@@ -24,6 +24,7 @@ import org.example.model.reservation.ReservationType;
 import org.example.model.room.Room;
 import org.example.service.amenity.AmenityService;
 import org.example.service.client.ClientService;
+import org.example.service.notification.NotificationService;
 import org.example.service.reservation.ReservationService;
 import org.example.service.room.RoomService;
 import org.example.session.SelectedHotelHolder;
@@ -39,6 +40,7 @@ public class CreateReservationController extends NavigationController {
     private final RoomService roomService = ServiceFactory.getRoomService();
     private final AmenityService amenityService = ServiceFactory.getAmenityService();
     private final ReservationService reservationService = ServiceFactory.getReservationService();
+    private final NotificationService notificationService = ServiceFactory.getNotificationService();
     private final Hotel currentHotel = SelectedHotelHolder.getHotel();
 
     @FXML private Label welcomeLabel;
@@ -283,6 +285,18 @@ public class CreateReservationController extends NavigationController {
         ReservationCreationDTO dto = new ReservationCreationDTO();
 
         List<Client> selectedClients = clientData.stream().filter(Client ::isSelected).toList();
+
+        notificationService.riskClientNotification(selectedClients);
+
+        for (int i = 0; i < selectedClients.size(); i++) {
+            Client client = selectedClients.get(i);
+
+            if (client.isRisk()) {
+                AlertMessage.showError("Risk Client", "There are clients with risk!");
+                break;
+            }
+        }
+
         dto.setSelectedClients(selectedClients);
         List<Room> selectedRooms = roomData.stream().filter(Room::isSelected).toList();
         dto.setSelectedRooms(selectedRooms);

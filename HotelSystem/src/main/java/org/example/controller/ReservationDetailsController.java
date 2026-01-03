@@ -24,6 +24,7 @@ import org.example.service.amenity.AmenityService;
 import org.example.service.reservation.ReservationService;
 import org.example.session.SelectedHotelHolder;
 import org.example.util.AlertMessage;
+import javafx.scene.control.Button;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -47,6 +48,7 @@ public class ReservationDetailsController extends NavigationController {
     @FXML private Label star4;
     @FXML private Label star5;
     private List<Label> stars;
+    @FXML private Button addAmenityBtn;
     
     @FXML private TableView<Amenity> amenityTable;
     @FXML private TableColumn<Amenity, String> amenityNameCol;
@@ -62,6 +64,11 @@ public class ReservationDetailsController extends NavigationController {
     }
 
     public void loadData() {
+        if (reservation.getReservationStatus().equals("Expired")) {
+            addAmenityBtn.setDisable(true);
+            amenityTable.setVisible(false);
+        }
+
         reservationNumber.setText(reservation.getReservationNumber());
         reservationNumber.setTextFill(Color.rgb(240, 97, 86));
         roomsNumber.setText(reservation.getRoomsNumber());
@@ -77,7 +84,7 @@ public class ReservationDetailsController extends NavigationController {
         amenitiesList.getItems().setAll(
                 reservationService.getAllAmenitiesNamesByReservationId(reservation.getId())
         );
-        totalPriceRes.setText(reservation.getTotalPrice().toString());
+        totalPriceRes.setText(reservation.getTotalPrice().toString() + "€");
         totalPriceRes.setTextFill(Color.rgb(240, 97, 86));
 
     }
@@ -86,7 +93,6 @@ public class ReservationDetailsController extends NavigationController {
     public void initialize() {
         stars = List.of(star1, star2, star3, star4, star5);
         stars.forEach(s -> s.setTextFill(Color.GOLD));
-
 
         amenityNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 

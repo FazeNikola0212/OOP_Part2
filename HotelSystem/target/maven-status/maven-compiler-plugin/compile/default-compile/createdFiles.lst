@@ -52,6 +52,7 @@ org\example\DTO\ReservationRowDTO.class
 org\example\service\amenity\AmenityService.class
 org\example\command\LogoutCommand.class
 org\example\controller\ReservationDetailsController.class
+org\example\service\notification\ExpiringReservationNotify.class
 org\example\controller\CreateHotelController.class
 org\example\DTO\EditAmenityDTO.class
 org\example\repository\reservation\ReservationAmenityRepository.class
@@ -90,6 +91,7 @@ org\example\exceptions\NotAccessibleToRemoveOwnerException.class
 org\example\controller\DashboardController.class
 org\example\exceptions\InvalidEmailException.class
 org\example\controller\NavigationController.class
+org\example\controller\NotificationController.class
 org\example\strategy\OwnerStrategy.class
 org\example\model\hotel\Hotel$HotelBuilder.class
 org\example\repository\client\ClientRepository.class
@@ -98,6 +100,7 @@ org\example\DTO\ReservationCreationDTO$ReservationCreationDTOBuilder.class
 org\example\factory\RepositoryFactory.class
 org\example\util\ApplicationBootstrap.class
 org\example\service\notification\NotificationService.class
+org\example\controller\NotificationController$1.class
 org\example\controller\CreateAmenityController.class
 org\example\controller\EditAmenityController.class
 org\example\service\user\UserService.class

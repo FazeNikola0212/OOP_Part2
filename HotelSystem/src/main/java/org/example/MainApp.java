@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.factory.ServiceFactory;
+import org.example.model.notification.Notification;
+import org.example.service.notification.NotificationService;
 import org.example.service.reservation.ReservationService;
 import org.example.util.ApplicationBootstrap;
 import org.example.util.SceneSwitcher;
@@ -21,9 +23,10 @@ public class MainApp extends Application {
     @Override
     public void init() throws Exception {
         ReservationService reservationService = ServiceFactory.getReservationService();
+        NotificationService notificationService = ServiceFactory.getNotificationService();
         bootstrap = new ApplicationBootstrap();
-        bootstrap.start(reservationService);
-        System.out.println("Successfully started bootstrap");
+        bootstrap.start(reservationService, notificationService);
+        logger.info("Successfully started bootstrap");
     }
 
     public void start(Stage primaryStage) throws Exception {

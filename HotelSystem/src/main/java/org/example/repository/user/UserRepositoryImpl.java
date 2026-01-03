@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.model.hotel.Hotel;
 import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.baserepository.GenericRepositoryImpl;
@@ -78,6 +79,20 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
                     .setParameter("role", Role.RECEPTIONIST)
                     .getResultList();
         } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<User> findAllReceptionistsAndManagersByHotel(Hotel hotel) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            return em.createQuery("SELECT u FROM User u WHERE u.assignedHotel = :hotel", User.class)
+                    .setParameter("hotel", hotel)
+                    .getResultList();
+        }
+        finally {
             em.close();
         }
     }

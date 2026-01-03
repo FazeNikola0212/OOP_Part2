@@ -11,4 +11,5 @@ import java.util.List;
 public interface ReservationRoomRepository extends CrudRepository<ReservationRoom,Long> {
     List<ReservationRoom> findOverlappingReservations(Room room, LocalDateTime startDate, LocalDateTime endDate);
     List<ReservationRoom> findRoomsByReservation(Reservation reservation);
+    List<ReservationRoom> findRoomsWhichEndsAfter1Day();
 }

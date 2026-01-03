@@ -1,6 +1,10 @@
 package org.example.service.reservation;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ReservationNoShownTerminateTask implements Runnable {
+    private static final Logger log = LogManager.getLogger(ReservationNoShownTerminateTask.class);
 
     private final ReservationService reservationService;
 
@@ -11,6 +15,6 @@ public class ReservationNoShownTerminateTask implements Runnable {
     @Override
     public void run() {
         reservationService.terminateNoShownReservation();
-        System.out.println("Successfully called service");
+        log.info("Update for no shown reservation has been executed");
     }
 }

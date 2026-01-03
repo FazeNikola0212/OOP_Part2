@@ -58,4 +58,26 @@ public class ReservationRoomRepositoryImpl extends GenericRepositoryImpl<Reserva
             em.close();
         }
     }
+
+    @Override
+    public List<ReservationRoom> findRoomsWhichEndsAfter1Day() {
+
+        EntityManager em = emf.createEntityManager();
+
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime tomorrow = now.plusDays(1);
+
+        try {
+            return em.createQuery("""
+                SELECT rr
+                FROM ReservationRoom rr
+                WHERE rr.endDate BETWEEN :now AND :tomorrow
+                """, ReservationRoom.class)
+                    .setParameter("now", now)
+                    .setParameter("tomorrow", tomorrow)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

@@ -72,6 +72,7 @@ public class VerifyReservationController extends NavigationController {
     }
 
     private void fillData() {
+
         reservationNumber.setText(dto.getReservationNumber());
         reservationType.setText(dto.getReservationType().toString());
         verifyBtn.setAlignment(Pos.CENTER);
