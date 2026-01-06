@@ -19,10 +19,6 @@ public class SceneSwitcher {
     private static final String GLOBAL_CSS = "/css/glassmorphism.css";
 
     public static void switchScene(Stage stage, String fxml) throws IOException {
-        if (stage.getScene() == null) {
-            history.push(stage.getScene().getRoot().getId());
-        }
-
         FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -34,10 +30,6 @@ public class SceneSwitcher {
     }
 
     public static FXMLLoader switchSceneWithLoader(Stage stage, String fxml) throws IOException {
-        if (stage.getScene() != null) {
-            history.push(stage.getScene().getRoot().getId());
-        }
-
         FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxml));
         Parent root = loader.load();
         Scene scene = new Scene(root);
