@@ -78,6 +78,7 @@ org\example\controller\CreateUserController.class
 org\example\model\reservation\Reservation.class
 org\example\repository\amenity\AmenityRepositoryImpl.class
 org\example\controller\CreateReservationController.class
+org\example\repository\init\Initializer.class
 org\example\DTO\CreateClientRequest$CreateClientRequestBuilder.class
 org\example\strategy\RoleStrategyFactory$1.class
 org\example\repository\user\UserRepository.class
