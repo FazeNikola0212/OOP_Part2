@@ -1,12 +1,14 @@
 package org.example;
 
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.factory.ServiceFactory;
-import org.example.model.notification.Notification;
+import org.example.repository.init.Initializer;
 import org.example.service.notification.NotificationService;
 import org.example.service.reservation.ReservationService;
 import org.example.util.ApplicationBootstrap;
@@ -22,6 +24,13 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
+        Initializer.initialize();
+        EntityManagerFactory emf =
+                Persistence.createEntityManagerFactory("myPU");
+        Initializer initializer = new Initializer(emf);
+        initializer.initAdminUser();
+
+
         ReservationService reservationService = ServiceFactory.getReservationService();
         NotificationService notificationService = ServiceFactory.getNotificationService();
         bootstrap = new ApplicationBootstrap();

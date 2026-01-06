@@ -69,7 +69,6 @@ public class HotelService {
         return hotel;
     }
 
-    @Transactional
     public void addReceptionist(Long hotelId, User receptionist) {
         validatingHotelReceptionist(hotelId, receptionist);
         receptionist.setActive(true);
@@ -78,7 +77,6 @@ public class HotelService {
         log.info("Successfully added receptionist with name: " + receptionist.getFullName());
     }
 
-    @Transactional
     public void removeReceptionist(Long hotelId, User receptionist) {
         validatingHotelReceptionist(hotelId, receptionist);
         receptionist.setActive(false);
@@ -87,7 +85,6 @@ public class HotelService {
         log.info("Successfully removed receptionist with name: " + receptionist.getFullName());
     }
 
-    @Transactional
     public void removeManager(Long hotelId, User manager) {
         Hotel hotel = hotelRepository.findById(hotelId);
         if (hotel == null) {
@@ -109,7 +106,6 @@ public class HotelService {
         SelectedHotelHolder.setHotel(hotel);
     }
 
-    @Transactional
     public void assignManager(Long hotelId, Long newManagerId) {
         Hotel hotel = hotelRepository.findById(hotelId);
         if (hotel == null) {

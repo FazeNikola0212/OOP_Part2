@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.DTO.RegisterUserRequest;
 import org.example.exceptions.*;
 import org.example.model.hotel.Hotel;
+import org.example.model.user.Role;
 import org.example.model.user.User;
 import org.example.repository.hotel.HotelRepository;
 import org.example.repository.user.UserRepository;
@@ -74,7 +75,6 @@ public class UserService {
         }
     }
 
-    @Transactional
     public User createUser(RegisterUserRequest request) {
 
         validation(request);
@@ -90,6 +90,11 @@ public class UserService {
                 .isActive(false)
                 .createdBy(Session.getSession().getLoggedUser())
                 .build();
+
+        if (request.getRole() == Role.OWNER) {
+            user.setActive(true);
+        }
+
         userRepository.save(user);
         log.info("USER " + user.getUsername() + " HAS BEEN CREATED BY " + Session.getSession().getLoggedUser());
 
