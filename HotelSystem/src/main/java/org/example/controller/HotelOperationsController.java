@@ -28,7 +28,8 @@ public class HotelOperationsController extends NavigationController implements R
     private Command listReceptionistsCommand;
     private Command createReservationCommand;
     private Command listReservationsCommand;
-    private Command notificationList;
+    private Command notificationListCommand;
+    private Command listRoomsCommand;
 
     @FXML private Button addReceptionistBtn;
 
@@ -63,7 +64,8 @@ public class HotelOperationsController extends NavigationController implements R
             listReceptionistsCommand = new SwitchSceneCommand(stage, "/views/receptionists-list.fxml");
             createReservationCommand = new SwitchSceneCommand(stage, "/views/creating-reservation.fxml");
             listReservationsCommand = new SwitchSceneCommand(stage, "/views/reservations-list.fxml");
-            notificationList = new SwitchSceneCommand(stage, "/views/notifications-list.fxml");
+            notificationListCommand = new SwitchSceneCommand(stage, "/views/notifications-list.fxml");
+            listRoomsCommand = new SwitchSceneCommand(stage, "/views/rooms-list.fxml");
 
         });
     }
@@ -74,8 +76,13 @@ public class HotelOperationsController extends NavigationController implements R
     }
 
     @FXML
+    private void listRooms() throws Exception {
+        listRoomsCommand.execute();
+    }
+
+    @FXML
     private void listNotifications() throws Exception {
-        notificationList.execute();
+        notificationListCommand.execute();
     }
 
     @FXML

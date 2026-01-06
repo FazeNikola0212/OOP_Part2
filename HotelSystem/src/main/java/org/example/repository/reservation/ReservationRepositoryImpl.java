@@ -8,8 +8,10 @@ import org.example.model.hotel.Hotel;
 import org.example.model.reservation.Reservation;
 import org.example.model.reservation.ReservationStatus;
 import org.example.model.reservation.TerminationType;
+import org.example.model.user.User;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -149,4 +151,54 @@ public class ReservationRepositoryImpl extends GenericRepositoryImpl<Reservation
         }
     }
 
+    @Override
+    public BigDecimal totalRevenueByReceptionist(User receptionist) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            return em.createQuery("SELECT COALESCE(SUM (r.totalPrice))" +
+                    " FROM Reservation r WHERE r.receptionist = :receptionist", BigDecimal.class)
+                    .setParameter("receptionist", receptionist)
+                    .getSingleResult();
+
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public Integer totalGuestAssignedByReceptionist(User receptionist) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            Long result =  em.createQuery("SELECT COUNT (g) " +
+                    "FROM Reservation r JOIN r.guests g " +
+                            "WHERE r.receptionist = :receptionist", Long.class)
+                    .setParameter("receptionist", receptionist)
+                    .getSingleResult();
+
+            return result.intValue();
+
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public Integer totalReservationsCountByReceptionist(User receptionist) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            Long result = em.createQuery("SELECT COUNT (r) " +
+                    "FROM Reservation r WHERE r.receptionist = :r", Long.class)
+                    .setParameter("r", receptionist)
+                    .getSingleResult();
+
+            return result.intValue();
+
+        } finally {
+            em.close();
+        }
+
+    }
 }

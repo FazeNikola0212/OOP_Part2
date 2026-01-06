@@ -14,7 +14,9 @@ import javafx.stage.Stage;
 import org.example.DTO.ReservationRowDTO;
 import org.example.factory.ServiceFactory;
 import org.example.model.reservation.ReservationStatus;
+import org.example.model.room.RoomStatus;
 import org.example.service.reservation.ReservationService;
+import org.example.service.room.RoomService;
 import org.example.session.SelectedHotelHolder;
 import org.example.util.SceneSwitcher;
 
@@ -27,6 +29,7 @@ import java.util.Locale;
 
 public class ReservationListController extends NavigationController {
     private final ReservationService reservationService = ServiceFactory.getReservationService();
+    private final RoomService roomService = ServiceFactory.getRoomService();
     private final DateTimeFormatter dateFormatter =
             DateTimeFormatter.ofPattern("dd-MMM-yyyy").withLocale(Locale.ENGLISH);
 

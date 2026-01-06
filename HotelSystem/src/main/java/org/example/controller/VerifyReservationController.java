@@ -18,7 +18,9 @@ import org.example.factory.ServiceFactory;
 import org.example.model.amenity.Amenity;
 import org.example.model.client.Client;
 import org.example.model.room.Room;
+import org.example.model.room.RoomStatus;
 import org.example.service.reservation.ReservationService;
+import org.example.service.room.RoomService;
 import org.example.session.Session;
 import org.example.util.AlertMessage;
 
@@ -32,6 +34,7 @@ import java.util.*;
 public class VerifyReservationController extends NavigationController {
     private ReservationCreationDTO dto;
     private final ReservationService reservationService = ServiceFactory.getReservationService();
+    private final RoomService roomService = ServiceFactory.getRoomService();
     private final Map<Room, LocalDateTime[]> roomDateMap = new HashMap<>();
     private final Map<Amenity, BigDecimal> amenityPrices = new HashMap<>();
     private final Map<Amenity, Integer> amenityQuantities = new HashMap<>();
@@ -196,6 +199,7 @@ public class VerifyReservationController extends NavigationController {
     @FXML private void verifyReservation() {
         PersistReservationDTO reservationDTO = getPersistReservationDTO();
         if (reservationDTO == null) return;
+
 
         reservationService.createReservation(reservationDTO);
         AlertMessage.showMessage("Reservation", "Reservation created successfully");

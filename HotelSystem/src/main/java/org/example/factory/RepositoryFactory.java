@@ -15,6 +15,7 @@ import org.example.repository.room.RoomRepository;
 import org.example.repository.room.RoomRepositoryImpl;
 import org.example.repository.user.UserRepository;
 import org.example.repository.user.UserRepositoryImpl;
+import org.example.service.user.ReceptionistService;
 
 public class RepositoryFactory {
     private static UserRepository userRepository;

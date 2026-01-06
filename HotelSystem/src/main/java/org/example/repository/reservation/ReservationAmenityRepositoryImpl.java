@@ -1,11 +1,13 @@
 package org.example.repository.reservation;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.model.reservation.ReservationAmenity;
+import org.example.model.user.User;
 import org.example.repository.baserepository.CrudRepository;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
@@ -37,4 +39,22 @@ public class ReservationAmenityRepositoryImpl extends GenericRepositoryImpl<Rese
         }
     }
 
+    @Override
+    public Integer findCountAmenitiesAssignedByReceptionist(User receptionist) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            Long result = em.createQuery("SELECT COUNT (ra)" +
+                    " FROM ReservationAmenity ra JOIN ra.reservation r " +
+                    "WHERE r.receptionist = :receptionist", Long.class)
+                    .setParameter("receptionist", receptionist)
+                    .getSingleResult();
+
+            return result.intValue();
+
+
+        } finally {
+            em.close();
+        }
+    }
 }

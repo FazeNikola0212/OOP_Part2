@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.unit.service;
 
 import org.example.DTO.CreateHotelRequest;
 import org.example.exceptions.ExistingHotelException;

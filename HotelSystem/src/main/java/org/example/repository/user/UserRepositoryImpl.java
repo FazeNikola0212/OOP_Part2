@@ -96,4 +96,17 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
             em.close();
         }
     }
+
+    @Override
+    public String findCreatorByUser(User user) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            return em.createQuery("SELECT u.createdBy FROM User u WHERE u = :user", User.class)
+                    .setParameter("user", user)
+                    .getSingleResult().getUsername();
+        } finally {
+            em.close();
+        }
+    }
 }

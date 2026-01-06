@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ReceptionistDetailsController">
+   <children>
+      <Label layoutX="487.0" layoutY="30.0" text="Receptionist Information" alignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="99.0" layoutY="30.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="73.0" text="Back" AnchorPane.leftAnchor="100.0" />
+      <Button layoutX="842.0" layoutY="30.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="73.0" text="Logout" AnchorPane.rightAnchor="100.0" />
+      <Label fx:id="receptionistName" alignment="CENTER" layoutX="565.0" layoutY="89.0" >
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="queryTable" layoutX="210.0" layoutY="153.0" prefHeight="414.0" prefWidth="860.0">
+        <columns>
+          <TableColumn fx:id="usernameCol" prefWidth="95.20001220703125" text="Username" />
+          <TableColumn fx:id="fullNameCol" prefWidth="85.60000610351562" text="Name" />
+            <TableColumn fx:id="amenitiesAssignedCol" prefWidth="102.4000244140625" text="Amenities Assigned" />
+            <TableColumn fx:id="createdByCol" prefWidth="90.39996337890625" text="Created By" />
+            <TableColumn fx:id="hotelNameCol" prefWidth="109.5999755859375" text="Hotel Name" />
+            <TableColumn fx:id="amountReservationsCol" prefWidth="112.0" text="Amount Res" />
+            <TableColumn fx:id="revenuePriceCol" prefWidth="120.7999267578125" text="Revenue Price" />
+            <TableColumn fx:id="numberAssignedCol" prefWidth="123.199951171875" text="Assigned Clients" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -13,4 +13,5 @@ public interface UserRepository extends CrudRepository<User,Long> {
     List<User> findAllReceptionistsAndManagersByHotel(Hotel hotel);
     List<User> findAllNotAssignedReceptionists();
     boolean isActive(User user);
+    String findCreatorByUser(User user);
 }

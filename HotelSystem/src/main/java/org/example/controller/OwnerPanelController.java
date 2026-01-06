@@ -38,7 +38,7 @@ public class OwnerPanelController extends NavigationController {
             managerOpsCommand = new SwitchSceneCommand(stage, "/views/manager-operations.fxml");
             listReservationsCommand = new SwitchSceneCommand(stage, "/views/reservations-list.fxml");
             showAmenitiesCommand = new SwitchSceneCommand(stage, "/views/amenities-list.fxml");
-            listRoomInfoCommand = new SwitchSceneCommand(stage, "/views/list-room-info.fxml");
+            listRoomInfoCommand = new SwitchSceneCommand(stage, "/views/rooms-list.fxml");
             createRoomCommand = new SwitchSceneCommand(stage, "/views/creating-room.fxml");
             createAmenityCommand = new SwitchSceneCommand(stage, "/views/creating-amenity.fxml");
             addReceptionistCommand = new SwitchSceneCommand(stage, "/views/add-receptionist.fxml");

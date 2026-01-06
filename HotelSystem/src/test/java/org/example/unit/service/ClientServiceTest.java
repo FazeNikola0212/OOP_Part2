@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.unit.service;
 
 import org.example.DTO.CreateClientRequest;
 import org.example.exceptions.EmailIsExistingException;
