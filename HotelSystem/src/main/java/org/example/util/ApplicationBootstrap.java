@@ -6,6 +6,7 @@ import org.example.service.notification.ExpiringReservationNotify;
 import org.example.service.notification.NotificationService;
 import org.example.service.reservation.ReservationService;
 import org.example.service.reservation.ReservationNoShownTerminateTask;
+import org.example.service.reservation.RoomsCheckoutTask;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -18,10 +19,12 @@ public class ApplicationBootstrap {
     public void start(ReservationService reservationService, NotificationService notificationService) {
         ReservationNoShownTerminateTask noShownReservationTask = new ReservationNoShownTerminateTask(reservationService);
         ExpiringReservationNotify expiringReservationTask = new ExpiringReservationNotify(notificationService);
+        RoomsCheckoutTask roomsCheckoutTask = new RoomsCheckoutTask(reservationService);
 
         Long initialDelay = calcDelayToMidnight();
 
         schedulerService.start(noShownReservationTask, 0, 2, TimeUnit.HOURS);
+        schedulerService.start(roomsCheckoutTask, 0, 20, TimeUnit.MINUTES);
         schedulerService.start(expiringReservationTask, initialDelay, TimeUnit.DAYS.toMillis(1), TimeUnit.MILLISECONDS);
     }
 

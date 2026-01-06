@@ -20,8 +20,11 @@ import org.example.DTO.ReservationRowDTO;
 import org.example.factory.ServiceFactory;
 import org.example.model.amenity.Amenity;
 import org.example.model.client.Client;
+import org.example.model.hotel.Hotel;
+import org.example.model.room.RoomStatus;
 import org.example.service.amenity.AmenityService;
 import org.example.service.reservation.ReservationService;
+import org.example.service.room.RoomService;
 import org.example.session.SelectedHotelHolder;
 import org.example.util.AlertMessage;
 import javafx.scene.control.Button;
@@ -34,7 +37,9 @@ import java.util.Map;
 public class ReservationDetailsController extends NavigationController {
     private final ReservationService  reservationService = ServiceFactory.getReservationService();
     private final AmenityService amenityService = ServiceFactory.getAmenityService();
+    private final RoomService roomService = ServiceFactory.getRoomService();
     private ReservationRowDTO reservation;
+    private final Hotel hotel = SelectedHotelHolder.getHotel();
 
     @FXML private Label reservationNumber;
     @FXML private Label roomsNumber;
@@ -49,6 +54,7 @@ public class ReservationDetailsController extends NavigationController {
     @FXML private Label star5;
     private List<Label> stars;
     @FXML private Button addAmenityBtn;
+    @FXML private Button occupyRoomBtn;
     
     @FXML private TableView<Amenity> amenityTable;
     @FXML private TableColumn<Amenity, String> amenityNameCol;
@@ -190,6 +196,16 @@ public class ReservationDetailsController extends NavigationController {
 
         AlertMessage.showMessage("Rating Success", "Successfully rated Client");
         disableStars();
+    }
+
+    @FXML
+    private void occupyRoom() {
+        String roomNumber = reservation.getRoomsNumber();
+        String[] roomNumberSplit = roomNumber.split(", ");
+
+        for (int i = 0; i < roomNumberSplit.length; i++) {
+            roomService.updateRoomStatus(roomNumberSplit[i], RoomStatus.OCCUPIED, hotel);
+        }
     }
 
     @FXML

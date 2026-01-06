@@ -14,6 +14,6 @@ public interface RoomRepository extends CrudRepository<Room, Long> {
     List<Room> findAvailableRooms(LocalDateTime start, LocalDateTime end);
     List<Room> findAllRoomsByHotel(Hotel hotel);
     List<RoomDetailsDTO> findAllRoomsDetailsByHotel(Hotel hotel);
-    void updateRoomStatus(String roomNumber, RoomStatus roomStatus);
+    void updateRoomStatus(String roomNumber, RoomStatus roomStatus, Hotel hotel);
     void updateRoomStatusMoreThan1Room(List<String> roomNumber, RoomStatus roomStatus);
 }

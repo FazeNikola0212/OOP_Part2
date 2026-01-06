@@ -13,15 +13,19 @@ import org.example.model.client.Client;
 import org.example.model.hotel.Hotel;
 import org.example.model.reservation.*;
 import org.example.model.room.Room;
+import org.example.model.room.RoomStatus;
 import org.example.repository.amenity.AmenityRepository;
 import org.example.repository.client.ClientRepository;
 import org.example.repository.reservation.ReservationAmenityRepository;
 import org.example.repository.reservation.ReservationRepository;
 import org.example.repository.reservation.ReservationRoomRepository;
+import org.example.repository.room.RoomRepository;
+import org.example.service.client.ClientService;
 import org.example.session.SelectedHotelHolder;
 import org.example.session.Session;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -34,17 +38,19 @@ public class ReservationService {
     private final ReservationRoomRepository reservationRoomRepository;
     private final AmenityRepository amenityRepository;
     private final ClientRepository clientRepository;
+    private final RoomRepository roomRepository;
 
     public ReservationService(ReservationRepository reservationRepository,
                               ReservationAmenityRepository reservationAmenityRepository,
                               ReservationRoomRepository reservationRoomRepository,
                               AmenityRepository amenityRepository,
-                              ClientRepository clientRepository) {
+                              ClientRepository clientRepository, RoomRepository roomRepository) {
         this.reservationRepository = reservationRepository;
         this.reservationAmenityRepository = reservationAmenityRepository;
         this.reservationRoomRepository = reservationRoomRepository;
         this.amenityRepository = amenityRepository;
         this.clientRepository = clientRepository;
+        this.roomRepository = roomRepository;
     }
 
     public List<ReservationRowDTO> getReservationRows(Hotel hotel) {
@@ -314,6 +320,42 @@ public class ReservationService {
             clientRepository.update(client);
             log.info("Successfully terminated reservation");
         }
+    }
+
+    public void releaseRoomsAfterCheckout() {
+        List<ReservationRoom> reservations = reservationRoomRepository.findRoomsWhichEndsToday();
+        log.info("Number reservations" + reservations.size());
+        LocalDateTime now = LocalDateTime.now();
+
+        for (ReservationRoom rr : reservations) {
+            LocalDateTime checkoutDate =
+                    rr.getEndDate()
+                            .withHour(14)
+                            .withMinute(0)
+                            .withSecond(0)
+                            .withNano(0);
+
+            if (now.isAfter(checkoutDate)) {
+                Room room = rr.getRoom();
+                Reservation reservation = rr.getReservation();
+
+                room.setRoomStatus(RoomStatus.AVAILABLE);
+                reservation.setStatus(ReservationStatus.EXPIRED);
+                reservation.setTerminationType(TerminationType.NORMAL);
+                reservation.setCheckedIn(false);
+                rateRoom(room);
+                reservationRoomRepository.update(rr);
+                reservationRepository.update(reservation);
+                roomRepository.update(room);
+            }
+        }
+    }
+
+    private void rateRoom(Room room) {
+        Random random = new Random();
+        double randomNumber = 1.0 + random.nextDouble() * 4.0;
+
+        room.setRating(Math.round(randomNumber * 2) / 2.0);
     }
 
     private void validate(PersistReservationDTO dto) {

@@ -83,7 +83,7 @@ public class RoomRepositoryH2 implements RoomRepository {
     }
 
     @Override
-    public void updateRoomStatus(String roomNumber, RoomStatus roomStatus) {
+    public void updateRoomStatus(String roomNumber, RoomStatus roomStatus, Hotel hotel) {
 
     }
 
