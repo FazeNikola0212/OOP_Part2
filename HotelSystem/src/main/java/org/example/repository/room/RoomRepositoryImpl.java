@@ -5,8 +5,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.DTO.RoomDetailsDTO;
 import org.example.model.hotel.Hotel;
 import org.example.model.room.Room;
+import org.example.model.room.RoomStatus;
 import org.example.repository.baserepository.GenericRepositoryImpl;
 
 import java.time.LocalDateTime;
@@ -71,4 +73,70 @@ public class RoomRepositoryImpl extends GenericRepositoryImpl<Room, Long> implem
             em.close();
         }
     }
+
+    @Override
+    public List<RoomDetailsDTO> findAllRoomsDetailsByHotel(Hotel hotel) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            return em.createQuery("SELECT new org.example.DTO.RoomDetailsDTO(" +
+                            "r.number, r.roomCategory, r.pricePerNight, r.roomStatus, r.rating, " +
+                            "CASE WHEN CURRENT_TIMESTAMP BETWEEN rr.startDate AND rr.endDate " +
+                            "     THEN rr.startDate ELSE NULL END, " +
+                            "CASE WHEN CURRENT_TIMESTAMP BETWEEN rr.startDate AND rr.endDate " +
+                            "     THEN rr.endDate ELSE NULL END" +
+                            ") " +
+                            "FROM Room r " +
+                            "LEFT JOIN ReservationRoom rr ON rr.room = r " +
+                            "WHERE r.hotel = :hotel " +
+                            "ORDER BY r.number ASC", RoomDetailsDTO.class)
+                    .setParameter("hotel", hotel)
+            .getResultList();
+
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public void updateRoomStatus(String roomNumber, RoomStatus status) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+
+            em.createQuery(
+                            "UPDATE Room r SET r.roomStatus = :status WHERE r.number = :number"
+                    )
+                    .setParameter("status", status)
+                    .setParameter("number", roomNumber)
+                    .executeUpdate();
+
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public void updateRoomStatusMoreThan1Room(List<String> roomNumbers, RoomStatus status) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+
+            em.createQuery(
+                            "UPDATE Room r SET r.roomStatus = :status WHERE r.number IN :number"
+                    )
+                    .setParameter("status", status)
+                    .setParameter("number", roomNumbers)
+                    .executeUpdate();
+
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+
 }

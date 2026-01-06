@@ -98,6 +98,8 @@ public class UserService {
 
 
 
+
+
     private void validation(RegisterUserRequest request) {
         if (userRepository.findByUsername(request.getUsername()) != null) {
             log.error("Username already exists");

@@ -6,6 +6,7 @@ import org.example.service.room.RoomService;
 import org.example.service.amenity.AmenityService;
 import org.example.service.client.ClientService;
 import org.example.service.hotel.HotelService;
+import org.example.service.user.ReceptionistService;
 import org.example.service.user.UserService;
 
 public class ServiceFactory {
@@ -16,6 +17,7 @@ public class ServiceFactory {
     private static RoomService roomService;
     private static ReservationService reservationService;
     private static NotificationService notificationService;
+    private static ReceptionistService receptionistService;
 
     public static UserService getUserService() {
         if (userService == null) {
@@ -86,5 +88,16 @@ public class ServiceFactory {
             );
         }
         return notificationService;
+    }
+
+    public static ReceptionistService getReceptionistService() {
+        if (receptionistService == null) {
+            receptionistService = new ReceptionistService(
+                    RepositoryFactory.getUserRepository(),
+                    RepositoryFactory.getReservationRepository(),
+                    RepositoryFactory.getReservationAmenityRepository()
+            );
+        }
+        return receptionistService;
     }
 }

@@ -1,5 +1,6 @@
 package org.example.strategy;
 
+import javafx.scene.control.TableView;
 import org.example.controller.*;
 import org.example.model.user.Role;
 import org.example.session.SelectedHotelHolder;
@@ -25,6 +26,7 @@ public class ManagerStrategy implements RoleStrategy {
 
         if (controller instanceof ReceptionistListController re) {
             re.getWelcomeLabel().setText("Current hotel: " + SelectedHotelHolder.getHotel().getName());
+            re.getReceptionistTable().setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         }
 
     }

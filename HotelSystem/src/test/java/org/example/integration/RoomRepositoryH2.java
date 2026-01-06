@@ -1,7 +1,9 @@
 package org.example.integration;
 
+import org.example.DTO.RoomDetailsDTO;
 import org.example.model.hotel.Hotel;
 import org.example.model.room.Room;
+import org.example.model.room.RoomStatus;
 import org.example.repository.room.RoomRepository;
 
 import java.sql.Connection;
@@ -78,5 +80,20 @@ public class RoomRepositoryH2 implements RoomRepository {
     @Override
     public List<Room> findAllRoomsByHotel(Hotel hotel) {
         return List.of();
+    }
+
+    @Override
+    public void updateRoomStatus(String roomNumber, RoomStatus roomStatus) {
+
+    }
+
+    @Override
+    public List<RoomDetailsDTO> findAllRoomsDetailsByHotel(Hotel hotel) {
+        return List.of();
+    }
+
+    @Override
+    public void updateRoomStatusMoreThan1Room(List<String> roomNumber, RoomStatus roomStatus) {
+
     }
 }

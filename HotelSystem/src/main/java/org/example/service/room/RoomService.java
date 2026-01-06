@@ -4,9 +4,11 @@ import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.DTO.CreateRoomDTO;
+import org.example.DTO.RoomDetailsDTO;
 import org.example.exceptions.ExistingRoomException;
 import org.example.model.hotel.Hotel;
 import org.example.model.room.Room;
+import org.example.model.room.RoomStatus;
 import org.example.repository.room.RoomRepository;
 
 import java.time.LocalDateTime;
@@ -50,5 +52,16 @@ public class RoomService {
         log.info("Successfully created room with number: " + room.getNumber());
         return room;
     }
+
+    public void updateRoomStatus(String roomNumber, RoomStatus roomStatus) {
+        roomRepository.updateRoomStatus(roomNumber, roomStatus);
+    }
+
+
+    public List<RoomDetailsDTO> getRoomsDetails(Hotel hotel) {
+        return roomRepository.findAllRoomsDetailsByHotel(hotel);
+    }
+
+
 
 }

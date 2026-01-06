@@ -31,6 +31,7 @@ public class OwnerStrategy implements RoleStrategy {
 
         if (controller instanceof ReceptionistListController re) {
             re.getWelcomeLabel().setText("Current hotel: " + SelectedHotelHolder.getHotel().getName());
+            re.getReceptionistTable().setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         }
     }
 }

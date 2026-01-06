@@ -2,6 +2,7 @@ package org.example.controller;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lombok.Getter;
@@ -18,7 +19,9 @@ import org.example.strategy.RoleConfigurable;
 import org.example.strategy.RoleStrategy;
 import org.example.strategy.RoleStrategyFactory;
 import org.example.util.AlertMessage;
+import org.example.util.SceneSwitcher;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -66,7 +69,7 @@ public class ReceptionistListController extends NavigationController implements 
                 queriesBtn.setOnAction(event -> {
                     try {
                         User receptionist = getTableView().getItems().get(getIndex());
-
+                        openReceptionistDetails(receptionist);
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -127,6 +130,14 @@ public class ReceptionistListController extends NavigationController implements 
     private void loadReceptionist() {
         List<User> allReceptionists = userService.getReceptionistsByHotelId(SelectedHotelHolder.getHotel().getId());
         receptionistTable.setItems(FXCollections.observableList(allReceptionists));
+    }
+
+    private void openReceptionistDetails(User receptionist) throws IOException {
+        FXMLLoader loader =
+                SceneSwitcher.switchSceneWithLoader((Stage) welcomeLabel.getScene().getWindow(), "/views/receptionist-details.fxml");
+        ReceptionistDetailsController controller = loader.getController();
+        controller.setReceptionist(receptionist);
+
     }
 
     @Override

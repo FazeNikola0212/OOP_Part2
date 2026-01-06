@@ -4,8 +4,10 @@ import org.example.model.client.Client;
 import org.example.model.hotel.Hotel;
 import org.example.model.reservation.Reservation;
 import org.example.model.reservation.ReservationStatus;
+import org.example.model.user.User;
 import org.example.repository.baserepository.CrudRepository;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,4 +18,7 @@ public interface ReservationRepository extends CrudRepository<Reservation, Long>
     List<Client> findClientsWithExpiredNoShows(LocalDateTime threshold);
     List<Client> findAllClientsByReservationId(Long reservationId);
     Reservation findByIdWithClient(Long reservationId);
+    BigDecimal totalRevenueByReceptionist(User receptionist);
+    Integer totalGuestAssignedByReceptionist(User receptionist);
+    Integer totalReservationsCountByReceptionist(User receptionist);
 }
