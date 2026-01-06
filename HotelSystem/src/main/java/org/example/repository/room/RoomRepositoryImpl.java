@@ -81,13 +81,12 @@ public class RoomRepositoryImpl extends GenericRepositoryImpl<Room, Long> implem
         try {
             return em.createQuery("SELECT new org.example.DTO.RoomDetailsDTO(" +
                             "r.number, r.roomCategory, r.pricePerNight, r.roomStatus, r.rating, " +
-                            "CASE WHEN CURRENT_TIMESTAMP BETWEEN rr.startDate AND rr.endDate " +
-                            "     THEN rr.startDate ELSE NULL END, " +
-                            "CASE WHEN CURRENT_TIMESTAMP BETWEEN rr.startDate AND rr.endDate " +
-                            "     THEN rr.endDate ELSE NULL END" +
+                            "rr.startDate, rr.endDate" +
                             ") " +
                             "FROM Room r " +
-                            "LEFT JOIN ReservationRoom rr ON rr.room = r " +
+                            "LEFT JOIN ReservationRoom rr " +
+                            "  ON rr.room = r " +
+                            " AND CURRENT_TIMESTAMP BETWEEN rr.startDate AND rr.endDate " +
                             "WHERE r.hotel = :hotel " +
                             "ORDER BY r.number ASC", RoomDetailsDTO.class)
                     .setParameter("hotel", hotel)
@@ -99,16 +98,17 @@ public class RoomRepositoryImpl extends GenericRepositoryImpl<Room, Long> implem
     }
 
     @Override
-    public void updateRoomStatus(String roomNumber, RoomStatus status) {
+    public void updateRoomStatus(String roomNumber, RoomStatus status, Hotel hotel) {
         EntityManager em = emf.createEntityManager();
 
         try {
             em.getTransaction().begin();
 
             em.createQuery(
-                            "UPDATE Room r SET r.roomStatus = :status WHERE r.number = :number"
+                            "UPDATE Room r SET r.roomStatus = :status WHERE r.number = :number AND r.hotel = :hotel"
                     )
                     .setParameter("status", status)
+                    .setParameter("hotel", hotel)
                     .setParameter("number", roomNumber)
                     .executeUpdate();
 

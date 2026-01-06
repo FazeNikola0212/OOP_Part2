@@ -34,7 +34,6 @@ import java.util.*;
 public class VerifyReservationController extends NavigationController {
     private ReservationCreationDTO dto;
     private final ReservationService reservationService = ServiceFactory.getReservationService();
-    private final RoomService roomService = ServiceFactory.getRoomService();
     private final Map<Room, LocalDateTime[]> roomDateMap = new HashMap<>();
     private final Map<Amenity, BigDecimal> amenityPrices = new HashMap<>();
     private final Map<Amenity, Integer> amenityQuantities = new HashMap<>();

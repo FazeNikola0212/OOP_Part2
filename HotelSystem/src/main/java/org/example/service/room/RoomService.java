@@ -53,14 +53,14 @@ public class RoomService {
         return room;
     }
 
-    public void updateRoomStatus(String roomNumber, RoomStatus roomStatus) {
-        roomRepository.updateRoomStatus(roomNumber, roomStatus);
+    public void updateRoomStatus(String roomNumber, RoomStatus roomStatus, Hotel hotel) {
+        roomRepository.updateRoomStatus(roomNumber, roomStatus, hotel);
     }
-
 
     public List<RoomDetailsDTO> getRoomsDetails(Hotel hotel) {
         return roomRepository.findAllRoomsDetailsByHotel(hotel);
     }
+
 
 
 

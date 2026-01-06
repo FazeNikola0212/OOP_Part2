@@ -84,7 +84,7 @@ public class RoomListController extends NavigationController {
             return;
         }
 
-        roomService.updateRoomStatus(room.getNumber(), newStatus);
+        roomService.updateRoomStatus(room.getNumber(), newStatus, SelectedHotelHolder.getHotel());
 
         room.setStatus(newStatus);
 

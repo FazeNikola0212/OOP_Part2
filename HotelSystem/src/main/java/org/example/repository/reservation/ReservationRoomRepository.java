@@ -12,4 +12,5 @@ public interface ReservationRoomRepository extends CrudRepository<ReservationRoo
     List<ReservationRoom> findOverlappingReservations(Room room, LocalDateTime startDate, LocalDateTime endDate);
     List<ReservationRoom> findRoomsByReservation(Reservation reservation);
     List<ReservationRoom> findRoomsWhichEndsAfter1Day();
+    List<ReservationRoom> findRoomsWhichEndsToday();
 }

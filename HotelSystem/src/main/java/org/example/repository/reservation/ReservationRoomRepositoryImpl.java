@@ -13,7 +13,9 @@ import org.example.repository.baserepository.GenericRepositoryImpl;
 import org.example.repository.room.RoomRepositoryImpl;
 
 import java.nio.channels.SelectableChannel;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class ReservationRoomRepositoryImpl extends GenericRepositoryImpl<ReservationRoom, Long> implements ReservationRoomRepository {
@@ -80,4 +82,26 @@ public class ReservationRoomRepositoryImpl extends GenericRepositoryImpl<Reserva
             em.close();
         }
     }
+
+    @Override
+    public List<ReservationRoom> findRoomsWhichEndsToday() {
+        EntityManager em = emf.createEntityManager();
+
+        LocalDateTime today = LocalDateTime.now();
+
+        try {
+            return em.createQuery("""
+            SELECT rr
+            FROM ReservationRoom rr
+            JOIN rr.reservation r 
+            WHERE rr.endDate < :now
+              AND r.isCheckedIn = true
+        """, ReservationRoom.class)
+                    .setParameter("now", today)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 }

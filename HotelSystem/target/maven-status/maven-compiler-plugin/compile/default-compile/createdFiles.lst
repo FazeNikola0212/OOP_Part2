@@ -112,6 +112,7 @@ org\example\controller\ReceptionistListController$3.class
 org\example\controller\OwnerPanelController.class
 org\example\repository\reservation\ReservationRepository.class
 org\example\model\hotel\Hotel.class
+org\example\service\reservation\RoomsCheckoutTask.class
 org\example\repository\user\UserRepositoryImpl.class
 org\example\DTO\CreateRoomDTO.class
 org\example\exceptions\InactiveProfileException.class
